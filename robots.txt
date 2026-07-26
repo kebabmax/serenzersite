@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /old/
+Disallow: /scraps/
+Disallow: /v2/
+Disallow: /uploads/
+Disallow: /img/
+
+Sitemap: https://serenzer.com/sitemap.xml

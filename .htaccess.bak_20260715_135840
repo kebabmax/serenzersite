@@ -1,0 +1,41 @@
+# === Serenzer landing — Apache config ===
+
+# Default index
+DirectoryIndex index.html
+
+# Force HTTPS (in case of HTTP access)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect old orphan pages -> root (was on /fr but root = FR x-default)
+RewriteRule ^Mentions_legales\.html$ https://apps.serenzer.com/legal [R=301,L]
+RewriteRule ^Politique_de_confidentialite\.html$ https://apps.serenzer.com/privacy-policy [R=301,L]
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Cache static assets aggressively
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript text/xml application/xml image/svg+xml
+</IfModule>
+
+# Custom 404
+ErrorDocument 404 /index.html

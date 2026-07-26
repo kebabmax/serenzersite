@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Consent Mode v2 — DOIT preceder GTM -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+try {
+  if (localStorage.getItem('serenzer_consent') === 'granted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+} catch(e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MK96QMHK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="contact_meta_title">تواصل — Serenzer</title>
+<meta name="description" data-i18n-attr="content" data-i18n="contact_meta_description" content="تواصل مع Serenzer. هل لديك سؤال أو اقتراح أو طلب؟ راسلنا وسنردّ عليك في أقرب وقت.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lin-calme: #F8F6F2;
+  --encre-douce: #2F3A3F;
+  --argile-clair: #EFE9DF;
+  --pierre-pale: #D9D4CC;
+  --cendre-tiede: #4E4A46;
+  --sauge-douce: #8FA89B;
+  --sauge-deep: #7A9587;
+  --sauge-light: rgba(143, 168, 155, 0.15);
+  --text-muted: #9A958F;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --max-width: 800px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--encre-douce);
+  background-color: var(--lin-calme);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--sauge-douce); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--sauge-deep); }
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: var(--space-sm) 0;
+  background: rgba(248, 246, 242, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--pierre-pale);
+}
+
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav__brand {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 500;
+  color: var(--encre-douce);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.nav__logo { height: 36px; width: auto; }
+
+.nav__back {
+  font-size: 0.9rem; font-weight: 500;
+  color: var(--cendre-tiede);
+  display: flex; align-items: center; gap: 0.4rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav__back:hover { color: var(--sauge-douce); }
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px var(--space-md) var(--space-xl);
+}
+
+.page__intro { text-align: center; margin-bottom: var(--space-lg); }
+
+.page__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 500;
+  color: var(--encre-douce);
+  margin-bottom: var(--space-sm);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.page__subtitle {
+  font-size: 1.05rem;
+  color: var(--cendre-tiede);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contact-card {
+  background: white;
+  border: 1px solid var(--argile-clair);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 1px 3px rgba(47, 58, 63, 0.04);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.form__field { display: flex; flex-direction: column; }
+
+.form__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cendre-tiede);
+  margin-bottom: 0.4rem;
+}
+
+.form__label .req {
+  color: var(--sauge-douce);
+  margin-left: 2px;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--lin-calme);
+  border: 1px solid var(--argile-clair);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--encre-douce);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form__input:hover,
+.form__textarea:hover {
+  border-color: var(--pierre-pale);
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: none;
+  border-color: var(--sauge-douce);
+  background: white;
+  box-shadow: 0 0 0 3px var(--sauge-light);
+}
+
+.form__textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.form__actions {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--sauge-douce);
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover { background: var(--sauge-deep); }
+.btn:active { transform: scale(0.98); }
+.btn svg { width: 16px; height: 16px; }
+
+.form__legal {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.contact-aside {
+  margin-top: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.aside-card {
+  background: white;
+  border: 1px solid var(--argile-clair);
+  border-radius: 16px;
+  padding: var(--space-md);
+  display: flex; align-items: flex-start; gap: 0.85rem;
+}
+
+.aside-card__icon {
+  width: 40px; height: 40px;
+  flex: none;
+  border-radius: 12px;
+  background: var(--sauge-light);
+  color: var(--sauge-douce);
+  display: grid; place-items: center;
+}
+
+.aside-card__icon svg { width: 18px; height: 18px; }
+
+.aside-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem; font-weight: 500;
+  margin-bottom: 0.2rem;
+  color: var(--encre-douce);
+}
+
+.aside-card__desc {
+  font-size: 0.85rem;
+  color: var(--cendre-tiede);
+  line-height: 1.55;
+}
+
+.aside-card__desc a { font-weight: 500; }
+
+.footer {
+  padding: var(--space-lg) 0 var(--space-md);
+  border-top: 1px solid var(--argile-clair);
+  margin-top: var(--space-xl);
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-sm);
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--encre-douce);
+  display: flex; align-items: center; gap: 0.4rem;
+}
+
+.footer__brand img { height: 28px; width: auto; }
+
+.footer__tagline {
+  font-size: 0.8rem;
+  color: var(--pierre-pale);
+  margin-top: 0.25rem;
+}
+
+.footer__links { display: flex; gap: var(--space-md); }
+
+.footer__link { font-size: 0.85rem; color: var(--cendre-tiede); }
+.footer__link:hover { color: var(--sauge-douce); }
+
+.footer__bottom {
+  max-width: var(--max-width);
+  margin: var(--space-md) auto 0;
+  padding: var(--space-sm) var(--space-md) 0;
+  border-top: 1px solid var(--argile-clair);
+  text-align: center;
+}
+
+.footer__copy { font-size: 0.8rem; color: var(--pierre-pale); }
+
+@media (min-width: 640px) {
+  .form__row--two { grid-template-columns: 1fr 1fr; }
+  .contact-aside { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 100px var(--space-sm) var(--space-lg); }
+  .footer__inner { flex-direction: column; text-align: center; }
+}
+
+/* ===== RTL (ar, he) ===== */
+[dir="rtl"] .form__label .req{margin-left:0;margin-right:2px}
+[dir="rtl"] .nav__back svg{transform:scaleX(-1)}
+  .form__status{
+    padding:12px 16px;border-radius:var(--radius-md);
+    margin-bottom:var(--space-lg);font-size:var(--text-sm);font-weight:500;
+  }
+  .form__status--ok{background:#E8F1EC;color:#2F5442;border:1px solid #A6C3B3}
+  .form__status--ko{background:#FBECEC;color:#7A2E2E;border:1px solid #E0B4B4}
+</style>
+<!-- JSON-LD: ContactPage -->
+
+
+
+
+
+
+
+
+
+
+<!-- SEO / Meta -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://serenzer.com/ar/Contact.html">
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/Contact.html">
+<link rel="alternate" hreflang="en" href="https://serenzer.com/en/Contact.html">
+<link rel="alternate" hreflang="de" href="https://serenzer.com/de/Contact.html">
+<link rel="alternate" hreflang="it" href="https://serenzer.com/it/Contact.html">
+<link rel="alternate" hreflang="es" href="https://serenzer.com/es/Contact.html">
+<link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/Contact.html">
+<link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/Contact.html">
+<link rel="alternate" hreflang="da" href="https://serenzer.com/da/Contact.html">
+<link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/Contact.html">
+<link rel="alternate" hreflang="no" href="https://serenzer.com/no/Contact.html">
+<link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/Contact.html">
+<link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/Contact.html">
+<link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/Contact.html">
+<link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/Contact.html">
+<link rel="alternate" hreflang="he" href="https://serenzer.com/he/Contact.html">
+<link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/Contact.html">
+<link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/Contact.html">
+<link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/Contact.html">
+<link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/Contact.html">
+<link rel="alternate" hreflang="x-default" href="https://serenzer.com/Contact.html">
+
+<!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:title" content="تواصل — Serenzer">
+<meta property="og:description" content="تواصل مع Serenzer. هل لديك سؤال أو اقتراح أو طلب؟ راسلنا وسنردّ عليك في أقرب وقت.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://serenzer.com/ar/Contact.html">
+<meta property="og:site_name" content="Serenzer">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="473">
+<meta property="og:image:alt" content="Serenzer">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="pt_PT">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تواصل — Serenzer">
+<meta name="twitter:description" content="تواصل مع Serenzer. هل لديك سؤال أو اقتراح أو طلب؟ راسلنا وسنردّ عليك في أقرب وقت.">
+<meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Serenzer",
+  "description": "تواصل مع Serenzer. هل لديك سؤال أو اقتراح أو طلب؟ راسلنا وسنردّ عليك في أقرب وقت.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "inLanguage": "ar",
+  "url": "https://serenzer.com/ar/Contact.html",
+  "publisher": { "@type": "Organization", "name": "Serenzer Ltd" }
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="/assets/serenzer_wave.png" alt="Serenzer" class="nav__logo"> Serenzer
+    </a>
+    <a href="index.html" class="nav__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span data-i18n="contact_back">العودة إلى الموقع</span>
+    </a>
+  </div>
+</nav>
+
+<main class="page">
+
+  <div class="page__intro">
+    <h1 class="page__title" data-i18n="contact_title">تواصل</h1>
+    <p class="page__subtitle" data-i18n-html="contact_subtitle">هل لديك سؤال أو اقتراح أو طلب خاص&nbsp;؟ راسلنا وسنردّ عليك في أقرب وقت.</p>
+  </div>
+
+  <div class="contact-card">
+    <form action="/send.php" method="POST" novalidate>
+      <input type="hidden" name="lang" id="formLang" value="fr">
+      <div id="formStatus" class="form__status" hidden></div>
+      <div class="form__row form__row--two">
+        <div class="form__field">
+          <label class="form__label" for="prenom"><span data-i18n="contact_label_firstname">الاسم الأول</span> <span class="req">*</span></label>
+          <input class="form__input" type="text" id="prenom" name="prenom" placeholder="اسمك الأول" data-i18n-attr="placeholder" data-i18n="contact_ph_firstname" required autocomplete="given-name">
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="email"><span data-i18n="contact_label_email">البريد الإلكتروني</span> <span class="req">*</span></label>
+          <input class="form__input" type="email" id="email" name="email" placeholder="you@example.com" data-i18n-attr="placeholder" data-i18n="contact_ph_email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form__row">
+        <div class="form__field">
+          <label class="form__label" for="sujet"><span data-i18n="contact_label_subject">الموضوع</span> <span class="req">*</span></label>
+          <input class="form__input" type="text" id="sujet" name="sujet" placeholder="موضوع رسالتك" data-i18n-attr="placeholder" data-i18n="contact_ph_subject" required>
+        </div>
+      </div>
+
+      <div class="form__row">
+        <div class="form__field">
+          <label class="form__label" for="message"><span data-i18n="contact_label_message">الرسالة</span> <span class="req">*</span></label>
+          <textarea class="form__textarea" id="message" name="message" placeholder="صِف طلبك في بضعة أسطر…" data-i18n-attr="placeholder" data-i18n="contact_ph_message" required></textarea>
+          <p class="form__hint" data-i18n="contact_hint">يُرجى عدم تضمين أي معلومات حساسة في رسالتك.</p>
+        </div>
+      </div>
+
+      <div class="form__actions">
+        <p class="form__legal" data-i18n-html="contact_legal">بإرسال هذا النموذج، فإنك توافق على معالجة بياناتك للردّ على طلبك، وفقاً لـ<a href="https://apps.serenzer.com/privacy-policy?lang=ar">سياسة الخصوصية</a> الخاصة بنا.</p>
+        <button class="btn" type="submit">
+          <span data-i18n="contact_submit">إرسال</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="contact-aside">
+    <div class="aside-card">
+      <div class="aside-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <div class="aside-card__title" data-i18n="contact_aside_title">بيانات محمية</div>
+        <p class="aside-card__desc" data-i18n="contact_aside_desc">تُعالَج بياناتك وفقاً للـ GDPR ولا تُباع أبداً لأطراف ثالثة.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">
+        <img src="/assets/serenzer_wave.png" alt="Serenzer">
+        Serenzer
+      </div>
+      <div class="footer__tagline" data-i18n="contact_footer_tagline">أفكار، مشاريع، تقويم، متابعة</div>
+    </div>
+    <div class="footer__links">
+      <a href="https://apps.serenzer.com/legal" class="footer__link" data-i18n="contact_footer_legal">الإشعار القانوني</a>
+      <a href="team.html" class="footer__link" data-i18n="nav_team">الفريق</a>
+      <a href="index.html" class="footer__link" data-i18n="contact_footer_home">الرئيسية</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p class="footer__copy" data-i18n="contact_footer_copy">© 2026 Serenzer Ltd. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var p = ['c','o','n','t','a','c','t'];
+  var d = ['s','e','r','e','n','z','e','r','.','c','o','m'];
+  function buildEmail(parts, domain) {
+    return parts.join('') + String.fromCharCode(64) + domain.join('');
+  }
+  function createLink(addr) {
+    var a = document.createElement('a');
+    a.href = 'mai' + 'lto:' + addr;
+    a.textContent = addr;
+    a.style.color = '#8FA89B';
+    a.style.fontWeight = '500';
+    a.style.textDecoration = 'none';
+    return a;
+  }
+  var el1 = document.getElementById('emailContact');
+  if (el1) el1.parentNode.replaceChild(createLink(buildEmail(p, d)), el1);
+})();
+</script>
+
+<script src="/i18n.js"></script>
+<script>
+(function(){
+  var SUP = ['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+  var RTL = ['ar','he'];
+  var m = window.location.pathname.match(/^\/([a-z]{2})(\/|$)/);
+  var lang = (m && SUP.indexOf(m[1]) >= 0) ? m[1] : 'fr';
+  var dict = (window.SERENZER_I18N && window.SERENZER_I18N[lang]) || window.SERENZER_I18N.fr;
+  document.documentElement.setAttribute('lang', lang);
+  if (RTL.indexOf(lang) >= 0) document.documentElement.setAttribute('dir','rtl');
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var v = dict[el.getAttribute('data-i18n')];
+    if (v == null) return;
+    var a = el.getAttribute('data-i18n-attr');
+    if (a) el.setAttribute(a, v); else el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    var v = dict[el.getAttribute('data-i18n-html')];
+    if (v != null) el.innerHTML = String(v).split('__LANG__').join(lang);
+  });
+  // langue transmise au formulaire
+  var fl = document.getElementById('formLang');
+  if (fl) fl.value = lang;
+  // retour de send.php : ?status=success|error&code=xxx
+  var qs = new URLSearchParams(window.location.search);
+  var st = qs.get('status'), cd = qs.get('code');
+  if (st) {
+    var box = document.getElementById('formStatus');
+    var key = (st === 'success') ? 'contact_form_ok' : ('contact_form_' + (cd || 'err'));
+    var msg = dict[key] || dict[st === 'success' ? 'contact_form_ok' : 'contact_form_err'];
+    if (box && msg) {
+      box.textContent = msg;
+      box.className = 'form__status form__status--' + (st === 'success' ? 'ok' : 'ko');
+      box.hidden = false;
+      box.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    history.replaceState(null, '', window.location.pathname);
+  }
+})();
+</script>
+<!-- Banniere de consentement Serenzer -->
+<style>
+  .srz-consent{
+    position:fixed; inset-inline:0; bottom:0; z-index:9999;
+    background:var(--color-surface,#FFFFFF);
+    border-top:1px solid var(--color-pierre-pale,#D9D4CC);
+    box-shadow:0 -4px 24px rgba(47,58,63,.10);
+    padding:20px 24px; display:none;
+    font-family:var(--font-body,'Inter',system-ui,sans-serif);
+  }
+  .srz-consent.is-open{display:block}
+  .srz-consent__inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+  .srz-consent__title{
+    font-family:var(--font-display,'Fraunces',Georgia,serif);
+    font-size:1.05rem;font-weight:600;margin:0 0 6px;
+    color:var(--color-encre-douce,#2F3A3F);
+  }
+  .srz-consent__text{margin:0;font-size:.9rem;line-height:1.55;color:var(--color-cendre-tiede,#4E4A46)}
+  .srz-consent__link{color:var(--color-sauge-douce,#8FA89B);text-decoration:underline}
+  .srz-consent__actions{display:flex;flex-wrap:wrap;gap:12px}
+  .srz-consent__btn{
+    flex:1 1 160px;min-height:44px;padding:11px 22px;
+    border-radius:999px;border:1px solid var(--color-sauge-douce,#8FA89B);
+    font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;
+    transition:background .2s,color .2s;
+  }
+  .srz-consent__btn--accept{background:var(--color-sauge-douce,#8FA89B);color:#fff}
+  .srz-consent__btn--accept:hover{background:var(--color-accent-hover,#7A9587)}
+  .srz-consent__btn--refuse{background:transparent;color:var(--color-encre-douce,#2F3A3F)}
+  .srz-consent__btn--refuse:hover{background:var(--color-argile-clair,#EFE9DF)}
+  @media (min-width:760px){
+    .srz-consent__inner{flex-direction:row;align-items:center;gap:32px}
+    .srz-consent__body{flex:1}
+    .srz-consent__actions{flex:0 0 auto}
+    .srz-consent__btn{flex:0 0 auto;min-width:150px}
+  }
+</style>
+<div class="srz-consent" id="srzConsent" role="dialog" aria-live="polite">
+  <div class="srz-consent__inner">
+    <div class="srz-consent__body">
+      <p class="srz-consent__title" data-srz="cookie_title"></p>
+      <p class="srz-consent__text">
+        <span data-srz="cookie_text"></span>
+        <a class="srz-consent__link" id="srzMore" href="#" target="_blank" rel="noopener" data-srz="cookie_more"></a>
+      </p>
+    </div>
+    <div class="srz-consent__actions">
+      <button type="button" class="srz-consent__btn srz-consent__btn--refuse" id="srzRefuse" data-srz="cookie_refuse"></button>
+      <button type="button" class="srz-consent__btn srz-consent__btn--accept" id="srzAccept" data-srz="cookie_accept"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var SUP=['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+  var KEY='serenzer_consent';
+  var m=window.location.pathname.match(/^\/([a-z]{2})(\/|$)/);
+  var lang=(m&&SUP.indexOf(m[1])>=0)?m[1]:'fr';
+  var D=(window.SERENZER_I18N&&(window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr))||{};
+  var box=document.getElementById('srzConsent');
+  if(!box) return;
+  box.querySelectorAll('[data-srz]').forEach(function(el){
+    var v=D[el.getAttribute('data-srz')];
+    if(v!=null) el.textContent=v;
+  });
+  var more=document.getElementById('srzMore');
+  if(more) more.href='https://apps.serenzer.com/cookies?lang='+lang;
+  function read(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem(KEY,v); }catch(e){} }
+  function open(){ box.classList.add('is-open'); }
+  function close(){ box.classList.remove('is-open'); }
+  function decide(v){
+    write(v);
+    if(typeof gtag==='function'){
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+    }
+    if(v==='granted'&&window.dataLayer){ window.dataLayer.push({event:'srz_consent_granted'}); }
+    close();
+  }
+  document.getElementById('srzAccept').addEventListener('click',function(){decide('granted');});
+  document.getElementById('srzRefuse').addEventListener('click',function(){decide('denied');});
+  if(!read()) open();
+  var label=D.cookie_manage||'Cookies';
+  var host=document.querySelector('.footer__links, .footer__col:last-child ul, .footer__bottom');
+  if(host){
+    var a=document.createElement('a');
+    a.href='#'; a.className='footer__link'; a.textContent=label; a.style.cursor='pointer';
+    a.addEventListener('click',function(e){ e.preventDefault(); open(); });
+    if(host.tagName==='UL'){ var li=document.createElement('li'); li.appendChild(a); host.appendChild(li); }
+    else host.appendChild(a);
+  }
+})();
+</script>
+
+</body>
+</html>

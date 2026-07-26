@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="team_meta_title">L'équipe — Serenzer</title>
+<meta name="description" data-i18n-attr="content" data-i18n="team_meta_description" content="Serenzer a été cofondée par toute la famille Jore. Découvrez les six personnes, et le chien, derrière l'assistant personnel IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette */
+    --color-lin-calme:#F8F6F2;
+    --color-cendre-tiede:#4E4A46;
+    --color-argile-clair:#EFE9DF;
+    --color-pierre-pale:#D9D4CC;
+    --color-sauge-douce:#8FA89B;
+    --color-sable-chaud:#D1B38B;
+    --color-mousse-legere:#A6C3B3;
+    --color-encre-douce:#2F3A3F;
+
+    --color-background:var(--color-lin-calme);
+    --color-surface:#FFFFFF;
+    --color-text-primary:var(--color-encre-douce);
+    --color-text-secondary:var(--color-cendre-tiede);
+    --color-text-muted:#9A958F;
+    --color-text-light:#B5B0A8;
+    --color-accent:var(--color-sauge-douce);
+    --color-accent-hover:#7A9587;
+    --color-accent-light:rgba(143,168,155,.15);
+    --color-border:var(--color-argile-clair);
+    --color-border-light:#F0EBE3;
+    --color-success:var(--color-sauge-douce);
+    --color-warning:var(--color-sable-chaud);
+
+    /* typography */
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+    --text-xs:11px; --text-sm:13px; --text-base:15px; --text-md:17px;
+    --text-lg:20px; --text-xl:24px; --text-2xl:28px;
+
+    /* spacing */
+    --space-xs:4px; --space-sm:8px; --space-md:12px; --space-lg:16px;
+    --space-xl:20px; --space-2xl:24px; --space-3xl:32px; --space-4xl:40px;
+    --space-5xl:48px; --space-6xl:64px; --space-7xl:80px; --space-8xl:96px;
+
+    /* radius */
+    --radius-xs:4px; --radius-sm:8px; --radius-md:12px; --radius-lg:16px;
+    --radius-xl:20px; --radius-2xl:24px; --radius-full:9999px;
+
+    /* shadow */
+    --shadow-sm:0 1px 3px rgba(47,58,63,.04);
+    --shadow-md:0 2px 8px rgba(47,58,63,.06);
+    --shadow-lg:0 4px 16px rgba(47,58,63,.08);
+    --shadow-xl:0 8px 24px rgba(47,58,63,.10);
+    --shadow-accent:0 4px 12px rgba(143,168,155,.35);
+
+    /* transition */
+    --transition-fast:100ms ease;
+    --transition-normal:150ms ease;
+    --transition-slow:250ms ease;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--color-background);
+    color:var(--color-text-primary);
+    font-family:var(--font-body);
+    font-size:var(--text-base);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  a{color:inherit;text-decoration:none}
+  ul{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  img,svg{display:block;max-width:100%}
+  ::selection{background:var(--color-accent-light);color:var(--color-encre-douce)}
+
+  .container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 var(--space-2xl);
+  }
+
+  /* === NAV === */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(248,246,242,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color var(--transition-normal);
+  }
+  .nav.is-scrolled{border-bottom-color:var(--color-border-light)}
+  .nav__inner{
+    height:var(--header-height,68px);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:var(--space-md)}
+  .brand__mark{
+    width:40px;height:40px;
+    flex:none;
+    display:grid;place-items:center;
+  }
+  .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .brand__name{
+    font-family:var(--font-display);
+    font-size:var(--text-lg);
+    font-weight:500;letter-spacing:-.01em;
+    color:var(--color-encre-douce);
+  }
+  .nav__links{display:none;gap:var(--space-3xl);align-items:center}
+  .nav__links a{
+    font-size:var(--text-sm);font-weight:500;
+    color:var(--color-text-secondary);
+    transition:color var(--transition-normal);
+  }
+  .nav__links a:hover{color:var(--color-text-primary)}
+  .nav__links a.is-active{color:var(--color-accent)}
+  .nav__right{display:flex;align-items:center;gap:var(--space-md)}
+  .lang-select{position:relative}
+  .lang-select__btn{
+    display:inline-flex;align-items:center;gap:var(--space-sm);
+    padding:8px 12px;border-radius:var(--radius-md);
+    background:transparent;
+    color:var(--color-text-secondary);
+    font-size:var(--text-sm);font-weight:500;
+    transition:background var(--transition-normal);
+  }
+  .lang-select__btn:hover{background:var(--color-argile-clair)}
+  .lang-select__btn svg{width:14px;height:14px}
+  .lang-select__menu{
+    position:absolute;top:calc(100% + 6px);right:0;
+    min-width:160px;
+    background:var(--color-surface);
+    border:1px solid var(--color-border-light);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-lg);
+    padding:4px;
+    opacity:0;visibility:hidden;
+    transform:translateY(-4px);
+    transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);
+    z-index:10;
+  }
+  .lang-select.is-open .lang-select__menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-select__item{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;
+    padding:10px 12px;border-radius:var(--radius-sm);
+    font-size:var(--text-sm);font-weight:500;
+    color:var(--color-text-primary);
+    text-align:left;
+    transition:background var(--transition-fast);
+  }
+  .lang-select__item:hover{background:var(--color-lin-calme)}
+  .lang-select__item.is-active{color:var(--color-accent)}
+  .lang-select__check{width:14px;height:14px;opacity:0}
+  .lang-select__item.is-active .lang-select__check{opacity:1}
+
+  /* === BUTTONS === */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);
+    padding:var(--space-md) var(--space-xl);
+    font-size:var(--text-base);font-weight:500;
+    border-radius:var(--radius-lg);
+    transition:background var(--transition-normal),color var(--transition-normal),transform var(--transition-fast);
+    white-space:nowrap;
+  }
+  .btn--primary{background:var(--color-accent);color:#fff}
+  .btn--primary:hover{background:var(--color-accent-hover)}
+  .btn--secondary{background:var(--color-argile-clair);color:var(--color-text-primary)}
+  .btn--secondary:hover{background:var(--color-pierre-pale)}
+  .btn--lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-md)}
+  .btn--sm{padding:var(--space-sm) var(--space-lg);font-size:var(--text-sm)}
+  .btn:active{transform:scale(.98)}
+  .btn svg{width:16px;height:16px;flex:none}
+
+  /* === SECTIONS === */
+  .section{padding:var(--space-7xl) 0}
+  .section--tight{padding:var(--space-6xl) 0}
+  .section__head{text-align:center;max-width:680px;margin:0 auto var(--space-6xl)}
+  .eyebrow{
+    display:inline-block;
+    font-size:var(--text-xs);font-weight:600;
+    text-transform:uppercase;letter-spacing:.12em;
+    color:var(--color-accent);
+    margin-bottom:var(--space-md);
+  }
+  .section__title{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(28px,4vw,42px);
+    line-height:1.15;letter-spacing:-.015em;
+    color:var(--color-encre-douce);
+    margin:0 0 var(--space-lg);
+    text-wrap:balance;
+  }
+  .section__subtitle{
+    font-size:var(--text-md);line-height:1.6;
+    color:var(--color-text-secondary);
+    margin:0;text-wrap:pretty;
+  }
+
+  /* === TEAM HERO (récit) === */
+  .team-hero{padding:var(--space-7xl) 0 var(--space-4xl);text-align:center}
+  .team-hero__inner{max-width:720px;margin:0 auto}
+  .team-hero__title{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(32px,5.4vw,52px);
+    line-height:1.12;letter-spacing:-.02em;
+    color:var(--color-encre-douce);
+    margin:0 0 var(--space-2xl);
+    text-wrap:balance;
+  }
+  .team-hero__lead{
+    font-size:var(--text-md);line-height:1.75;
+    color:var(--color-text-secondary);
+    margin:0;text-wrap:pretty;
+    text-align:left;
+  }
+  .team-hero__lead + .team-hero__lead{margin-top:var(--space-2xl)}
+  .team-hero__lead strong{color:var(--color-text-primary);font-weight:600}
+  /* intro : para 1, regle d'or, para 2 en colonne de lecture centree */
+  .team-hero__intro{
+    max-width:600px;margin:var(--space-2xl) auto 0;
+    text-align:left;
+  }
+  .team-hero__intro .golden-rule{margin:var(--space-3xl) 0}
+  /* pastilles photos sous le titre */
+  .team-hero__pills{display:flex;justify-content:center;margin:0 0 var(--space-4xl);padding-left:10px}
+  .team-hero__pills .pill{position:relative;width:48px;height:48px;flex:none;border-radius:50%;overflow:hidden;background:var(--color-accent);display:grid;place-items:center;box-shadow:0 0 0 3px var(--color-background);margin-left:-10px}
+  .team-hero__pills .pill--warm{background:var(--color-sable-chaud)}
+  .team-hero__pills .pill__initial{font-family:var(--font-display);font-weight:500;font-size:17px;color:#fff;line-height:1}
+  .team-hero__pills .pill img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* === GOLDEN RULE (pull-quote) === */
+  .golden-rule{
+    max-width:760px;margin:0;
+    padding:var(--space-3xl);
+    background:var(--color-surface);
+    border:1px solid var(--color-border-light);
+    border-left:3px solid var(--color-accent);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;align-items:center;
+    gap:var(--space-2xl);text-align:center;
+  }
+  .golden-rule__quote{
+    font-family:var(--font-display);
+    font-size:clamp(18px,2.4vw,22px);
+    font-weight:500;line-height:1.35;letter-spacing:-.01em;
+    color:var(--color-encre-douce);
+    margin:0 0 var(--space-md);
+    text-wrap:balance;
+  }
+  .golden-rule__attr{font-size:var(--text-sm);color:var(--color-text-muted)}
+  @media (min-width:640px){
+    .golden-rule{padding:var(--space-4xl)}
+  }
+
+  /* === TEAM GRID === */
+  .team{padding:var(--space-6xl) 0 var(--space-7xl)}
+  .team-grid{
+    display:grid;grid-template-columns:1fr;gap:var(--space-2xl);
+    align-items:start;
+    max-width:960px;margin:0 auto;
+  }
+  .member{
+    background:var(--color-surface);
+    border:1px solid var(--color-border-light);
+    border-radius:var(--radius-2xl);
+    overflow:hidden;
+    transition:border-color var(--transition-slow),box-shadow var(--transition-slow);
+  }
+  .member:hover{border-color:var(--color-accent-light);box-shadow:var(--shadow-md)}
+  .member.is-open{border-color:var(--color-accent-light);box-shadow:var(--shadow-md)}
+  .member__toggle{
+    display:flex;align-items:center;gap:var(--space-2xl);
+    width:100%;text-align:left;
+    padding:var(--space-3xl);
+  }
+  .member__portrait{
+    width:72px;height:72px;border-radius:50%;flex:none;
+    overflow:hidden;position:relative;
+    background:var(--tint,var(--color-accent-light));
+    box-shadow:0 0 0 4px var(--color-lin-calme), 0 0 0 5px var(--color-border-light);
+  }
+  .member__portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .member__initials{
+    position:absolute;inset:0;
+    display:grid;place-items:center;
+    font-family:var(--font-display);font-size:var(--text-xl);font-weight:600;
+    color:var(--tint-fg,#fff);
+  }
+  .member__meta{flex:1;min-width:0}
+  .member__name{
+    font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;
+    letter-spacing:-.01em;color:var(--color-encre-douce);margin:0;
+  }
+  .member__role{
+    display:block;font-size:var(--text-xs);font-weight:600;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--color-accent);
+    margin:3px 0 7px;
+  }
+  .member__oneliner{
+    font-size:var(--text-sm);line-height:1.5;
+    color:var(--color-text-secondary);margin:0;
+  }
+  .member__chevron{
+    flex:none;width:30px;height:30px;border-radius:50%;
+    display:grid;place-items:center;
+    color:var(--color-text-muted);
+    background:var(--color-lin-calme);
+    transition:transform var(--transition-slow),background var(--transition-normal),color var(--transition-normal);
+  }
+  .member__chevron svg{width:15px;height:15px}
+  .member.is-open .member__chevron{transform:rotate(180deg);background:var(--color-accent-light);color:var(--color-accent)}
+
+  .member__bio{
+    display:grid;grid-template-rows:0fr;
+    transition:grid-template-rows var(--transition-slow);
+  }
+  .member.is-open .member__bio{grid-template-rows:1fr}
+  .member__bio-inner{overflow:hidden}
+  .member__bio-inner p{
+    margin:0 var(--space-3xl) var(--space-3xl);
+    padding-top:var(--space-2xl);
+    border-top:1px solid var(--color-border-light);
+    font-size:var(--text-sm);line-height:1.7;
+    color:var(--color-text-secondary);text-wrap:pretty;
+  }
+
+  /* === BACK TO PRODUCT (secondary CTA) === */
+  .team-outro{
+    max-width:820px;margin:var(--space-4xl) auto 0;
+    text-align:center;
+  }
+
+  /* === FOOTER === */
+  .footer{
+    padding:var(--space-6xl) 0 var(--space-3xl);
+    border-top:1px solid var(--color-border-light);
+    margin-top:var(--space-4xl);
+  }
+  .footer__top{
+    display:grid;grid-template-columns:1fr;gap:var(--space-4xl);
+    margin-bottom:var(--space-4xl);
+  }
+  .footer__brand .brand{margin-bottom:var(--space-md)}
+  .footer__tagline{
+    font-size:var(--text-sm);color:var(--color-text-muted);
+    max-width:300px;line-height:1.6;
+  }
+  .footer__col h4{
+    font-size:var(--text-xs);font-weight:600;
+    text-transform:uppercase;letter-spacing:.1em;
+    color:var(--color-text-muted);margin:0 0 var(--space-lg);
+  }
+  .footer__col ul{display:grid;gap:var(--space-md)}
+  .footer__col a{
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    transition:color var(--transition-normal);
+  }
+  .footer__col a:hover{color:var(--color-accent)}
+  .footer__bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+    gap:var(--space-md);
+    padding-top:var(--space-2xl);
+    border-top:1px solid var(--color-border-light);
+    font-size:var(--text-xs);color:var(--color-text-muted);
+  }
+
+  /* === ANIM ON SCROLL === */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.is-in{opacity:1;transform:translateY(0)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* === MEDIA === */
+  @media (min-width:720px){
+    .footer__top{grid-template-columns:2fr 1fr 1fr 1fr}
+    .team-grid{grid-template-columns:1fr 1fr}
+    .member__portrait{width:84px;height:84px}
+    .member__toggle{padding:var(--space-3xl)}
+    .member__bio-inner p{margin:0 var(--space-3xl) var(--space-3xl)}
+  }
+  @media (min-width:960px){
+    .nav__links{display:flex}
+  }
+</style>
+</head>
+<body>
+
+<!-- === NAV === -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="./">
+      <span class="brand__mark" aria-hidden="true">
+        <img src="assets/serenzer_wave.png" alt="Serenzer">
+      </span>
+      <span class="brand__name">Serenzer</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="./#features" data-i18n="nav_features">Fonctionnalités</a>
+      <a href="./#how" data-i18n="nav_how">Fonctionnement</a>
+      <a href="./#trust" data-i18n="nav_trust">Confiance</a>
+      <a href="team.html" class="is-active" data-i18n="nav_team">Équipe</a>
+    </nav>
+
+    <div class="nav__right">
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/>
+          </svg>
+          <span id="langLabel">Français</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <ul class="lang-select__menu" role="listbox" id="langMenu"></ul>
+      </div>
+      <a class="btn btn--primary btn--sm" href="https://apps.serenzer.com" data-i18n="nav_login">Se connecter</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- === TEAM HERO (récit) === -->
+  <section class="team-hero">
+    <div class="container">
+      <div class="team-hero__inner reveal">
+        <span class="eyebrow" data-i18n="team_eyebrow">L'histoire de Serenzer</span>
+        <h1 class="team-hero__title" data-i18n="team_title">Un projet de famille, pas un garage de la Silicon Valley.</h1>
+        <div class="team-hero__pills" aria-hidden="true">
+          <span class="pill"><img src="assets/team/raphael.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill"><img src="assets/team/delphine.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill"><img src="assets/team/samuel.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill"><img src="assets/team/maya.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill"><img src="assets/team/noe.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill"><img src="assets/team/lou.webp" alt="" onerror="this.remove()"></span>
+          <span class="pill pill--warm"><img src="assets/team/atlas.webp" alt="" onerror="this.remove()"></span>
+        </div>
+        <div class="team-hero__intro">
+        <p class="team-hero__lead" data-i18n="team_lead1"><strong>Serenzer Ltd a été cofondée par toute la famille Jore</strong> : deux parents, quatre enfants, six co-fondateurs. Pas de levée de fonds, pas d'incubateur. Tout est parti d'un dîner de famille, du constat que chacun croulait sous les mêmes petites choses du quotidien : les rendez-vous, les démarches, un déménagement à organiser, un entretien à préparer, les proches à ne pas oublier.</p>
+        <figure class="golden-rule reveal">
+          <div class="golden-rule__body">
+            <blockquote class="golden-rule__quote" data-i18n="team_rule">« Si le projet abîme notre famille, on arrête tout. »</blockquote>
+            <figcaption class="golden-rule__attr" data-i18n="team_rule_attr">La règle d'or de la famille Jore, posée dès le premier jour.</figcaption>
+          </div>
+        </figure>
+        <p class="team-hero__lead" data-i18n="team_lead2">L'idée était simple : et si on avait quelqu'un à qui parler pour s'y retrouver ? Pas un expert, pas un gourou, juste une aide du quotidien, accessible par une simple conversation. Autour de la table, il y avait de quoi la construire : une thérapeute formée à l'analyse transactionnelle, un entrepreneur qui a passé vingt ans à bâtir des logiciels et s'est remis au code pour écrire le cerveau de l'assistant, et quatre enfants qui maîtrisent le mobile, le marketing et les codes culturels de quatre continents.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === TEAM GRID === -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow" data-i18n="team_grid_eyebrow">L'équipe</span>
+        <h2 class="section__title" data-i18n="team_grid_title">Les visages derrière Serenzer</h2>
+        <p class="section__subtitle" data-i18n="team_grid_subtitle">Six co-fondateurs, un chien, et une conviction commune : on ne peut pas tricher sur la bienveillance quand on la vit au quotidien.</p>
+      </div>
+
+      <div class="team-grid reveal" id="teamGrid">
+
+        <!-- Raphaël -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#8FA89B;--tint-fg:#fff" aria-hidden="true">
+              <img src="assets/team/raphael.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Raphaël</span>
+              <span class="member__role" data-i18n="m_raphael_role">CTO &amp; développeur principal</span>
+              <span class="member__oneliner" data-i18n="m_raphael_line">Psychologue, entrepreneur, il écrit aujourd'hui le cerveau de l'assistant.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_raphael_bio">Formé à la psychologie puis au marketing à l'ESSEC, Raphaël a exercé cinq ans comme psychologue auprès des jeunes avant de bifurquer vers la tech en cofondant l'éditeur de logiciels Splio, déployé de la France au Brésil en passant par la Chine. Vingt ans plus tard, il se remet au code, apprend les technologies de l'IA moderne et devient le développeur principal de Serenzer. C'est lui qui écrit, ligne après ligne, le cerveau de l'assistant. Accessoirement producteur de musique.</p>
+          </div></div>
+        </article>
+
+        <!-- Delphine -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#A6C3B3;--tint-fg:#2F3A3F" aria-hidden="true">
+              <img src="assets/team/delphine.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Delphine</span>
+              <span class="member__role" data-i18n="m_delphine_role">Garante de la bienveillance</span>
+              <span class="member__oneliner" data-i18n="m_delphine_line">Formée à l'analyse transactionnelle, elle entraîne l'assistant chaque jour et veille à son éthique.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_delphine_bio">Formée à l'analyse transactionnelle, Delphine a tenu un cabinet de psychothérapie pendant dix ans. Mère de quatre enfants, elle occupe aujourd'hui un rôle rare dans la tech. Chaque jour, elle entraîne l'assistant : sur une série de comptes de test qu'elle a elle-même mis en place, elle le questionne sans relâche, éprouve ses réponses et ajuste le ton. Sa préoccupation constante, c'est l'éthique, celle de l'entreprise comme celle de Serenzer en tant que chatbot. C'est elle qui pose la seule question qui compte vraiment : est-ce que ça aide vraiment les gens ? Ici, la bienveillance n'est pas un argument marketing, c'est un contrôle qualité quotidien.</p>
+          </div></div>
+        </article>
+
+        <!-- Samuel -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#2F3A3F;--tint-fg:#fff" aria-hidden="true">
+              <img src="assets/team/samuel.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Samuel</span>
+              <span class="member__role" data-i18n="m_samuel_role">Chef d'orchestre</span>
+              <span class="member__oneliner" data-i18n="m_samuel_line">Il donne la direction, arbitre, et vérifie que le message passe dans 20 langues et leurs adaptations régionales.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_samuel_bio">Fils aîné, formé à la gestion de projet au Canada, Samuel anime les réunions, donne la direction et recueille directement les retours des utilisateurs. Capable de garder la vision d'ensemble sans rien laisser passer dans le détail, c'est lui qui structure et arbitre. Quand Serenzer s'adresse à 20 langues et leurs adaptations régionales, c'est lui qui vérifie que le message passe.</p>
+          </div></div>
+        </article>
+
+        <!-- Maya -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#D1B38B;--tint-fg:#2F3A3F" aria-hidden="true">
+              <img src="assets/team/maya.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Maya</span>
+              <span class="member__role" data-i18n="m_maya_role">Storyteller</span>
+              <span class="member__oneliner" data-i18n="m_maya_line">Elle façonne le récit de la marque et l'écriture des contenus.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_maya_bio">Deuxième enfant, élevée entre la France et les États-Unis, passée par l'écriture scénaristique puis l'EM Lyon. Le marketing nouvelle génération, le storytelling et les réseaux sociaux, c'est son terrain. Artistique et organisée, exigeante et allergique à l'amateurisme, elle façonne le récit de la marque et l'expérience narrative du produit.</p>
+          </div></div>
+        </article>
+
+        <!-- Noé -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#7A9587;--tint-fg:#fff" aria-hidden="true">
+              <img src="assets/team/noe.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Noé</span>
+              <span class="member__role" data-i18n="m_noe_role">Mobile &amp; QA</span>
+              <span class="member__oneliner" data-i18n="m_noe_line">Il pilote l'expérience mobile et traque les défauts, avec le regard d'un utilisateur de 20 ans.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_noe_bio">Troisième enfant, scolarisé entre la France, les États-Unis et le Maroc. Fan de technique et adaptable partout, il s'occupe de l'expérience mobile et du contrôle qualité : il teste, traque les défauts et se met dans la peau de l'utilisateur, avec le regard d'un jeune de 20 ans qui a vécu sur trois continents.</p>
+          </div></div>
+        </article>
+
+        <!-- Lou -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#658a73;--tint-fg:#fff" aria-hidden="true">
+              <img src="assets/team/lou.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Lou</span>
+              <span class="member__role" data-i18n="m_lou_role">Voix de la nouvelle génération</span>
+              <span class="member__oneliner" data-i18n="m_lou_line">La benjamine : le regard sans filtre de la génération qui grandit avec l'IA.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_lou_bio">La benjamine, biculturelle franco-américaine, parfaitement bilingue. Attirée par la musique et les nouvelles technologies, elle apporte ce qu'aucune étude de marché ne peut fournir : le regard immédiat et sans filtre de la génération qui grandit avec l'IA.</p>
+          </div></div>
+        </article>
+
+        <!-- Atlas -->
+        <article class="member">
+          <button class="member__toggle" aria-expanded="false">
+            <span class="member__portrait" style="--tint:#C9C3BA;--tint-fg:#4E4A46" aria-hidden="true">
+              <img src="assets/team/atlas.webp" alt="" onerror="this.remove()">
+            </span>
+            <span class="member__meta">
+              <span class="member__name">Atlas</span>
+              <span class="member__role" data-i18n="m_atlas_role">Chief Comfort Officer</span>
+              <span class="member__oneliner" data-i18n="m_atlas_line">Le chien de la famille. Présent à toutes les réunions, payé en croquettes.</span>
+            </span>
+            <span class="member__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="member__bio"><div class="member__bio-inner">
+            <p data-i18n="m_atlas_bio">Le seul membre de l'équipe qui n'a jamais écrit une ligne de code ni validé une traduction. Atlas assiste à toutes les réunions autour de la table, veille sur l'humeur générale et rappelle à tout le monde qu'une pause, ça compte aussi.</p>
+          </div></div>
+        </article>
+
+      </div>
+
+      <div class="team-outro reveal">
+        <a class="btn btn--secondary btn--lg" href="./#features">
+          <span data-i18n="team_back">Découvrir l'assistant</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- === FOOTER === -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <img src="assets/serenzer_wave.png" alt="Serenzer">
+          </span>
+          <span class="brand__name">Serenzer</span>
+        </div>
+        <p class="footer__tagline" data-i18n="footer_tagline">Idées, projets, calendrier, suivi</p>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_product">Produit</h4>
+        <ul>
+          <li><a href="./#features" data-i18n="nav_features">Fonctionnalités</a></li>
+          <li><a href="./#how" data-i18n="nav_how">Fonctionnement</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Équipe</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_company">Société</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com" data-i18n="nav_login">Se connecter</a></li>
+          <li><a href="Contact.html" data-i18n="footer_legal_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_legal">Légal</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Conditions d'utilisation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_copy">© 2026 Serenzer. Tous droits réservés.</span>
+      <span>apps.serenzer.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+(function(){
+  var LANGS = [
+    {code:'fr', label:'Français'},
+    {code:'en', label:'English'},
+    {code:'de', label:'Deutsch'},
+    {code:'it', label:'Italiano'},
+    {code:'es', label:'Español'},
+    {code:'nl', label:'Nederlands'}
+  ];
+
+  var pathMatch = window.location.pathname.match(/^\/(fr|en|de|es|it|nl)(\/|$)/);
+  var initial = pathMatch ? pathMatch[1] : 'fr';
+
+  // === i18n (graceful: keeps hardcoded FR if a key or the dict is missing) ===
+  function applyI18n(lang){
+    if(!window.SERENZER_I18N) return;
+    var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
+    if(!dict) return;
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var val = dict[key];
+      if(val == null) return;
+      var attr = el.getAttribute('data-i18n-attr');
+      if(attr){ el.setAttribute(attr, val); }
+      else { el.textContent = val; }
+    });
+    var current = LANGS.find(function(l){return l.code===lang;});
+    var lbl = document.getElementById('langLabel');
+    if(lbl && current) lbl.textContent = current.label;
+    document.querySelectorAll('#langMenu .lang-select__item').forEach(function(it){
+      it.classList.toggle('is-active', it.dataset.code === lang);
+    });
+  }
+
+  // === Build language menu ===
+  var menu = document.getElementById('langMenu');
+  LANGS.forEach(function(l){
+    var li = document.createElement('li');
+    var btn = document.createElement('button');
+    btn.className = 'lang-select__item';
+    btn.setAttribute('role','option');
+    btn.dataset.code = l.code;
+    btn.innerHTML =
+      '<span>'+l.label+'</span>'+
+      '<svg class="lang-select__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    btn.addEventListener('click', function(){
+      try { localStorage.setItem('serenzer_lang', l.code); } catch(e){}
+      var path = window.location.pathname;
+      var m = path.match(/^\/(fr|en|de|es|it|nl)(\/.*)?$/);
+      var rest = m ? (m[2] || '/') : (path === '/' ? '/' : path);
+      var target = ('/' + l.code + rest).replace(/\/+/g, '/');
+      if (target !== path) { window.location.href = target; return; }
+      document.getElementById('langSelect').classList.remove('is-open');
+      document.getElementById('langBtn').setAttribute('aria-expanded','false');
+    });
+    li.appendChild(btn);
+    menu.appendChild(li);
+  });
+
+  var sel = document.getElementById('langSelect');
+  var langBtn = document.getElementById('langBtn');
+  langBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = sel.classList.toggle('is-open');
+    langBtn.setAttribute('aria-expanded', isOpen?'true':'false');
+  });
+  document.addEventListener('click', function(){
+    sel.classList.remove('is-open');
+    langBtn.setAttribute('aria-expanded','false');
+  });
+
+  // === Nav scrolled ===
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // === Member expand/collapse ===
+  document.querySelectorAll('.member__toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var member = btn.closest('.member');
+      var open = member.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  // === Reveal on scroll ===
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    },{threshold:.1, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); });
+  }
+
+  applyI18n(initial);
+})();
+</script>
+</body>
+</html>

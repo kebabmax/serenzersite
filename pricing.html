@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<!-- Consent Mode v2 — DOIT preceder GTM -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+try {
+  if (localStorage.getItem('serenzer_consent') === 'granted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+} catch(e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MK96QMHK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="pricing_meta_title">Serenzer — Tarifs</title>
+<meta name="description" data-i18n-attr="content" data-i18n="pricing_meta_description" content="Découvrez les offres Serenzer : Free, Plus et Premium. Essai gratuit, sans engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Product",
+      "name":"Serenzer Plus",
+      "description":"Rituels, challenges, calendrier et accès WhatsApp.",
+      "brand":{"@type":"Brand","name":"Serenzer"},
+      "offers":[
+        {"@type":"Offer","price":"9.99","priceCurrency":"EUR","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock","url":"https://apps.serenzer.com"},
+        {"@type":"Offer","price":"79.00","priceCurrency":"EUR","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock","url":"https://apps.serenzer.com"}
+      ]
+    },
+    {
+      "@type":"Product",
+      "name":"Serenzer Premium",
+      "description":"L'offre complète avec l'Organisation personnelle.",
+      "brand":{"@type":"Brand","name":"Serenzer"},
+      "offers":[
+        {"@type":"Offer","price":"14.99","priceCurrency":"EUR","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock","url":"https://apps.serenzer.com"},
+        {"@type":"Offer","price":"119.00","priceCurrency":"EUR","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock","url":"https://apps.serenzer.com"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --color-lin-calme:#F8F6F2;
+    --color-cendre-tiede:#4E4A46;
+    --color-argile-clair:#EFE9DF;
+    --color-pierre-pale:#D9D4CC;
+    --color-sauge-douce:#8FA89B;
+    --color-sable-chaud:#D1B38B;
+    --color-mousse-legere:#A6C3B3;
+    --color-encre-douce:#2F3A3F;
+    --color-background:var(--color-lin-calme);
+    --color-surface:#FFFFFF;
+    --color-text-primary:var(--color-encre-douce);
+    --color-text-secondary:var(--color-cendre-tiede);
+    --color-text-muted:#9A958F;
+    --color-text-light:#B5B0A8;
+    --color-accent:var(--color-sauge-douce);
+    --color-accent-hover:#7A9587;
+    --color-accent-light:rgba(143,168,155,.15);
+    --color-border:var(--color-argile-clair);
+    --color-border-light:#F0EBE3;
+    --color-success:var(--color-sauge-douce);
+    --color-warning:var(--color-sable-chaud);
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --text-xs:11px;--text-sm:13px;--text-base:15px;--text-md:17px;
+    --text-lg:20px;--text-xl:24px;--text-2xl:28px;
+    --space-xs:4px;--space-sm:8px;--space-md:12px;--space-lg:16px;
+    --space-xl:20px;--space-2xl:24px;--space-3xl:32px;--space-4xl:40px;
+    --space-5xl:48px;--space-6xl:64px;--space-7xl:80px;--space-8xl:96px;
+    --radius-xs:4px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;
+    --radius-xl:20px;--radius-2xl:24px;--radius-full:9999px;
+    --shadow-sm:0 1px 3px rgba(47,58,63,.04);
+    --shadow-md:0 2px 8px rgba(47,58,63,.06);
+    --shadow-lg:0 4px 16px rgba(47,58,63,.08);
+    --shadow-xl:0 8px 24px rgba(47,58,63,.10);
+    --shadow-accent:0 4px 12px rgba(143,168,155,.35);
+    --transition-fast:100ms ease;
+    --transition-normal:150ms ease;
+    --transition-slow:250ms ease;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--color-background);color:var(--color-text-primary);font-family:var(--font-body);font-size:var(--text-base);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none}
+  ul{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  img,svg{display:block;max-width:100%}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--space-2xl);}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(248,246,242,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color var(--transition-normal);}
+  .nav.is-scrolled{border-bottom-color:var(--color-border-light)}
+  .nav__inner{height:68px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:var(--space-md)}
+  .brand__mark{width:40px;height:40px;flex:none;display:grid;place-items:center;}
+  .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .brand__name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;letter-spacing:-.01em;color:var(--color-encre-douce);}
+  .nav__links{display:none;gap:var(--space-3xl);align-items:center}
+  .nav__links a{font-size:var(--text-sm);font-weight:500;color:var(--color-text-secondary);transition:color var(--transition-normal);}
+  .nav__links a:hover,.nav__links a.is-active{color:var(--color-text-primary)}
+  .nav__right{display:flex;align-items:center;gap:var(--space-md)}
+  .lang-select{position:relative;}
+  .lang-select__btn{display:inline-flex;align-items:center;gap:var(--space-sm);padding:8px 12px;border-radius:var(--radius-md);background:transparent;color:var(--color-text-secondary);font-size:var(--text-sm);font-weight:500;transition:background var(--transition-normal);}
+  .lang-select__btn:hover{background:var(--color-argile-clair)}
+  .lang-select__btn svg{width:14px;height:14px}
+  .lang-select__menu{position:absolute;top:calc(100% + 6px);right:0;min-width:160px;background:var(--color-surface);border:1px solid var(--color-border-light);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:4px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);z-index:10;}
+  .lang-select.is-open .lang-select__menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-select__item{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 12px;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:500;color:var(--color-text-primary);text-align:left;transition:background var(--transition-fast);}
+  .lang-select__item:hover{background:var(--color-lin-calme)}
+  .lang-select__item.is-active{color:var(--color-accent)}
+  .lang-select__check{width:14px;height:14px;opacity:0}
+  .lang-select__item.is-active .lang-select__check{opacity:1}
+
+  /* BUTTONS */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);font-size:var(--text-base);font-weight:500;border-radius:var(--radius-lg);transition:background var(--transition-normal),color var(--transition-normal),transform var(--transition-fast);white-space:nowrap;}
+  .btn--primary{background:var(--color-accent);color:#fff}
+  .btn--primary:hover{background:var(--color-accent-hover)}
+  .btn--secondary{background:var(--color-argile-clair);color:var(--color-text-primary)}
+  .btn--secondary:hover{background:var(--color-pierre-pale)}
+  .btn--ghost{background:transparent;color:var(--color-text-secondary)}
+  .btn--ghost:hover{background:var(--color-argile-clair);color:var(--color-text-primary)}
+  .btn--lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-md)}
+  .btn--sm{padding:var(--space-sm) var(--space-lg);font-size:var(--text-sm)}
+  .btn--full{width:100%;justify-content:center;}
+  .btn:active{transform:scale(.98)}
+
+  /* SECTION */
+  .section{padding:var(--space-7xl) 0}
+  .section__head{text-align:center;max-width:680px;margin:0 auto var(--space-6xl)}
+  .eyebrow{display:inline-block;font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--color-accent);margin-bottom:var(--space-md);}
+  .section__title{font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.015em;color:var(--color-encre-douce);margin:0 0 var(--space-lg);text-wrap:balance;}
+  .section__subtitle{font-size:var(--text-md);line-height:1.6;color:var(--color-text-secondary);margin:0;text-wrap:pretty;}
+
+  /* HERO PRICING */
+  .pricing-hero{padding:var(--space-6xl) 0 var(--space-3xl);text-align:center;}
+  .pricing-hero__title{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-.02em;color:var(--color-encre-douce);margin:0 0 var(--space-lg);}
+  .pricing-hero__sub{font-size:var(--text-md);line-height:1.6;color:var(--color-text-secondary);max-width:540px;margin:0 auto;}
+
+  /* TOGGLE */
+  .pricing-toggle{display:flex;align-items:center;justify-content:center;gap:var(--space-md);margin:var(--space-4xl) auto var(--space-5xl);}
+  .toggle-label{font-size:var(--text-sm);font-weight:500;color:var(--color-text-secondary);}
+  .toggle-label.is-active{color:var(--color-text-primary);}
+  .toggle-switch{position:relative;width:44px;height:24px;flex:none;}
+  .toggle-switch input{opacity:0;width:0;height:0;position:absolute;}
+  .toggle-track{position:absolute;inset:0;background:var(--color-pierre-pale);border-radius:var(--radius-full);cursor:pointer;transition:background var(--transition-normal);}
+  .toggle-switch input:checked + .toggle-track{background:var(--color-accent);}
+  .toggle-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform var(--transition-normal);pointer-events:none;}
+  .toggle-switch input:checked ~ .toggle-thumb{transform:translateX(20px);}
+  .toggle-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--radius-full);background:var(--color-accent-light);color:var(--color-accent);font-size:var(--text-xs);font-weight:600;}
+
+  /* CARDS */
+  .pricing-grid{display:grid;grid-template-columns:1fr;gap:var(--space-2xl);max-width:1040px;margin:0 auto;}
+  .plan-card{background:var(--color-surface);border:1.5px solid var(--color-border-light);border-radius:var(--radius-2xl);padding:var(--space-4xl) var(--space-3xl);position:relative;display:flex;flex-direction:column;}
+  .plan-card--featured{border-color:var(--color-accent);box-shadow:var(--shadow-accent);}
+  .plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:var(--space-xs);padding:4px 14px;background:var(--color-accent);color:#fff;border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:600;white-space:nowrap;}
+  .plan-name{font-family:var(--font-display);font-size:var(--text-xl);font-weight:500;color:var(--color-encre-douce);margin:0 0 var(--space-sm);}
+  .plan-desc{font-size:var(--text-sm);color:var(--color-text-muted);margin:0 0 var(--space-3xl);line-height:1.5;}
+  .plan-price{margin-bottom:var(--space-3xl);}
+  .plan-price__amount{font-family:var(--font-display);font-size:clamp(36px,5vw,48px);font-weight:500;color:var(--color-encre-douce);letter-spacing:-.02em;line-height:1;}
+  .plan-price__period{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-xs);}
+  .plan-price__yearly{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-xs);}
+  .plan-price__saving{display:inline-block;margin-top:var(--space-sm);padding:2px 10px;background:var(--color-accent-light);color:var(--color-accent);border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:600;}
+  .plan-features{flex:1;margin-bottom:var(--space-3xl);}
+  .plan-features li{display:flex;align-items:flex-start;gap:var(--space-md);padding:var(--space-sm) 0;font-size:var(--text-sm);color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-light);}
+  .plan-features li:last-child{border-bottom:0;}
+  .feat-icon{flex:none;width:16px;height:16px;margin-top:1px;}
+  .feat-icon--check{color:var(--color-accent);}
+  .feat-icon--dash{color:var(--color-pierre-pale);}
+  .feat-count{font-size:var(--text-xs);color:var(--color-text-muted);margin-left:auto;white-space:nowrap;}
+
+  /* FAQ */
+  .faq{padding:var(--space-7xl) 0;}
+  .faq__list{max-width:680px;margin:0 auto;}
+  .faq__item{border-bottom:1px solid var(--color-border-light);}
+  .faq__q{display:flex;align-items:center;justify-content:space-between;gap:var(--space-lg);width:100%;padding:var(--space-2xl) 0;font-size:var(--text-base);font-weight:500;color:var(--color-text-primary);text-align:left;cursor:pointer;}
+  .faq__q svg{flex:none;width:16px;height:16px;color:var(--color-text-muted);transition:transform var(--transition-normal);}
+  .faq__item.is-open .faq__q svg{transform:rotate(180deg);}
+  .faq__a{display:none;padding-bottom:var(--space-2xl);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.7;}
+  .faq__item.is-open .faq__a{display:block;}
+
+  /* CTA */
+  .pricing-cta{padding:var(--space-7xl) 0;text-align:center;}
+  .pricing-cta__box{background:var(--color-surface);border:1px solid var(--color-border-light);border-radius:var(--radius-2xl);padding:var(--space-6xl) var(--space-3xl);max-width:600px;margin:0 auto;}
+  .pricing-cta__title{font-family:var(--font-display);font-weight:500;font-size:clamp(24px,3.5vw,36px);line-height:1.15;letter-spacing:-.015em;color:var(--color-encre-douce);margin:0 0 var(--space-lg);}
+  .pricing-cta__sub{font-size:var(--text-base);color:var(--color-text-secondary);margin:0 0 var(--space-4xl);}
+
+  /* FOOTER */
+  .footer{padding:var(--space-6xl) 0 var(--space-4xl);border-top:1px solid var(--color-border-light);}
+  .footer__top{display:grid;grid-template-columns:1fr;gap:var(--space-4xl);margin-bottom:var(--space-4xl);}
+  .footer__tagline{font-size:var(--text-sm);color:var(--color-text-muted);margin:var(--space-sm) 0 0;}
+  .footer__col h4{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin:0 0 var(--space-lg);}
+  .footer__col ul li{margin-bottom:var(--space-md);}
+  .footer__col ul li a{font-size:var(--text-sm);color:var(--color-text-secondary);transition:color var(--transition-normal);}
+  .footer__col ul li a:hover{color:var(--color-text-primary)}
+  .footer__bottom{display:flex;flex-wrap:wrap;gap:var(--space-md);justify-content:space-between;padding-top:var(--space-3xl);border-top:1px solid var(--color-border-light);font-size:var(--text-xs);color:var(--color-text-muted);}
+
+  /* MEDIA */
+  @media(min-width:768px){
+    .nav__links{display:flex;}
+    .pricing-grid{grid-template-columns:repeat(3,1fr);}
+    .footer__top{grid-template-columns:2fr 1fr 1fr 1fr;}
+  }
+
+  /* ===== RTL (ar, he) ===== */
+  [dir="rtl"] .lang-select__menu{right:auto;left:0}
+  [dir="rtl"] .lang-select__item{text-align:right}
+  [dir="rtl"] .msg--user{flex-direction:row}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<!-- SEO / Meta -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://serenzer.com/pricing.html">
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/pricing.html">
+<link rel="alternate" hreflang="en" href="https://serenzer.com/en/pricing.html">
+<link rel="alternate" hreflang="de" href="https://serenzer.com/de/pricing.html">
+<link rel="alternate" hreflang="it" href="https://serenzer.com/it/pricing.html">
+<link rel="alternate" hreflang="es" href="https://serenzer.com/es/pricing.html">
+<link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/pricing.html">
+<link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/pricing.html">
+<link rel="alternate" hreflang="da" href="https://serenzer.com/da/pricing.html">
+<link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/pricing.html">
+<link rel="alternate" hreflang="no" href="https://serenzer.com/no/pricing.html">
+<link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/pricing.html">
+<link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/pricing.html">
+<link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/pricing.html">
+<link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/pricing.html">
+<link rel="alternate" hreflang="he" href="https://serenzer.com/he/pricing.html">
+<link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/pricing.html">
+<link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/pricing.html">
+<link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/pricing.html">
+<link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/pricing.html">
+<link rel="alternate" hreflang="x-default" href="https://serenzer.com/pricing.html">
+
+<!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:title" content="Serenzer — Assistant IA pour organiser projets et idées">
+<meta property="og:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://serenzer.com/pricing.html">
+<meta property="og:site_name" content="Serenzer">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="473">
+<meta property="og:image:alt" content="Serenzer">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="pt_PT">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Serenzer — Assistant IA pour organiser projets et idées">
+<meta name="twitter:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true">
+        <img src="/assets/serenzer_wave.png" alt="Serenzer">
+      </span>
+      <span class="brand__name">Serenzer</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/#features" data-i18n="nav_features">Fonctionnalités</a>
+      <a href="/#how" data-i18n="nav_how">Fonctionnement</a>
+      <a href="/#trust" data-i18n="nav_trust">Confiance</a>
+      <a href="/#languages" data-i18n="nav_languages">Langues</a>
+      <a href="pricing.html" class="is-active" data-i18n="nav_pricing">Tarifs</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+          <span id="langLabel">Français</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="lang-select__menu" role="listbox" id="langMenu"></ul>
+      </div>
+      <a class="btn btn--primary btn--sm" href="https://apps.serenzer.com" data-i18n="nav_login">Se connecter</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div class="container">
+    <span class="eyebrow" data-i18n="pricing_eyebrow">Tarifs</span>
+    <h1 class="pricing-hero__title" data-i18n="pricing_title">Un tarif simple, sans surprise.</h1>
+    <p class="pricing-hero__sub" data-i18n="pricing_subtitle">Commencez gratuitement. Passez à la formule qui vous convient quand vous êtes prêt.</p>
+  </div>
+</section>
+
+<!-- TOGGLE MENSUEL / ANNUEL -->
+<div class="pricing-toggle" id="billingToggle">
+  <span class="toggle-label is-active" id="labelMonthly" data-i18n="pricing_monthly">Mensuel</span>
+  <label class="toggle-switch">
+    <input type="checkbox" id="billingSwitch">
+    <span class="toggle-track"></span>
+    <span class="toggle-thumb"></span>
+  </label>
+  <span class="toggle-label" id="labelYearly" data-i18n="pricing_yearly">Annuel</span>
+  <span class="toggle-badge" data-i18n="pricing_save_badge">-34 %</span>
+</div>
+
+<!-- PLANS -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <!-- FREE -->
+      <div class="plan-card">
+        <div class="plan-name" data-i18n="pricing_free_name">Free</div>
+        <div class="plan-desc" data-i18n="pricing_free_desc">Découvrez Serenzer sans engagement.</div>
+        <div class="plan-price">
+          <div class="plan-price__amount">0 <span style="font-size:var(--text-xl)">€</span></div>
+          <div class="plan-price__period" data-i18n="pricing_free_period">Pour toujours gratuit</div>
+        </div>
+        <ul class="plan-features">
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_chat">Conversation IA illimitée</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_memory">Mémoire contextuelle</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_languages">19 langues</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_rituals_free">2 rituels / mois</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_challenges_free">2 challenges / mois</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
+            <span style="color:var(--color-text-muted)" data-i18n="pricing_feat_calendar">Calendrier intelligent</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
+            <span style="color:var(--color-text-muted)" data-i18n="pricing_feat_whatsapp">Accès WhatsApp*</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
+            <span style="color:var(--color-text-muted)" data-i18n="pricing_feat_organisation">Organisation personnelle</span>
+          </li>
+        </ul>
+        <a href="https://apps.serenzer.com" class="btn btn--secondary btn--full" data-i18n="pricing_free_cta">Commencer gratuitement</a>
+      </div>
+
+      <!-- PLUS -->
+      <div class="plan-card">
+        <div class="plan-name" data-i18n="pricing_plus_name">Plus</div>
+        <div class="plan-desc" data-i18n="pricing_plus_desc">Rituels, challenges, calendrier et WhatsApp.</div>
+        <div class="plan-price" id="plusPrice">
+          <div class="plan-price__amount"><span class="price-monthly">9,99</span><span class="price-yearly" style="display:none">79</span> <span style="font-size:var(--text-xl)">€</span></div>
+          <div class="plan-price__period price-monthly" data-i18n="pricing_per_month">/ mois</div>
+          <div class="plan-price__period price-yearly" style="display:none" data-i18n="pricing_per_year">/ an</div>
+          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_plus_monthly_equiv">soit 6,58 € / mois</div>
+          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 34 %</div>
+        </div>
+        <ul class="plan-features">
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_chat">Conversation IA illimitée</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_memory">Mémoire contextuelle</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_languages">19 langues</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_rituals_plus">5 rituels / mois</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_challenges_plus">5 challenges / mois</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_calendar">Calendrier intelligent</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_whatsapp">Accès WhatsApp*</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
+            <span style="color:var(--color-text-muted)" data-i18n="pricing_feat_organisation">Organisation personnelle</span>
+          </li>
+        </ul>
+        <a href="https://apps.serenzer.com" class="btn btn--secondary btn--full" data-i18n="pricing_paid_cta">Commencer</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card plan-card--featured">
+        <div class="plan-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z"/></svg>
+          <span data-i18n="pricing_premium_badge">Recommandé</span>
+        </div>
+        <div class="plan-name" data-i18n="pricing_premium_name">Premium</div>
+        <div class="plan-desc" data-i18n="pricing_premium_desc">L’offre complète avec l’Organisation personnelle.</div>
+        <div class="plan-price" id="premiumPrice">
+          <div class="plan-price__amount"><span class="price-monthly">14,99</span><span class="price-yearly" style="display:none">119</span> <span style="font-size:var(--text-xl)">€</span></div>
+          <div class="plan-price__period price-monthly" data-i18n="pricing_per_month">/ mois</div>
+          <div class="plan-price__period price-yearly" style="display:none" data-i18n="pricing_per_year">/ an</div>
+          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_premium_monthly_equiv">soit 9,92 € / mois</div>
+          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 34 %</div>
+        </div>
+        <ul class="plan-features">
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_chat">Conversation IA illimitée</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_memory">Mémoire contextuelle</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_languages">19 langues</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_rituals_premium">Rituels illimités</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_challenges_premium">Challenges illimités</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_calendar">Calendrier intelligent</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_whatsapp">Accès WhatsApp*</span>
+          </li>
+          <li>
+            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
+            <span data-i18n="pricing_feat_organisation">Organisation personnelle</span>
+          </li>
+        </ul>
+        <a href="https://apps.serenzer.com" class="btn btn--primary btn--full" data-i18n="pricing_paid_cta">Commencer</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:var(--space-3xl);font-size:var(--text-sm);color:var(--color-text-muted)" data-i18n="pricing_vat_note">Prix TTC. TVA applicable selon votre pays de résidence.</p>
+    <p style="text-align:center;margin-top:var(--space-sm);font-size:var(--text-sm);color:var(--color-text-muted)" data-i18n="pricing_whatsapp_note">* Accès WhatsApp disponible dans les pays éligibles.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow" data-i18n="pricing_faq_eyebrow">Questions fréquentes</span>
+      <h2 class="section__title" data-i18n="pricing_faq_title">Tout ce que vous devez savoir</h2>
+    </div>
+    <div class="faq__list">
+
+      <div class="faq__item">
+        <button class="faq__q">
+          <span data-i18n="pricing_faq_q1">Puis-je passer d’un plan à l’autre ?</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__a" data-i18n="pricing_faq_a1">Oui, à tout moment depuis votre espace abonnement. Le changement prend effet immédiatement et le prorata est appliqué automatiquement.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q">
+          <span data-i18n="pricing_faq_q2">Y a-t-il un engagement ?</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__a" data-i18n="pricing_faq_a2">Aucun engagement. Les abonnements mensuels et annuels peuvent être résiliés à tout moment. L’accès reste actif jusqu’à la fin de la période en cours.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q">
+          <span data-i18n="pricing_faq_q3">Le plan Free est-il vraiment gratuit ?</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__a" data-i18n="pricing_faq_a3">Oui, sans limite de durée. Aucune carte bancaire n’est requise pour créer un compte gratuit.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q">
+          <span data-i18n="pricing_faq_q4">Quels modes de paiement sont acceptés ?</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__a" data-i18n="pricing_faq_a4">Carte bancaire (Visa, Mastercard, American Express) via Stripe. Apple Pay et Google Pay sont également disponibles selon votre appareil.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q">
+          <span data-i18n="pricing_faq_q5">Qu’est-ce que l’Organisation personnelle ?</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq__a" data-i18n="pricing_faq_a5">L’Organisation personnelle est une interface dédiée à la gestion structurée de vos projets, tâches et documents, en complément de la conversation.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="pricing-cta">
+  <div class="container">
+    <div class="pricing-cta__box">
+      <h2 class="pricing-cta__title" data-i18n="pricing_cta_title">Prêt à commencer ?</h2>
+      <p class="pricing-cta__sub" data-i18n="pricing_cta_sub">Créez votre compte gratuitement. Aucune carte bancaire requise.</p>
+      <a href="https://apps.serenzer.com" class="btn btn--primary btn--lg" data-i18n="pricing_free_cta">Commencer gratuitement</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <img src="/assets/serenzer_wave.png" alt="Serenzer">
+          </span>
+          <span class="brand__name">Serenzer</span>
+        </div>
+        <p class="footer__tagline" data-i18n="footer_tagline">Idées, projets, calendrier, suivi</p>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_product">Produit</h4>
+        <ul>
+          <li><a href="/#features" data-i18n="nav_features">Fonctionnalités</a></li>
+          <li><a href="/#how" data-i18n="nav_how">Fonctionnement</a></li>
+          <li><a href="/#languages" data-i18n="nav_languages">Langues</a></li>
+          <li><a href="pricing.html" data-i18n="nav_pricing">Tarifs</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_company">Société</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com" data-i18n="nav_login">Se connecter</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Équipe</a></li>
+          <li><a href="Contact.html" data-i18n="footer_legal_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_legal">Légal</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_copy">© 2026 Serenzer. Tous droits réservés.</span>
+      <span>apps.serenzer.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/i18n.js"></script>
+<script>
+(function(){
+  var LANGS = [{code:'fr', label:'Français'},{code:'en', label:'English'},{code:'de', label:'Deutsch'},{code:'it', label:'Italiano'},{code:'es', label:'Español'},{code:'nl', label:'Nederlands'},{code:'pt', label:'Português'},{code:'da', label:'Dansk'},{code:'sv', label:'Svenska'},{code:'no', label:'Norsk'},{code:'pl', label:'Polski'},{code:'ru', label:'Русский'},{code:'tr', label:'Türkçe'},{code:'ar', label:'العربية'},{code:'he', label:'עברית'},{code:'hi', label:'हिन्दी'},{code:'ja', label:'日本語'},{code:'ko', label:'한국어'},{code:'zh', label:'中文'}];
+  var pathMatch=window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
+  var initial=pathMatch?pathMatch[1]:'fr';
+
+  function applyI18n(lang){
+    var dict=window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr;
+    document.documentElement.setAttribute('lang',lang);
+    document.documentElement.setAttribute('dir', (['ar','he'].indexOf(lang) >= 0) ? 'rtl' : 'ltr');
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key=el.getAttribute('data-i18n');
+      if(dict[key]!==undefined&&typeof dict[key]==='string') el.textContent=dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      var attr=el.getAttribute('data-i18n-attr');
+      var key=el.getAttribute('data-i18n');
+      if(dict[key]!==undefined) el.setAttribute(attr,dict[key]);
+    });
+    var lbl=LANGS.find(function(l){return l.code===lang;});
+    document.getElementById('langLabel').textContent=lbl?lbl.label:'Français';
+    try{localStorage.setItem('serenzer_lang',lang);}catch(e){}
+  }
+
+  // Lang menu
+  var menu=document.getElementById('langMenu');
+  LANGS.forEach(function(l){
+    var li=document.createElement('li');
+    var btn=document.createElement('button');
+    btn.className='lang-select__item'+(l.code===initial?' is-active':'');
+    btn.setAttribute('role','option');
+    btn.innerHTML=l.label+'<svg class="lang-select__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg>';
+    btn.addEventListener('click',function(){
+      var root=window.location.origin;
+      if(l.code==='fr') window.location.href=root+'/pricing.html';
+      else window.location.href=root+'/'+l.code+'/pricing.html';
+    });
+    li.appendChild(btn);
+    menu.appendChild(li);
+  });
+
+  var langSelect=document.getElementById('langSelect');
+  var langBtn=document.getElementById('langBtn');
+  langBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=langSelect.classList.toggle('is-open');
+    langBtn.setAttribute('aria-expanded',open);
+  });
+  document.addEventListener('click',function(){
+    langSelect.classList.remove('is-open');
+    langBtn.setAttribute('aria-expanded','false');
+  });
+
+  // Billing toggle
+  var sw=document.getElementById('billingSwitch');
+  var lblM=document.getElementById('labelMonthly');
+  var lblY=document.getElementById('labelYearly');
+  sw.addEventListener('change',function(){
+    var yearly=sw.checked;
+    lblM.classList.toggle('is-active',!yearly);
+    lblY.classList.toggle('is-active',yearly);
+    document.querySelectorAll('.price-monthly').forEach(function(el){el.style.display=yearly?'none':'';});
+    document.querySelectorAll('.price-yearly').forEach(function(el){el.style.display=yearly?'':'none';});
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq__item').forEach(function(item){
+    item.querySelector('.faq__q').addEventListener('click',function(){
+      var open=item.classList.toggle('is-open');
+      item.querySelector('.faq__q').setAttribute('aria-expanded',open);
+    });
+  });
+
+  // Nav scroll
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('is-scrolled',window.scrollY>10);
+  },{passive:true});
+
+  applyI18n(initial);
+})();
+</script>
+<!-- Banniere de consentement Serenzer -->
+<style>
+  .srz-consent{
+    position:fixed; inset-inline:0; bottom:0; z-index:9999;
+    background:var(--color-surface,#FFFFFF);
+    border-top:1px solid var(--color-pierre-pale,#D9D4CC);
+    box-shadow:0 -4px 24px rgba(47,58,63,.10);
+    padding:20px 24px; display:none;
+    font-family:var(--font-body,'Inter',system-ui,sans-serif);
+  }
+  .srz-consent.is-open{display:block}
+  .srz-consent__inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+  .srz-consent__title{
+    font-family:var(--font-display,'Fraunces',Georgia,serif);
+    font-size:1.05rem;font-weight:600;margin:0 0 6px;
+    color:var(--color-encre-douce,#2F3A3F);
+  }
+  .srz-consent__text{margin:0;font-size:.9rem;line-height:1.55;color:var(--color-cendre-tiede,#4E4A46)}
+  .srz-consent__link{color:var(--color-sauge-douce,#8FA89B);text-decoration:underline}
+  .srz-consent__actions{display:flex;flex-wrap:wrap;gap:12px}
+  .srz-consent__btn{
+    flex:1 1 160px;min-height:44px;padding:11px 22px;
+    border-radius:999px;border:1px solid var(--color-sauge-douce,#8FA89B);
+    font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;
+    transition:background .2s,color .2s;
+  }
+  .srz-consent__btn--accept{background:var(--color-sauge-douce,#8FA89B);color:#fff}
+  .srz-consent__btn--accept:hover{background:var(--color-accent-hover,#7A9587)}
+  .srz-consent__btn--refuse{background:transparent;color:var(--color-encre-douce,#2F3A3F)}
+  .srz-consent__btn--refuse:hover{background:var(--color-argile-clair,#EFE9DF)}
+  @media (min-width:760px){
+    .srz-consent__inner{flex-direction:row;align-items:center;gap:32px}
+    .srz-consent__body{flex:1}
+    .srz-consent__actions{flex:0 0 auto}
+    .srz-consent__btn{flex:0 0 auto;min-width:150px}
+  }
+</style>
+<div class="srz-consent" id="srzConsent" role="dialog" aria-live="polite">
+  <div class="srz-consent__inner">
+    <div class="srz-consent__body">
+      <p class="srz-consent__title" data-srz="cookie_title"></p>
+      <p class="srz-consent__text">
+        <span data-srz="cookie_text"></span>
+        <a class="srz-consent__link" id="srzMore" href="#" target="_blank" rel="noopener" data-srz="cookie_more"></a>
+      </p>
+    </div>
+    <div class="srz-consent__actions">
+      <button type="button" class="srz-consent__btn srz-consent__btn--refuse" id="srzRefuse" data-srz="cookie_refuse"></button>
+      <button type="button" class="srz-consent__btn srz-consent__btn--accept" id="srzAccept" data-srz="cookie_accept"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var SUP=['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+  var KEY='serenzer_consent';
+  var m=window.location.pathname.match(/^\/([a-z]{2})(\/|$)/);
+  var lang=(m&&SUP.indexOf(m[1])>=0)?m[1]:'fr';
+  var D=(window.SERENZER_I18N&&(window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr))||{};
+  var box=document.getElementById('srzConsent');
+  if(!box) return;
+  box.querySelectorAll('[data-srz]').forEach(function(el){
+    var v=D[el.getAttribute('data-srz')];
+    if(v!=null) el.textContent=v;
+  });
+  var more=document.getElementById('srzMore');
+  if(more) more.href='https://apps.serenzer.com/cookies?lang='+lang;
+  function read(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem(KEY,v); }catch(e){} }
+  function open(){ box.classList.add('is-open'); }
+  function close(){ box.classList.remove('is-open'); }
+  function decide(v){
+    write(v);
+    if(typeof gtag==='function'){
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+    }
+    if(v==='granted'&&window.dataLayer){ window.dataLayer.push({event:'srz_consent_granted'}); }
+    close();
+  }
+  document.getElementById('srzAccept').addEventListener('click',function(){decide('granted');});
+  document.getElementById('srzRefuse').addEventListener('click',function(){decide('denied');});
+  if(!read()) open();
+  var label=D.cookie_manage||'Cookies';
+  var host=document.querySelector('.footer__links, .footer__col:last-child ul, .footer__bottom');
+  if(host){
+    var a=document.createElement('a');
+    a.href='#'; a.className='footer__link'; a.textContent=label; a.style.cursor='pointer';
+    a.addEventListener('click',function(e){ e.preventDefault(); open(); });
+    if(host.tagName==='UL'){ var li=document.createElement('li'); li.appendChild(a); host.appendChild(li); }
+    else host.appendChild(a);
+  }
+})();
+</script>
+
+</body>
+</html>

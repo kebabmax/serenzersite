@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenzer — Coach de vie & assistant personnel IA</title>
+<meta name="description" content="Serenzer combine coaching de vie et assistance quotidienne par IA. Développement personnel, gestion de projets, recherche d'emploi, organisation — dans 22 langues.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lin-calme:#F8F6F2;--encre-douce:#2F3A3F;--argile-clair:#EFE9DF;--pierre-pale:#D9D4CC;--cendre-tiede:#4E4A46;--sauge-douce:#8FA89B;--sable-chaud:#D1B38B;--mousse-legere:#A6C3B3;--sauge-deep:#6E8E7A;--sauge-light:rgba(143,168,155,.12);--sable-light:rgba(209,179,139,.15);--font-display:'Fraunces',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--space-xs:.5rem;--space-sm:1rem;--space-md:1.5rem;--space-lg:3rem;--space-xl:5rem;--space-2xl:8rem;--max-width:1200px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-body);color:var(--encre-douce);background-color:var(--lin-calme);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;line-height:1.2;letter-spacing:-.01em}h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.8rem,3.5vw,2.8rem)}h3{font-size:clamp(1.2rem,2vw,1.5rem);font-weight:500}p{font-size:clamp(.95rem,1.1vw,1.1rem);color:var(--cendre-tiede);max-width:640px}.text-center{text-align:center}.text-center p{margin-left:auto;margin-right:auto}.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-md)}section{padding:var(--space-xl) 0}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(143,168,155,.4)}70%{box-shadow:0 0 0 12px rgba(143,168,155,0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+/* Lang Switcher */
+.lang-switcher{position:relative;display:flex;align-items:center;margin-left:.5rem}.lang-switcher__current{display:flex;align-items:center;gap:.35rem;padding:.35rem .7rem;border:1px solid var(--pierre-pale);border-radius:50px;font-size:.8rem;font-weight:500;color:var(--cendre-tiede);cursor:pointer;background:transparent;transition:all .3s;font-family:var(--font-body)}.lang-switcher__current:hover{border-color:var(--sauge-douce);color:var(--sauge-douce)}.lang-switcher__current svg{width:12px;height:12px;transition:transform .3s}.lang-switcher.open .lang-switcher__current svg{transform:rotate(180deg)}.lang-switcher__dropdown{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--argile-clair);border-radius:12px;box-shadow:0 8px 24px rgba(47,58,63,.1);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s;z-index:200;min-width:130px}.lang-switcher.open .lang-switcher__dropdown{opacity:1;visibility:visible;transform:translateY(0)}.lang-switcher__option{display:block;width:100%;padding:.55rem 1rem;border:none;background:none;font-family:var(--font-body);font-size:.82rem;color:var(--cendre-tiede);cursor:pointer;text-align:left;transition:all .2s}.lang-switcher__option:hover{background:var(--sauge-light);color:var(--sauge-deep)}.lang-switcher__option.active{color:var(--sauge-deep);font-weight:600;background:var(--sauge-light)}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--space-sm) 0;transition:all .4s;background:transparent}.nav.scrolled{background:rgba(248,246,242,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--pierre-pale)}.nav__inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-md);display:flex;align-items:center;justify-content:space-between}.nav__brand{display:flex;align-items:center;gap:.5rem;font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--encre-douce)}.nav__logo{height:36px;width:auto}.nav__links{display:flex;gap:var(--space-md);align-items:center}.nav__link{font-size:.9rem;font-weight:500;color:var(--cendre-tiede);transition:color .3s;position:relative}.nav__link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--sauge-douce);transition:width .3s}.nav__link:hover{color:var(--encre-douce)}.nav__link:hover::after{width:100%}.nav__cta{font-size:.85rem;font-weight:500;padding:.6rem 1.4rem;background:var(--sauge-douce);color:#fff;border-radius:50px;transition:all .3s}.nav__cta:hover{background:var(--sauge-deep);transform:translateY(-1px)}.nav__mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem}.nav__mobile-toggle span{display:block;width:22px;height:2px;background:var(--encre-douce);margin:5px 0;transition:all .3s}
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}.hero__bg{position:absolute;inset:0;z-index:0}.hero__bg::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(143,168,155,.15) 0%,transparent 70%);animation:breathe 8s ease-in-out infinite}.hero__bg::after{content:'';position:absolute;bottom:-10%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(209,179,139,.12) 0%,transparent 70%);animation:breathe 10s ease-in-out infinite 1s}.hero__content{position:relative;z-index:1;max-width:var(--max-width);margin:0 auto;padding:0 var(--space-md);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center}.hero__text{animation:fadeUp 1s ease forwards}.hero__tag{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;background:var(--sauge-light);border:1px solid rgba(143,168,155,.25);border-radius:50px;font-size:.8rem;font-weight:500;color:var(--sauge-deep);margin-bottom:var(--space-md);letter-spacing:.03em;text-transform:uppercase}.hero__tag-dot{width:6px;height:6px;border-radius:50%;background:var(--sauge-douce);animation:pulse 2s ease-in-out infinite}.hero__title{margin-bottom:var(--space-md);color:var(--encre-douce)}.hero__title em{font-style:italic;color:var(--sauge-douce)}.hero__subtitle{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.8;margin-bottom:var(--space-lg)}.hero__actions{display:flex;gap:var(--space-sm);align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.95rem;font-weight:500;padding:.9rem 2rem;border-radius:50px;border:none;cursor:pointer;transition:all .3s;text-decoration:none}.btn--primary{background:var(--sauge-douce);color:#fff;box-shadow:0 4px 20px rgba(143,168,155,.3)}.btn--primary:hover{background:var(--sauge-deep);transform:translateY(-2px);box-shadow:0 6px 30px rgba(143,168,155,.4)}.btn--outline{background:transparent;color:var(--encre-douce);border:1.5px solid var(--pierre-pale)}.btn--outline:hover{border-color:var(--sauge-douce);color:var(--sauge-douce)}
+.hero__visual{display:flex;justify-content:center;align-items:center;animation:fadeIn 1.2s ease .3s forwards;opacity:0}.hero__mockup{width:100%;max-width:380px;background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(47,58,63,.08),0 4px 20px rgba(47,58,63,.04);overflow:hidden;animation:float 6s ease-in-out infinite}.mockup__header{padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--argile-clair)}.mockup__brand{font-family:var(--font-display);font-size:1.1rem;font-weight:500;color:var(--encre-douce)}.mockup__avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--sauge-douce),var(--mousse-legere))}.mockup__chat{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;min-height:300px}.mockup__msg{max-width:85%;padding:.85rem 1.1rem;border-radius:16px;font-size:.85rem;line-height:1.6}.mockup__msg--ai{background:#fff;border:1px solid var(--argile-clair);align-self:flex-start;color:var(--encre-douce);border-bottom-left-radius:4px}.mockup__msg--user{background:var(--argile-clair);align-self:flex-end;color:var(--cendre-tiede);border-bottom-right-radius:4px}.mockup__input{padding:1rem 1.5rem;border-top:1px solid var(--argile-clair);display:flex;align-items:center;gap:.75rem}.mockup__input-field{flex:1;padding:.6rem 1rem;border:1px solid var(--argile-clair);border-radius:50px;font-size:.8rem;color:var(--pierre-pale);background:var(--lin-calme)}.mockup__input-send{width:34px;height:34px;border-radius:50%;background:var(--sauge-douce);display:flex;align-items:center;justify-content:center;flex-shrink:0}.mockup__input-send svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* Dual Role */
+.dual-role{padding:var(--space-lg) 0;background:#fff;border-top:1px solid var(--argile-clair);border-bottom:1px solid var(--argile-clair)}.dual-role__grid{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--space-lg);align-items:center}.dual-role__card{padding:var(--space-md) var(--space-lg);border-radius:20px;text-align:center}.dual-role__card--coach{background:linear-gradient(145deg,rgba(143,168,155,.08),rgba(166,195,179,.04));border:1px solid rgba(143,168,155,.15)}.dual-role__card--assistant{background:linear-gradient(145deg,rgba(209,179,139,.08),rgba(209,179,139,.04));border:1px solid rgba(209,179,139,.15)}.dual-role__icon{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-sm)}.dual-role__card--coach .dual-role__icon{background:rgba(143,168,155,.15)}.dual-role__card--assistant .dual-role__icon{background:rgba(209,179,139,.15)}.dual-role__title{font-family:var(--font-display);font-size:1.3rem;font-weight:500;margin-bottom:.5rem;color:var(--encre-douce)}.dual-role__desc{font-size:.9rem;color:var(--cendre-tiede);line-height:1.7;max-width:none}.dual-role__separator{display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--pierre-pale);font-family:var(--font-display);font-size:1.1rem;font-weight:400}.dual-role__separator::before,.dual-role__separator::after{content:'';width:1px;height:40px;background:var(--pierre-pale)}.dual-role__tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin-top:var(--space-sm)}.dual-role__tag{padding:.2rem .65rem;border-radius:50px;font-size:.75rem;font-weight:500;background:rgba(255,255,255,.7);color:var(--cendre-tiede);border:1px solid rgba(0,0,0,.04)}
+/* Metrics */
+.metrics{padding:var(--space-lg) 0}.metrics__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-md);text-align:center}.metrics__item{padding:var(--space-sm)}.metrics__number{font-family:var(--font-display);font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--sauge-douce);margin-bottom:.3rem}.metrics__label{font-size:.85rem;color:var(--cendre-tiede)}
+/* Showcase */
+.showcase{padding:var(--space-2xl) 0}.showcase__intro{margin-bottom:var(--space-xl)}.showcase__intro p{font-size:1.1rem;line-height:1.8}.showcase__feature{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center;margin-bottom:var(--space-2xl)}.showcase__feature:last-child{margin-bottom:0}.showcase__feature--reverse{direction:rtl}.showcase__feature--reverse>*{direction:ltr}.showcase__label{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:var(--space-sm)}.showcase__label--coach{background:var(--sauge-light);color:var(--sauge-deep)}.showcase__label--assistant{background:var(--sable-light);color:#A0845A}.showcase__label--scout{background:rgba(110,142,122,.12);color:var(--sauge-deep)}.showcase__label--projects{background:rgba(166,195,179,.15);color:#5A8A6E}.showcase__title{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:500;margin-bottom:var(--space-sm);color:var(--encre-douce)}.showcase__desc{font-size:1rem;color:var(--cendre-tiede);line-height:1.8;margin-bottom:var(--space-md);max-width:none}.showcase__bullets{list-style:none;display:flex;flex-direction:column;gap:.6rem}.showcase__bullets li{display:flex;align-items:flex-start;gap:.6rem;font-size:.9rem;color:var(--cendre-tiede);line-height:1.6}.showcase__bullets li::before{content:'';flex-shrink:0;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--sauge-light) url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E8E7A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center/12px}
+.showcase__visual{display:flex;justify-content:center;align-items:center}.showcase__card{width:100%;max-width:440px;background:#fff;border-radius:20px;box-shadow:0 12px 40px rgba(47,58,63,.06),0 2px 12px rgba(47,58,63,.03);overflow:hidden;border:1px solid var(--argile-clair)}.showcase__card-header{padding:1rem 1.2rem;display:flex;align-items:center;gap:.6rem;border-bottom:1px solid var(--argile-clair);background:rgba(248,246,242,.5)}.showcase__card-dot{width:8px;height:8px;border-radius:50%}.showcase__card-dot--green{background:var(--sauge-douce)}.showcase__card-dot--sand{background:var(--sable-chaud)}.showcase__card-dot--grey{background:var(--pierre-pale)}.showcase__card-title{font-size:.8rem;font-weight:500;color:var(--cendre-tiede);margin-left:.4rem}.showcase__card-body{padding:1.2rem}
+.sc-conversations .sc-msg{padding:.7rem 1rem;border-radius:14px;font-size:.82rem;line-height:1.5;margin-bottom:.6rem;max-width:88%}.sc-msg--ai{background:var(--lin-calme);color:var(--encre-douce);border:1px solid var(--argile-clair);border-bottom-left-radius:4px}.sc-msg--user{background:var(--sauge-light);color:var(--encre-douce);margin-left:auto;border-bottom-right-radius:4px}.sc-msg--ai-action{background:linear-gradient(135deg,rgba(143,168,155,.08),rgba(166,195,179,.06));border:1px solid rgba(143,168,155,.2);border-radius:14px;padding:.7rem 1rem;font-size:.82rem;line-height:1.5;margin-bottom:.6rem;color:var(--sauge-deep)}.sc-msg--ai-action strong{color:var(--encre-douce);font-weight:600}
+.sc-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.sc-dash-item{padding:.8rem;border-radius:12px;background:var(--lin-calme);border:1px solid var(--argile-clair)}.sc-dash-label{font-size:.7rem;color:var(--pierre-pale);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}.sc-dash-value{font-family:var(--font-display);font-size:1.2rem;font-weight:500;color:var(--encre-douce)}.sc-dash-bar{height:4px;border-radius:2px;background:var(--argile-clair);margin-top:.4rem;overflow:hidden}.sc-dash-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--sauge-douce),var(--mousse-legere))}
+.sc-scout-item{padding:.8rem;border-radius:12px;background:var(--lin-calme);border:1px solid var(--argile-clair);margin-bottom:.6rem}.sc-scout-item:last-child{margin-bottom:0}.sc-scout-title{font-size:.85rem;font-weight:600;color:var(--encre-douce);margin-bottom:.2rem}.sc-scout-meta{font-size:.75rem;color:var(--pierre-pale);margin-bottom:.4rem}.sc-scout-score{display:inline-flex;align-items:center;gap:.3rem;padding:.15rem .5rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(143,168,155,.12);color:var(--sauge-deep)}
+.sc-project-item{display:flex;align-items:center;gap:.8rem;padding:.7rem 0;border-bottom:1px solid var(--argile-clair)}.sc-project-item:last-child{border-bottom:none}.sc-project-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--pierre-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center}.sc-project-check--done{background:var(--sauge-douce);border-color:var(--sauge-douce)}.sc-project-check--done svg{stroke:#fff}.sc-project-text{flex:1;font-size:.82rem;color:var(--encre-douce)}.sc-project-text--done{text-decoration:line-through;color:var(--pierre-pale)}.sc-project-due{font-size:.7rem;color:var(--pierre-pale)}.sc-project-progress{margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--argile-clair);display:flex;align-items:center;gap:.8rem}.sc-project-progress-label{font-size:.75rem;color:var(--cendre-tiede);white-space:nowrap}.sc-project-progress-bar{flex:1;height:6px;border-radius:3px;background:var(--argile-clair);overflow:hidden}.sc-project-progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--sable-chaud),#C4A070)}
+/* Philosophy */
+.philosophy{padding:var(--space-2xl) 0;background:#fff}.philosophy__intro{margin-bottom:var(--space-xl)}.philosophy__intro p{font-size:1.1rem;line-height:1.8}.spheres{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}.sphere{padding:var(--space-lg) var(--space-md);border-radius:20px;transition:transform .4s,box-shadow .4s}.sphere:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(47,58,63,.06)}.sphere--etre-soi{background:linear-gradient(160deg,rgba(143,168,155,.08),rgba(166,195,179,.06));border:1px solid rgba(143,168,155,.15)}.sphere--etre-relation{background:linear-gradient(160deg,rgba(209,179,139,.1),rgba(209,179,139,.05));border:1px solid rgba(209,179,139,.2)}.sphere--etre-ensemble{background:linear-gradient(160deg,rgba(166,195,179,.1),rgba(143,168,155,.05));border:1px solid rgba(166,195,179,.2)}.sphere__icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-md)}.sphere--etre-soi .sphere__icon{background:rgba(143,168,155,.15)}.sphere--etre-relation .sphere__icon{background:rgba(209,179,139,.15)}.sphere--etre-ensemble .sphere__icon{background:rgba(166,195,179,.15)}.sphere__subtitle{font-size:.85rem;font-weight:500;color:var(--sauge-douce);margin-bottom:.3rem;letter-spacing:.02em}.sphere__title{font-family:var(--font-display);font-size:1.3rem;font-weight:500;margin-bottom:.75rem;color:var(--encre-douce)}.sphere__desc{font-size:.9rem;color:var(--cendre-tiede);line-height:1.7;margin-bottom:var(--space-sm);max-width:none}.sphere__dimensions{display:flex;flex-wrap:wrap;gap:.4rem}.sphere__dim-tag{padding:.25rem .7rem;border-radius:50px;font-size:.75rem;font-weight:500;background:rgba(255,255,255,.7);color:var(--cendre-tiede);border:1px solid rgba(0,0,0,.04)}
+/* How */
+.how-it-works{padding:var(--space-2xl) 0}.how__intro{margin-bottom:var(--space-xl)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);position:relative}.steps::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--pierre-pale),var(--pierre-pale),transparent)}.step{text-align:center;position:relative}.step__number{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-md);font-family:var(--font-display);font-size:1.2rem;font-weight:500;background:var(--lin-calme);border:2px solid var(--sauge-douce);color:var(--sauge-douce);position:relative;z-index:1;transition:all .3s}.step:hover .step__number{background:var(--sauge-douce);color:#fff}.step__title{font-family:var(--font-display);font-size:1.1rem;font-weight:500;margin-bottom:.5rem;color:var(--encre-douce)}.step__desc{font-size:.85rem;color:var(--cendre-tiede);line-height:1.6;max-width:none}
+/* Trust */
+.trust{padding:var(--space-xl) 0;background:var(--encre-douce);color:#fff;position:relative;overflow:hidden}.trust::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(143,168,155,.1),transparent 70%)}.trust__inner{position:relative;z-index:1}.trust__title{color:#fff;margin-bottom:var(--space-md)}.trust__subtitle{color:rgba(255,255,255,.65);font-size:1.05rem;line-height:1.8;margin-bottom:var(--space-lg);max-width:600px;margin-left:auto;margin-right:auto}.trust__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md)}.trust__item{padding:var(--space-md);border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);transition:background .3s}.trust__item:hover{background:rgba(255,255,255,.1)}.trust__item-icon{margin-bottom:var(--space-sm)}.trust__item-title{font-family:var(--font-display);font-size:1.05rem;font-weight:500;margin-bottom:.4rem;color:#fff}.trust__item-desc{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;max-width:none}
+/* Multi */
+.multilingual{padding:var(--space-2xl) 0;background:#fff;text-align:center}.multilingual__intro{margin-bottom:var(--space-lg)}.multilingual__intro p{margin-left:auto;margin-right:auto}.languages{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;max-width:800px;margin:0 auto}.lang-tag{padding:.5rem 1.1rem;border-radius:50px;font-size:.85rem;background:var(--lin-calme);border:1px solid var(--argile-clair);color:var(--cendre-tiede);transition:all .3s}.lang-tag:hover{border-color:var(--sauge-douce);color:var(--sauge-douce);background:var(--sauge-light)}
+/* CTA */
+.cta{padding:var(--space-2xl) 0;text-align:center;position:relative;overflow:hidden}.cta__bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(143,168,155,.1),transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(209,179,139,.08),transparent 50%)}.cta__content{position:relative;z-index:1}.cta__title{margin-bottom:var(--space-sm)}.cta__desc{font-size:1.1rem;line-height:1.8;margin:0 auto var(--space-lg)}
+/* Footer */
+.footer{padding:var(--space-lg) 0 var(--space-md);border-top:1px solid var(--argile-clair)}.footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-sm)}.footer__brand{font-family:var(--font-display);font-size:1.2rem;font-weight:500;color:var(--encre-douce)}.footer__tagline{font-size:.8rem;color:var(--pierre-pale);margin-top:.25rem}.footer__links{display:flex;gap:var(--space-md)}.footer__link{font-size:.85rem;color:var(--cendre-tiede);transition:color .3s;cursor:pointer}.footer__link:hover{color:var(--sauge-douce)}.footer__bottom{margin-top:var(--space-md);padding-top:var(--space-sm);border-top:1px solid var(--argile-clair);text-align:center}.footer__copy{font-size:.8rem;color:var(--pierre-pale)}
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(47,58,63,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .35s;padding:var(--space-md)}.modal-overlay.active{opacity:1;visibility:visible}.modal{background:#fff;border-radius:24px;box-shadow:0 24px 80px rgba(47,58,63,.15);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;transform:translateY(20px) scale(.97);transition:transform .35s;position:relative}.modal-overlay.active .modal{transform:translateY(0) scale(1)}.modal__header{padding:1.8rem 2rem 0;display:flex;align-items:flex-start;justify-content:space-between}.modal__title{font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--encre-douce)}.modal__subtitle{font-size:.9rem;color:var(--cendre-tiede);margin-top:.3rem;line-height:1.6}.modal__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--lin-calme);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:1rem;transition:all .2s}.modal__close:hover{background:var(--argile-clair)}.modal__close svg{width:16px;height:16px;stroke:var(--cendre-tiede);stroke-width:2;fill:none;stroke-linecap:round}.modal__body{padding:1.5rem 2rem 2rem}.form-group{margin-bottom:1.2rem}.form-group label{display:block;font-size:.82rem;font-weight:500;color:var(--encre-douce);margin-bottom:.4rem}.form-group input,.form-group textarea,.form-group select{width:100%;padding:.7rem 1rem;border:1.5px solid var(--argile-clair);border-radius:12px;font-family:var(--font-body);font-size:.9rem;color:var(--encre-douce);background:var(--lin-calme);transition:border-color .3s;outline:none}.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--sauge-douce)}.form-group textarea{resize:vertical;min-height:120px}.form-group input::placeholder,.form-group textarea::placeholder{color:var(--pierre-pale)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.modal__submit{width:100%;padding:.85rem;border:none;border-radius:50px;background:var(--sauge-douce);color:#fff;font-family:var(--font-body);font-size:.95rem;font-weight:500;cursor:pointer;transition:all .3s;margin-top:.5rem}.modal__submit:hover{background:var(--sauge-deep);transform:translateY(-1px);box-shadow:0 4px 16px rgba(143,168,155,.3)}.modal__success{display:none;text-align:center;padding:2rem 0}.modal__success.show{display:block}.modal__success-icon{width:64px;height:64px;border-radius:50%;background:var(--sauge-light);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}.modal__success-title{font-family:var(--font-display);font-size:1.3rem;color:var(--encre-douce);margin-bottom:.5rem}.modal__success-desc{font-size:.9rem;color:var(--cendre-tiede);max-width:none}
+/* Responsive */
+@media(max-width:1024px){.hero__content{grid-template-columns:1fr;text-align:center;gap:var(--space-lg)}.hero__actions{justify-content:center}.hero__subtitle{margin-left:auto;margin-right:auto}.dual-role__grid{grid-template-columns:1fr;gap:var(--space-md)}.dual-role__separator{flex-direction:row}.dual-role__separator::before,.dual-role__separator::after{width:40px;height:1px}.metrics__grid{grid-template-columns:repeat(3,1fr)}.showcase__feature,.showcase__feature--reverse{grid-template-columns:1fr;direction:ltr}.showcase__feature--reverse>*{direction:ltr}.showcase__visual{order:-1}.spheres{grid-template-columns:1fr;gap:var(--space-md)}.steps{grid-template-columns:repeat(2,1fr)}.steps::before{display:none}.trust__grid{grid-template-columns:1fr}}
+@media(max-width:768px){section{padding:var(--space-lg) 0}.nav__links{display:none}.nav__mobile-toggle{display:block}.nav__links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(248,246,242,.97);backdrop-filter:blur(20px);padding:var(--space-md);border-bottom:1px solid var(--argile-clair);gap:.75rem;text-align:center}.hero{min-height:auto;padding-top:120px;padding-bottom:var(--space-lg)}.hero__mockup{max-width:320px}.metrics__grid{grid-template-columns:repeat(2,1fr);gap:var(--space-sm)}.steps{grid-template-columns:1fr;gap:var(--space-md)}.footer__inner{flex-direction:column;text-align:center}.form-row{grid-template-columns:1fr}.modal{border-radius:20px}.modal__header{padding:1.5rem 1.5rem 0}.modal__body{padding:1.2rem 1.5rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+<a href="#" class="nav__brand"><img src="https://apps.serenzer.com/static/serenzer_wave.png" alt="Serenzer" class="nav__logo"> Serenzer</a>
+<div class="nav__links" id="navLinks">
+  <a href="#features" class="nav__link" data-i18n="nav_features"></a>
+  <a href="#philosophy" class="nav__link" data-i18n="nav_philosophy"></a>
+  <a href="#how" class="nav__link" data-i18n="nav_how"></a>
+  <a href="#languages" class="nav__link" data-i18n="nav_languages"></a>
+  <div class="lang-switcher" id="langSwitcher">
+    <button class="lang-switcher__current" id="langBtn"><span id="langLabel">FR</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="lang-switcher__dropdown" id="langDropdown">
+<button class="lang-switcher__option" data-lang="fr">Français</button>
+<button class="lang-switcher__option" data-lang="en">English</button>
+<button class="lang-switcher__option" data-lang="de">Deutsch</button>
+<button class="lang-switcher__option" data-lang="it">Italiano</button>
+<button class="lang-switcher__option" data-lang="es">Español</button>
+<button class="lang-switcher__option" data-lang="nl">Nederlands</button>
+    </div>
+  </div>
+  <a href="https://apps.serenzer.com" class="nav__cta" data-i18n="nav_cta"></a>
+</div>
+<button class="nav__mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero" id="hero"><div class="hero__bg"></div><div class="hero__content">
+<div class="hero__text">
+  <div class="hero__tag"><span class="hero__tag-dot"></span><span data-i18n="hero_tag"></span></div>
+  <h1 class="hero__title" data-i18n-html="hero_title"></h1>
+  <p class="hero__subtitle" data-i18n="hero_subtitle"></p>
+  <div class="hero__actions">
+    <a href="https://apps.serenzer.com" class="btn btn--primary" data-i18n-html="hero_cta_primary"></a>
+    <a href="#features" class="btn btn--outline" data-i18n="hero_cta_secondary"></a>
+  </div>
+</div>
+<div class="hero__visual"><div class="hero__mockup">
+  <div class="mockup__header"><span class="mockup__brand">Serenzer</span><div class="mockup__avatar"></div></div>
+  <div class="mockup__chat">
+    <div class="mockup__msg mockup__msg--ai" data-i18n="mockup_ai_1"></div>
+    <div class="mockup__msg mockup__msg--user" data-i18n="mockup_user_1"></div>
+    <div class="mockup__msg mockup__msg--ai" data-i18n="mockup_ai_2"></div>
+  </div>
+  <div class="mockup__input"><div class="mockup__input-field" data-i18n="mockup_placeholder"></div><div class="mockup__input-send"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/></svg></div></div>
+</div></div>
+</div></section>
+
+<!-- DUAL ROLE -->
+<section class="dual-role"><div class="container"><div class="dual-role__grid">
+<div class="dual-role__card dual-role__card--coach reveal">
+  <div class="dual-role__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6E8E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+  <h3 class="dual-role__title" data-i18n="dual_coach_title"></h3>
+  <p class="dual-role__desc" data-i18n="dual_coach_desc"></p>
+  <div class="dual-role__tags" data-i18n-tags="dual_coach_tags"></div>
+</div>
+<div class="dual-role__separator reveal reveal-delay-2">&amp;</div>
+<div class="dual-role__card dual-role__card--assistant reveal reveal-delay-3">
+  <div class="dual-role__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A0845A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+  <h3 class="dual-role__title" data-i18n="dual_assistant_title"></h3>
+  <p class="dual-role__desc" data-i18n="dual_assistant_desc"></p>
+  <div class="dual-role__tags" data-i18n-tags="dual_assistant_tags"></div>
+</div>
+</div></div></section>
+
+<!-- METRICS -->
+<section class="metrics"><div class="container"><div class="metrics__grid">
+<div class="metrics__item reveal"><div class="metrics__number">12</div><div class="metrics__label" data-i18n="metrics_dimensions"></div></div>
+<div class="metrics__item reveal reveal-delay-1"><div class="metrics__number">20</div><div class="metrics__label" data-i18n="metrics_languages"></div></div>
+<div class="metrics__item reveal reveal-delay-3"><div class="metrics__number">24/7</div><div class="metrics__label" data-i18n="metrics_available"></div></div>
+<div class="metrics__item reveal reveal-delay-4"><div class="metrics__number">&infin;</div><div class="metrics__label" data-i18n="metrics_memory"></div></div>
+</div></div></section>
+
+<!-- SHOWCASE -->
+<section class="showcase" id="features"><div class="container">
+<div class="showcase__intro text-center reveal"><h2 data-i18n="showcase_title"></h2><p data-i18n="showcase_subtitle"></p></div>
+
+<!-- Feat 1 -->
+<div class="showcase__feature reveal"><div class="showcase__text">
+<span class="showcase__label showcase__label--coach"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-i18n="label_coach"></span></span>
+<h3 class="showcase__title" data-i18n="feat1_title"></h3>
+<p class="showcase__desc" data-i18n="feat1_desc"></p>
+<ul class="showcase__bullets" data-i18n-list="feat1_bullets"></ul>
+</div><div class="showcase__visual"><div class="showcase__card">
+<div class="showcase__card-header"><div class="showcase__card-dot showcase__card-dot--green"></div><div class="showcase__card-dot showcase__card-dot--sand"></div><div class="showcase__card-dot showcase__card-dot--grey"></div><span class="showcase__card-title" data-i18n="feat1_card_title"></span></div>
+<div class="showcase__card-body sc-conversations">
+<div class="sc-msg sc-msg--ai" data-i18n="feat1_card_ai"></div>
+<div class="sc-msg sc-msg--user" data-i18n="feat1_card_user"></div>
+<div class="sc-msg--ai-action" data-i18n-html="feat1_card_action"></div>
+</div></div></div></div>
+
+<!-- Feat 2 -->
+<div class="showcase__feature showcase__feature--reverse reveal"><div class="showcase__text">
+<span class="showcase__label showcase__label--assistant"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span data-i18n="label_assistant"></span></span>
+<h3 class="showcase__title" data-i18n="feat2_title"></h3>
+<p class="showcase__desc" data-i18n="feat2_desc"></p>
+<ul class="showcase__bullets" data-i18n-list="feat2_bullets"></ul>
+</div><div class="showcase__visual"><div class="showcase__card">
+<div class="showcase__card-header"><div class="showcase__card-dot showcase__card-dot--green"></div><div class="showcase__card-dot showcase__card-dot--sand"></div><div class="showcase__card-dot showcase__card-dot--grey"></div><span class="showcase__card-title" data-i18n="feat2_card_title"></span></div>
+<div class="showcase__card-body"><div class="sc-dashboard">
+<div class="sc-dash-item"><div class="sc-dash-label" data-i18n="dash_being_self"></div><div class="sc-dash-value">72%</div><div class="sc-dash-bar"><div class="sc-dash-bar-fill" style="width:72%"></div></div></div>
+<div class="sc-dash-item"><div class="sc-dash-label" data-i18n="dash_relations"></div><div class="sc-dash-value">68%</div><div class="sc-dash-bar"><div class="sc-dash-bar-fill" style="width:68%"></div></div></div>
+<div class="sc-dash-item"><div class="sc-dash-label" data-i18n="dash_challenges"></div><div class="sc-dash-value">14</div><div class="sc-dash-bar"><div class="sc-dash-bar-fill" style="width:58%"></div></div></div>
+<div class="sc-dash-item"><div class="sc-dash-label" data-i18n="dash_mood"></div><div class="sc-dash-value">7.2</div><div class="sc-dash-bar"><div class="sc-dash-bar-fill" style="width:72%"></div></div></div>
+</div></div></div></div></div>
+
+<!-- Feat 3 Scout -->
+<div class="showcase__feature reveal"><div class="showcase__text">
+<span class="showcase__label showcase__label--scout"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Scout</span>
+<h3 class="showcase__title" data-i18n="feat3_title"></h3>
+<p class="showcase__desc" data-i18n="feat3_desc"></p>
+<ul class="showcase__bullets" data-i18n-list="feat3_bullets"></ul>
+</div><div class="showcase__visual"><div class="showcase__card">
+<div class="showcase__card-header"><div class="showcase__card-dot showcase__card-dot--green"></div><div class="showcase__card-dot showcase__card-dot--sand"></div><div class="showcase__card-dot showcase__card-dot--grey"></div><span class="showcase__card-title" data-i18n="feat3_card_title"></span></div>
+<div class="showcase__card-body">
+<div class="sc-scout-item"><div class="sc-scout-title">Product Manager — Fintech</div><div class="sc-scout-meta">Paris · CDI · 55-65k€</div><span class="sc-scout-score"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="scout_match_92"></span></span></div>
+<div class="sc-scout-item"><div class="sc-scout-title" data-i18n="scout_job2_title"></div><div class="sc-scout-meta">Lyon · CDI · 45-55k€</div><span class="sc-scout-score"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="scout_match_87"></span></span></div>
+<div class="sc-scout-item"><div class="sc-scout-title">UX Designer Senior</div><div class="sc-scout-meta">Remote · Freelance · 450€/j</div><span class="sc-scout-score"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="scout_match_81"></span></span></div>
+</div></div></div></div>
+
+<!-- Feat 4 Projects -->
+<div class="showcase__feature showcase__feature--reverse reveal"><div class="showcase__text">
+<span class="showcase__label showcase__label--projects"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg><span data-i18n="label_projects"></span></span>
+<h3 class="showcase__title" data-i18n="feat4_title"></h3>
+<p class="showcase__desc" data-i18n="feat4_desc"></p>
+<ul class="showcase__bullets" data-i18n-list="feat4_bullets"></ul>
+</div><div class="showcase__visual"><div class="showcase__card">
+<div class="showcase__card-header"><div class="showcase__card-dot showcase__card-dot--green"></div><div class="showcase__card-dot showcase__card-dot--sand"></div><div class="showcase__card-dot showcase__card-dot--grey"></div><span class="showcase__card-title" data-i18n="feat4_card_title"></span></div>
+<div class="showcase__card-body">
+<div class="sc-project-item"><div class="sc-project-check sc-project-check--done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="sc-project-text sc-project-text--done" data-i18n="proj_step1"></span><span class="sc-project-due" data-i18n="proj_done"></span></div>
+<div class="sc-project-item"><div class="sc-project-check sc-project-check--done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="sc-project-text sc-project-text--done" data-i18n="proj_step2"></span><span class="sc-project-due" data-i18n="proj_done"></span></div>
+<div class="sc-project-item"><div class="sc-project-check"></div><span class="sc-project-text" data-i18n="proj_step3"></span><span class="sc-project-due">15 fév</span></div>
+<div class="sc-project-item"><div class="sc-project-check"></div><span class="sc-project-text" data-i18n="proj_step4"></span><span class="sc-project-due">22 fév</span></div>
+<div class="sc-project-progress"><span class="sc-project-progress-label" data-i18n="proj_progress"></span><div class="sc-project-progress-bar"><div class="sc-project-progress-fill" style="width:50%"></div></div></div>
+</div></div></div></div>
+</div></section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy"><div class="container">
+<div class="philosophy__intro text-center reveal"><h2 data-i18n="philo_title"></h2><p data-i18n="philo_subtitle"></p></div>
+<div class="spheres">
+<div class="sphere sphere--etre-soi reveal reveal-delay-1"><div class="sphere__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8FA89B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="sphere__subtitle" data-i18n="sphere1_sub"></div><h3 class="sphere__title" data-i18n="sphere1_title"></h3><p class="sphere__desc" data-i18n="sphere1_desc"></p><div class="sphere__dimensions" data-i18n-tags="sphere1_tags"></div></div>
+<div class="sphere sphere--etre-relation reveal reveal-delay-2"><div class="sphere__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D1B38B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sphere__subtitle" data-i18n="sphere2_sub"></div><h3 class="sphere__title" data-i18n="sphere2_title"></h3><p class="sphere__desc" data-i18n="sphere2_desc"></p><div class="sphere__dimensions" data-i18n-tags="sphere2_tags"></div></div>
+<div class="sphere sphere--etre-ensemble reveal reveal-delay-3"><div class="sphere__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A6C3B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="sphere__subtitle" data-i18n="sphere3_sub"></div><h3 class="sphere__title" data-i18n="sphere3_title"></h3><p class="sphere__desc" data-i18n="sphere3_desc"></p><div class="sphere__dimensions" data-i18n-tags="sphere3_tags"></div></div>
+</div></div></section>
+
+<!-- HOW -->
+<section class="how-it-works" id="how"><div class="container">
+<div class="how__intro text-center reveal"><h2 data-i18n="how_title"></h2><p data-i18n="how_subtitle"></p></div>
+<div class="steps">
+<div class="step reveal reveal-delay-1"><div class="step__number">1</div><h3 class="step__title" data-i18n="step1_title"></h3><p class="step__desc" data-i18n="step1_desc"></p></div>
+<div class="step reveal reveal-delay-2"><div class="step__number">2</div><h3 class="step__title" data-i18n="step2_title"></h3><p class="step__desc" data-i18n="step2_desc"></p></div>
+<div class="step reveal reveal-delay-3"><div class="step__number">3</div><h3 class="step__title" data-i18n="step3_title"></h3><p class="step__desc" data-i18n="step3_desc"></p></div>
+<div class="step reveal reveal-delay-4"><div class="step__number">4</div><h3 class="step__title" data-i18n="step4_title"></h3><p class="step__desc" data-i18n="step4_desc"></p></div>
+</div></div></section>
+
+<!-- TRUST -->
+<section class="trust"><div class="container trust__inner">
+<div class="text-center reveal"><h2 class="trust__title" data-i18n="trust_title"></h2><p class="trust__subtitle" data-i18n="trust_subtitle"></p></div>
+<div class="trust__grid">
+<div class="trust__item reveal reveal-delay-1"><div class="trust__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="trust__item-title" data-i18n="trust1_title"></h3><p class="trust__item-desc" data-i18n="trust1_desc"></p></div>
+<div class="trust__item reveal reveal-delay-2"><div class="trust__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3 class="trust__item-title" data-i18n="trust2_title"></h3><p class="trust__item-desc" data-i18n="trust2_desc"></p></div>
+<div class="trust__item reveal reveal-delay-3"><div class="trust__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h3 class="trust__item-title" data-i18n="trust3_title"></h3><p class="trust__item-desc" data-i18n="trust3_desc"></p></div>
+</div></div></section>
+
+<!-- MULTILINGUAL -->
+<section class="multilingual" id="languages"><div class="container">
+<div class="multilingual__intro reveal"><h2 data-i18n="multi_title"></h2><p data-i18n="multi_subtitle"></p></div>
+<div class="languages reveal reveal-delay-1">
+<span class="lang-tag">Français</span><span class="lang-tag">English</span><span class="lang-tag">English (US)</span><span class="lang-tag">English (UK)</span><span class="lang-tag">Deutsch</span><span class="lang-tag">Español</span><span class="lang-tag">Italiano</span><span class="lang-tag">Português</span><span class="lang-tag">Português (BR)</span><span class="lang-tag">Nederlands</span><span class="lang-tag">Svenska</span><span class="lang-tag">Dansk</span><span class="lang-tag">Norsk</span><span class="lang-tag">Polski</span><span class="lang-tag">Türkçe</span><span class="lang-tag" dir="rtl">العربية</span><span class="lang-tag" dir="rtl">עברית</span><span class="lang-tag">हिन्दी</span><span class="lang-tag">日本語</span><span class="lang-tag">한국어</span><span class="lang-tag">中文</span><span class="lang-tag">Русский</span>
+</div></div></section>
+
+<!-- CTA -->
+<section class="cta"><div class="cta__bg"></div><div class="container cta__content"><div class="reveal">
+<h2 class="cta__title" data-i18n="cta_title"></h2>
+<p class="cta__desc" data-i18n="cta_desc"></p>
+<a href="https://apps.serenzer.com" class="btn btn--primary" data-i18n-html="cta_btn"></a>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+<div class="footer__inner">
+<div><div class="footer__brand"><img src="https://apps.serenzer.com/static/serenzer_wave.png" alt="Serenzer" style="height:28px;width:auto;display:inline-block;vertical-align:middle;margin-right:.4rem">Serenzer</div><div class="footer__tagline" data-i18n="footer_tagline"></div></div>
+<div class="footer__links">
+<a href="legal.html" class="footer__link" data-i18n="footer_legal"></a>
+<a href="https://apps.serenzer.com/privacy-policy?lang=fr" class="footer__link" data-i18n="footer_privacy"></a>
+<a href="#" class="footer__link" id="contactLink" data-i18n="footer_contact"></a>
+</div>
+</div>
+<div class="footer__bottom"><p class="footer__copy">© 2025 Serenzer Ltd — Dublin, Ireland. <span data-i18n="footer_rights"></span></p></div>
+</div></footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal"><div class="modal">
+<div class="modal__header"><div><h3 class="modal__title" data-i18n="contact_title"></h3><p class="modal__subtitle" data-i18n="contact_subtitle"></p></div><button class="modal__close" id="modalClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+<div class="modal__body">
+<form id="contactForm">
+<div class="form-row"><div class="form-group"><label data-i18n="contact_name"></label><input id="contactName" type="text" required data-i18n-placeholder="contact_name_ph"></div><div class="form-group"><label data-i18n="contact_email"></label><input id="contactEmail" type="email" required data-i18n-placeholder="contact_email_ph"></div></div>
+<div class="form-group"><label data-i18n="contact_subject"></label><select id="contactSubject"><option value="general" data-i18n="contact_subject_general"></option><option value="support" data-i18n="contact_subject_support"></option><option value="partnership" data-i18n="contact_subject_partnership"></option><option value="press" data-i18n="contact_subject_press"></option><option value="other" data-i18n="contact_subject_other"></option></select></div>
+<div class="form-group"><label data-i18n="contact_message"></label><textarea id="contactMessage" required data-i18n-placeholder="contact_message_ph"></textarea></div>
+<button type="submit" class="modal__submit" data-i18n="contact_send"></button>
+</form>
+
+<div class="modal__success" id="contactSuccess"><div class="modal__success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6E8E7A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><h3 class="modal__success-title" data-i18n="contact_success_title"></h3><p class="modal__success-desc" data-i18n="contact_success_desc"></p></div>
+</div></div></div>
+
+<script>
+// ========== TRANSLATIONS ==========
+const T=
+{
+  "fr": {
+    "page_title": "Serenzer — Coach de vie & assistant personnel IA",
+    "page_desc": "Serenzer combine coaching de vie et assistance quotidienne par IA.",
+    "nav_features": "Fonctionnalités",
+    "nav_philosophy": "Philosophie",
+    "nav_how": "Comment ça marche",
+    "nav_languages": "Langues",
+    "nav_cta": "Commencer",
+    "hero_tag": "Coach & assistant IA — 24/7",
+    "hero_title": "Votre coach de vie et votre assistant au quotidien.",
+    "hero_subtitle": "Serenzer vous accompagne dans la gestion de votre quotidien, votre décharge mentale et votre soutien moral, le tout grâce à une conversation intelligente qui vous connaît vraiment",
+    "hero_cta_primary": "Découvrir Serenzer <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "Ce que vous pouvez faire",
+    "mockup_ai_1": "Bonjour ! Je suis votre coach Serenzer. Comment puis-je vous aider aujourd'hui ?",
+    "mockup_user_1": "J'hésite entre deux offres d'emploi et je suis débordé par mes projets.",
+    "mockup_ai_2": "Je comprends. Commençons par clarifier vos priorités, puis je vous aiderai à structurer vos projets pour y voir plus clair.",
+    "mockup_placeholder": "Écrivez un message...",
+    "dual_coach_title": "Coach de vie",
+    "dual_coach_desc": "Serenzer vous aide à mettre des mots sur vos émotions, les comprendre, prendre du recul, et mieux vous connaître pour une meilleure santé mentale.",
+    "dual_coach_tags": ["Émotions", "Valeurs", "Relations", "Bien-être"],
+    "dual_assistant_title": "Assistant personnel",
+    "dual_assistant_desc": "Serenzer vous aide à structurer vos projets et organiser votre quotidien (ex: gestion de vos vacances, suivi des projets familiaux, aide dans recherche d'emploi, organisation de votre agenda...) pour une charge mentale allégée.",
+    "dual_assistant_tags": ["Projets", "Emploi", "Décisions", "Organisation"],
+    "metrics_dimensions": "Dimensions de vie",
+    "metrics_languages": "Langues",
+    "metrics_sources": "Sources d'emploi",
+    "metrics_available": "Toujours disponible",
+    "metrics_memory": "Mémoire contextuelle",
+    "showcase_title": "Tout ce que Serenzer peut faire pour vous",
+    "showcase_subtitle": "Un compagnon qui apprend à vous connaître et vous accompagne concrètement du travail sur soi à l'organisation du quotidien.",
+    "label_coach": "Coach de vie",
+    "label_assistant": "Assistant",
+    "label_projects": "Projets",
+    "feat1_title": "Une conversation qui évolue avec vous",
+    "feat1_desc": "Dialoguez par texte ou par voix avec votre coach. Serenzer s'appuie sur une mémoire sémantique à long terme pour préserver la continuité de vos échanges. Concrètement, vos conversations ne sont pas isolées, elles s'inscrivent dans un parcours cohérent qui évolue avec vous.",
+    "feat1_bullets": [
+      "Conversations texte et vocales naturelles",
+      "Profil holistique en 12 dimensions construit automatiquement",
+      "Détection des émotions et adaptation du ton en temps réel",
+      "Mémoire sémantique de toutes vos conversations",
+      "Défis personnalisés basés sur vos axes de progression"
+    ],
+    "feat1_card_title": "Discussion avec votre coach",
+    "feat1_card_ai": "Je vois que la semaine dernière vous avez mentionné un conflit au travail. Souhaitez-vous parler de l'évolution de la situation?",
+    "feat1_card_user": "Oui, ca a bien évolué suite aux échanges que nous avons eu. Je sens que c'est quelque chose de nouveau pour moi.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Défi proposé</strong>, Voulez-vous que je vous propose un challenge personnel pour développer cette nouvelle compétence?",
+    "feat2_title": "Moins de charge mentale, plus de clarté dans vos choix",
+    "feat2_desc": "Serenzer est à la fois un espace de réflexion et un outil concret. Il vous accompagne dans l'organisation de votre journée, la planification de projets, et vous propose des rappels d'événements si vous le souhaitez.",
+    "feat2_bullets": [
+      "Aide à la décision avec analyse des avantages et inconvénients",
+      "Calendrier intelligent avec rappels et préparation",
+      "Journal intime guidé pour exprimer vos pensées",
+      "Suivi de progression visuel avec graphiques en 12 dimensions",
+      "Tout se passe en conversation, zéro complexité"
+    ],
+    "feat2_card_title": "Tableau de bord",
+    "dash_being_self": "Être Soi",
+    "dash_relations": "Relations",
+    "dash_challenges": "Défis réussis",
+    "dash_mood": "Humeur moy.",
+    "feat3_title": "Recherche multidomaine automatisée",
+    "feat3_desc": "Scout rassemble des offres, les filtre selon votre profil et vous envoie les plus adéquates par email. Au fil du temps, il s'adapte à vos objectifs et vous guide dans vos prochaines étapes. Scout peut être utilisé par exemple pour des recherches d'emploi ou de stage ou encore des reservations de billets ou d'hôtels...",
+    "feat3_bullets": [
+      "Plusieurs sources agrégées et localisées en fonction du lieu de résidence",
+      "Scoring IA de chaque offre selon votre profil et vos priorités",
+      "Alertes email multilingues avec les meilleures opportunités",
+      "Profils de recherche multiples et configurables",
+      "Historique et suivi de candidatures intégré"
+    ],
+    "feat3_card_title": "Scout — Recherche Emploi",
+    "scout_match_92": "92% de compatibilité",
+    "scout_match_87": "87% de compatibilité",
+    "scout_match_81": "81% de compatibilité",
+    "scout_job2_title": "Chef de projet digital",
+    "feat4_title": "Vos projets, structurés et suivis",
+    "feat4_desc": "Serenzer transforme vos idées en projets concrets. À travers un dialogue structuré, il vous guide pas à pas pour explorer chaque dimension de votre projet et en révéler tout le potentiel.",
+    "feat4_bullets": [
+      "Création de projets assistée par IA en conversation",
+      "Structuration automatique en étapes actionables",
+      "Suivi visuel de la progression",
+      "Rappels intelligents intégrés et suggestions proactives",
+      "Modèles de projet pour les situations courantes"
+    ],
+    "feat4_card_title": "Projet — Phase reconversion professionnelle",
+    "proj_step1": "Faire le bilan de compétences",
+    "proj_step2": "Identifier 3 secteurs cibles",
+    "proj_step3": "Mettre à jour le CV et LinkedIn",
+    "proj_step4": "Contacter 5 professionnels du secteur",
+    "proj_done": "Fait",
+    "proj_progress": "50% complété",
+    "philo_title": "Trois sphères pour une vie équilibrée",
+    "philo_subtitle": "Serenzer transforme vos échanges en une cartographie claire de votre vie. Il structure votre profil en 12 dimensions, réparties en trois sphères fondamentales : Être Soi, Être en Relation et Être Ensemble.",
+    "sphere1_sub": "Première sphère",
+    "sphere1_title": "Être Soi",
+    "sphere1_desc": "Se connaître, se comprendre, se construire. L'exploration de votre monde intérieur comme fondation de tout changement durable.",
+    "sphere1_tags": ["Identité", "Vie intérieure", "Santé", "Habitudes", "Défis actuels"],
+    "sphere2_sub": "Deuxième sphère",
+    "sphere2_title": "Être en Relation",
+    "sphere2_desc": "S'ouvrir aux autres, tisser des liens authentiques. La qualité de vos relations comme miroir de votre épanouissement.",
+    "sphere2_tags": ["Relations", "Vie affective", "Vie sociale"],
+    "sphere3_sub": "Troisième sphère",
+    "sphere3_title": "Être Ensemble",
+    "sphere3_desc": "Contribuer au collectif, bâtir votre place dans le monde. L'alignement entre vos aspirations et votre impact concret.",
+    "sphere3_tags": ["Travail", "Finances", "Cadre de vie", "Objectifs"],
+    "how_title": "Votre parcours en quatre étapes",
+    "how_subtitle": "Pas de formulaire interminable, pas de méthode rigide. Serenzer s'adapte à vous dès le premier échange.",
+    "step1_title": "Inscrivez-vous",
+    "step1_desc": "Créez votre compte en quelques secondes. Choisissez votre langue parmi les 20 disponibles.",
+    "step2_title": "Parlez librement",
+    "step2_desc": "Échangez avec votre coach Serenzer par texte ou par voix. Il apprend à vous connaître au fil des conversations.",
+    "step3_title": "Organisez-vous",
+    "step3_desc": "Créez des projets, activez Scout, planifiez votre calendrier, tout depuis la conversation.",
+    "step4_title": "Suivez votre évolution",
+    "step4_desc": "Relevez des défis, suivez votre progression et observez votre évolution dans le temps.",
+    "trust_title": "Votre bien-être et votre protection, notre priorité",
+    "trust_subtitle": "Serenzer a été conçu avec la plus grande attention à la sécurité émotionnelle et à la protection de vos données.",
+    "trust1_title": "Détection d'alarmes",
+    "trust1_desc": "Un système de veille détecte les signaux de détresse et oriente vers les ressources d'aide adaptées à votre pays et votre langue. Un bouton \"Self Care\" est disponible pour connaître les services d'urgence dans votre pays.",
+    "trust2_title": "Données protégées",
+    "trust2_desc": "Vos conversations et votre profil sont sécurisés. Aucune donnée n'est revendue ni partagée. Elles ne viennent alimenter aucun moteur d'IA. Vous maîtrisez entièrement les données de votre compte (RGPD).",
+    "trust3_title": "Éthique par conception",
+    "trust3_desc": "Pas de mécaniques addictives, pas de pression temporelle. Serenzer respecte votre rythme et encourage un usage équilibré. Vous décidez de la place de Serenzer dans votre vie.",
+    "multi_title": "Parlez votre langue",
+    "multi_subtitle": "Serenzer vous accompagne dans 20 langues, avec des adaptations culturelles pour chacune.",
+    "cta_title": "Prêt à simplifier votre vie ?",
+    "cta_desc": "Rejoignez Serenzer et découvrez un compagnon qui vous comprend, vous aide à décider et vous accompagne chaque jour.",
+    "cta_btn": "Commencer gratuitement <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Être Soi, Être en Relation, Être Ensemble",
+    "footer_legal": "Mentions légales",
+    "footer_privacy": "Confidentialité",
+    "footer_contact": "Contact",
+    "footer_rights": "Tous droits réservés.",
+    "contact_title": "Contactez-nous",
+    "contact_subtitle": "Une question, une suggestion, un partenariat ? Nous sommes à votre écoute.",
+    "contact_name": "Nom",
+    "contact_name_ph": "Votre nom",
+    "contact_email": "Email",
+    "contact_email_ph": "votre@email.com",
+    "contact_subject": "Sujet",
+    "contact_subject_general": "Question générale",
+    "contact_subject_support": "Support technique",
+    "contact_subject_partnership": "Partenariat",
+    "contact_subject_press": "Presse",
+    "contact_subject_other": "Autre",
+    "contact_message": "Message",
+    "contact_message_ph": "Décrivez votre demande...",
+    "contact_send": "Envoyer le message",
+    "contact_success_title": "Message envoyé !",
+    "contact_success_desc": "Merci pour votre message. Nous vous répondrons dans les plus brefs délais."
+  },
+  "es": {
+    "page_title": "Serenzer — Coach de vida y asistente personal con IA",
+    "page_desc": "Serenzer combina coaching de vida y asistencia diaria con IA.",
+    "nav_features": "Funciones",
+    "nav_philosophy": "Filosofía",
+    "nav_how": "Cómo funciona",
+    "nav_languages": "Idiomas",
+    "nav_cta": "Comenzar",
+    "hero_tag": "Coach y asistente IA — 24/7",
+    "hero_title": "Tu coach de vida y tu asistente cotidiano.",
+    "hero_subtitle": "Serenzer te acompaña en la gestión de tu día a día, reduce tu carga mental y te brinda apoyo moral, todo a través de una conversación inteligente que realmente te conoce",
+    "hero_cta_primary": "Descubrir Serenzer <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "Lo que puedes hacer",
+    "mockup_ai_1": "¡Hola! Soy tu coach Serenzer. ¿Cómo puedo ayudarte hoy?",
+    "mockup_user_1": "Dudo entre dos ofertas de trabajo y estoy abrumado por mis proyectos.",
+    "mockup_ai_2": "Entiendo. Comencemos aclarando tus prioridades, luego te ayudaré a estructurar tus proyectos para ver más claro.",
+    "mockup_placeholder": "Escribe un mensaje...",
+    "dual_coach_title": "Coach de vida",
+    "dual_coach_desc": "Serenzer te ayuda a poner palabras a tus emociones, comprenderlas, tomar perspectiva y conocerte mejor para una mejor salud mental.",
+    "dual_coach_tags": ["Emociones", "Valores", "Relaciones", "Bienestar"],
+    "dual_assistant_title": "Asistente personal",
+    "dual_assistant_desc": "Serenzer te ayuda a estructurar tus proyectos y organizar tu día a día (ej: gestión de vacaciones, seguimiento de proyectos familiares, ayuda en búsqueda de empleo, organización de agenda...) para una carga mental aligerada.",
+    "dual_assistant_tags": ["Proyectos", "Empleo", "Decisiones", "Organización"],
+    "metrics_dimensions": "Dimensiones de vida",
+    "metrics_languages": "Idiomas",
+    "metrics_sources": "Fuentes de empleo",
+    "metrics_available": "Siempre disponible",
+    "metrics_memory": "Memoria contextual",
+    "showcase_title": "Todo lo que Serenzer puede hacer por ti",
+    "showcase_subtitle": "Un compañero que aprende a conocerte y te acompaña concretamente desde el trabajo personal hasta la organización diaria.",
+    "label_coach": "Coach de vida",
+    "label_assistant": "Asistente",
+    "label_projects": "Proyectos",
+    "feat1_title": "Una conversación que evoluciona contigo",
+    "feat1_desc": "Dialoga por texto o voz con tu coach. Serenzer se apoya en una memoria semántica a largo plazo para preservar la continuidad de tus intercambios. Concretamente, tus conversaciones no están aisladas, se inscriben en un recorrido coherente que evoluciona contigo.",
+    "feat1_bullets": [
+      "Conversaciones naturales de texto y voz",
+      "Perfil holístico de 12 dimensiones construido automáticamente",
+      "Detección de emociones y adaptación del tono en tiempo real",
+      "Memoria semántica de todas tus conversaciones",
+      "Desafíos personalizados basados en tus áreas de progreso"
+    ],
+    "feat1_card_title": "Conversación con tu coach",
+    "feat1_card_ai": "Veo que la semana pasada mencionaste un conflicto en el trabajo. ¿Quieres hablar sobre la evolución de la situación?",
+    "feat1_card_user": "Sí, ha evolucionado bien tras nuestros intercambios. Siento que es algo nuevo para mí.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Desafío propuesto</strong>, ¿Quieres que te proponga un desafío personal para desarrollar esta nueva competencia?",
+    "feat2_title": "Menos carga mental, más claridad en tus decisiones",
+    "feat2_desc": "Serenzer es tanto un espacio de reflexión como una herramienta concreta. Te acompaña en la organización de tu día, la planificación de proyectos y te propone recordatorios de eventos si lo deseas.",
+    "feat2_bullets": [
+      "Ayuda en la toma de decisiones con análisis de ventajas e inconvenientes",
+      "Calendario inteligente con recordatorios y preparación",
+      "Diario guiado para expresar tus pensamientos",
+      "Seguimiento visual del progreso con gráficos de 12 dimensiones",
+      "Todo sucede en la conversación, cero complejidad"
+    ],
+    "feat2_card_title": "Panel de control",
+    "dash_being_self": "Ser Uno Mismo",
+    "dash_relations": "Relaciones",
+    "dash_challenges": "Desafíos completados",
+    "dash_mood": "Humor prom.",
+    "feat3_title": "Búsqueda multidominio automatizada",
+    "feat3_desc": "Scout recopila ofertas, las filtra según tu perfil y te envía las más adecuadas por email. Con el tiempo, se adapta a tus objetivos y te guía en tus próximos pasos. Scout puede usarse, por ejemplo, para búsquedas de empleo o prácticas o incluso reservas de billetes u hoteles...",
+    "feat3_bullets": [
+      "Múltiples fuentes agregadas y localizadas según lugar de residencia",
+      "Puntuación IA de cada oferta según tu perfil y prioridades",
+      "Alertas por email multilingües con las mejores oportunidades",
+      "Múltiples perfiles de búsqueda configurables",
+      "Historial y seguimiento de candidaturas integrado"
+    ],
+    "feat3_card_title": "Scout — Búsqueda de Empleo",
+    "scout_match_92": "92% de compatibilidad",
+    "scout_match_87": "87% de compatibilidad",
+    "scout_match_81": "81% de compatibilidad",
+    "scout_job2_title": "Jefe de proyecto digital",
+    "feat4_title": "Tus proyectos, estructurados y seguidos",
+    "feat4_desc": "Serenzer transforma tus ideas en proyectos concretos. A través de un diálogo estructurado, te guía paso a paso para explorar cada dimensión de tu proyecto y revelar todo su potencial.",
+    "feat4_bullets": [
+      "Creación de proyectos asistida por IA en conversación",
+      "Estructuración automática en pasos accionables",
+      "Seguimiento visual del progreso",
+      "Recordatorios inteligentes integrados y sugerencias proactivas",
+      "Plantillas de proyecto para situaciones comunes"
+    ],
+    "feat4_card_title": "Proyecto — Fase de reconversión profesional",
+    "proj_step1": "Realizar balance de competencias",
+    "proj_step2": "Identificar 3 sectores objetivo",
+    "proj_step3": "Actualizar CV y LinkedIn",
+    "proj_step4": "Contactar a 5 profesionales del sector",
+    "proj_done": "Hecho",
+    "proj_progress": "50% completado",
+    "philo_title": "Tres esferas para una vida equilibrada",
+    "philo_subtitle": "Serenzer transforma tus intercambios en un mapa claro de tu vida. Estructura tu perfil en 12 dimensiones, divididas en tres esferas fundamentales: Ser Uno Mismo, Estar en Relación y Estar Juntos.",
+    "sphere1_sub": "Primera esfera",
+    "sphere1_title": "Ser Uno Mismo",
+    "sphere1_desc": "Conocerse, comprenderse, construirse. La exploración de tu mundo interior como fundamento de todo cambio duradero.",
+    "sphere1_tags": ["Identidad", "Vida interior", "Salud", "Hábitos", "Desafíos actuales"],
+    "sphere2_sub": "Segunda esfera",
+    "sphere2_title": "Estar en Relación",
+    "sphere2_desc": "Abrirse a los demás, tejer vínculos auténticos. La calidad de tus relaciones como espejo de tu realización.",
+    "sphere2_tags": ["Relaciones", "Vida afectiva", "Vida social"],
+    "sphere3_sub": "Tercera esfera",
+    "sphere3_title": "Estar Juntos",
+    "sphere3_desc": "Contribuir al colectivo, construir tu lugar en el mundo. La alineación entre tus aspiraciones y tu impacto concreto.",
+    "sphere3_tags": ["Trabajo", "Finanzas", "Entorno de vida", "Objetivos"],
+    "how_title": "Tu recorrido en cuatro pasos",
+    "how_subtitle": "Sin formularios interminables, sin métodos rígidos. Serenzer se adapta a ti desde el primer intercambio.",
+    "step1_title": "Regístrate",
+    "step1_desc": "Crea tu cuenta en segundos. Elige tu idioma entre los 20 disponibles.",
+    "step2_title": "Habla libremente",
+    "step2_desc": "Intercambia con tu coach Serenzer por texto o voz. Aprende a conocerte a través de las conversaciones.",
+    "step3_title": "Organízate",
+    "step3_desc": "Crea proyectos, activa Scout, planifica tu calendario, todo desde la conversación.",
+    "step4_title": "Sigue tu evolución",
+    "step4_desc": "Acepta desafíos, sigue tu progreso y observa tu evolución con el tiempo.",
+    "trust_title": "Tu bienestar y protección, nuestra prioridad",
+    "trust_subtitle": "Serenzer ha sido diseñado con la máxima atención a la seguridad emocional y la protección de datos.",
+    "trust1_title": "Detección de alarmas",
+    "trust1_desc": "Un sistema de vigilancia detecta señales de angustia y orienta hacia recursos de ayuda adaptados a tu país e idioma. Un botón \"Self Care\" está disponible para conocer los servicios de emergencia en tu país.",
+    "trust2_title": "Datos protegidos",
+    "trust2_desc": "Tus conversaciones y perfil están seguros. Ningún dato se revende ni comparte. No alimentan ningún motor de IA. Controlas completamente los datos de tu cuenta (RGPD).",
+    "trust3_title": "Ética por diseño",
+    "trust3_desc": "Sin mecánicas adictivas, sin presión temporal. Serenzer respeta tu ritmo y fomenta un uso equilibrado. Tú decides el lugar de Serenzer en tu vida.",
+    "multi_title": "Habla tu idioma",
+    "multi_subtitle": "Serenzer te acompaña en 20 idiomas, con adaptaciones culturales para cada uno.",
+    "cta_title": "¿Listo para simplificar tu vida?",
+    "cta_desc": "Únete a Serenzer y descubre un compañero que te comprende, te ayuda a decidir y te acompaña cada día.",
+    "cta_btn": "Comenzar gratis <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Ser Uno Mismo, Estar en Relación, Estar Juntos",
+    "footer_legal": "Aviso legal",
+    "footer_privacy": "Privacidad",
+    "footer_contact": "Contacto",
+    "footer_rights": "Todos los derechos reservados.",
+    "contact_title": "Contáctanos",
+    "contact_subtitle": "¿Una pregunta, una sugerencia, una asociación? Estamos escuchando.",
+    "contact_name": "Nombre",
+    "contact_name_ph": "Tu nombre",
+    "contact_email": "Email",
+    "contact_email_ph": "tu@email.com",
+    "contact_subject": "Asunto",
+    "contact_subject_general": "Pregunta general",
+    "contact_subject_support": "Soporte técnico",
+    "contact_subject_partnership": "Asociación",
+    "contact_subject_press": "Prensa",
+    "contact_subject_other": "Otro",
+    "contact_message": "Mensaje",
+    "contact_message_ph": "Describe tu solicitud...",
+    "contact_send": "Enviar mensaje",
+    "contact_success_title": "¡Mensaje enviado!",
+    "contact_success_desc": "Gracias por tu mensaje. Te responderemos lo antes posible."
+  },
+  "en": {
+    "page_title": "Serenzer — AI Life Coach & Personal Assistant",
+    "page_desc": "Serenzer combines life coaching and daily AI assistance.",
+    "nav_features": "Features",
+    "nav_philosophy": "Philosophy",
+    "nav_how": "How it works",
+    "nav_languages": "Languages",
+    "nav_cta": "Get started",
+    "hero_tag": "AI Coach & Assistant — 24/7",
+    "hero_title": "Your life coach and your everyday assistant.",
+    "hero_subtitle": "Serenzer supports you in managing your daily life, reducing mental load, and providing moral support, all through an intelligent conversation that truly knows you",
+    "hero_cta_primary": "Discover Serenzer <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "What you can do",
+    "mockup_ai_1": "Hello! I'm your Serenzer coach. How can I help you today?",
+    "mockup_user_1": "I'm torn between two job offers and overwhelmed by my projects.",
+    "mockup_ai_2": "I understand. Let's start by clarifying your priorities, then I'll help you structure your projects to get clarity.",
+    "mockup_placeholder": "Write a message...",
+    "dual_coach_title": "Life Coach",
+    "dual_coach_desc": "Serenzer helps you put words to your emotions, understand them, gain perspective, and know yourself better for improved mental health.",
+    "dual_coach_tags": ["Emotions", "Values", "Relationships", "Well-being"],
+    "dual_assistant_title": "Personal Assistant",
+    "dual_assistant_desc": "Serenzer helps you structure your projects and organize your daily life (e.g., vacation planning, family project tracking, job search assistance, schedule organization...) for reduced mental load.",
+    "dual_assistant_tags": ["Projects", "Jobs", "Decisions", "Organization"],
+    "metrics_dimensions": "Life dimensions",
+    "metrics_languages": "Languages",
+    "metrics_sources": "Job sources",
+    "metrics_available": "Always available",
+    "metrics_memory": "Contextual memory",
+    "showcase_title": "Everything Serenzer can do for you",
+    "showcase_subtitle": "A companion that learns to know you and supports you concretely from personal development to daily organization.",
+    "label_coach": "Life Coach",
+    "label_assistant": "Assistant",
+    "label_projects": "Projects",
+    "feat1_title": "A conversation that evolves with you",
+    "feat1_desc": "Chat by text or voice with your coach. Serenzer relies on long-term semantic memory to preserve the continuity of your exchanges. Concretely, your conversations are not isolated, they are part of a coherent journey that evolves with you.",
+    "feat1_bullets": [
+      "Natural text and voice conversations",
+      "Holistic 12-dimension profile built automatically",
+      "Real-time emotion detection and tone adaptation",
+      "Semantic memory of all your conversations",
+      "Personalized challenges based on your progress areas"
+    ],
+    "feat1_card_title": "Conversation with your coach",
+    "feat1_card_ai": "I see that last week you mentioned a conflict at work. Would you like to discuss how the situation has evolved?",
+    "feat1_card_user": "Yes, it evolved well following our exchanges. I feel like this is something new for me.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Suggested Challenge</strong>, Would you like me to suggest a personal challenge to develop this new skill?",
+    "feat2_title": "Less mental load, more clarity in your choices",
+    "feat2_desc": "Serenzer is both a space for reflection and a concrete tool. It supports you in organizing your day, planning projects, and offers event reminders if you wish.",
+    "feat2_bullets": [
+      "Decision support with pros and cons analysis",
+      "Smart calendar with reminders and preparation",
+      "Guided journal to express your thoughts",
+      "Visual progress tracking with 12-dimension charts",
+      "Everything happens in conversation, zero complexity"
+    ],
+    "feat2_card_title": "Dashboard",
+    "dash_being_self": "Being Self",
+    "dash_relations": "Relationships",
+    "dash_challenges": "Challenges completed",
+    "dash_mood": "Avg. mood",
+    "feat3_title": "Automated multi-domain search",
+    "feat3_desc": "Scout gathers offers, filters them according to your profile and sends you the most suitable ones by email. Over time, it adapts to your goals and guides you through your next steps. Scout can be used for example for job or internship searches or even ticket or hotel reservations...",
+    "feat3_bullets": [
+      "Multiple aggregated sources localized by residence location",
+      "AI scoring of each offer according to your profile and priorities",
+      "Multilingual email alerts with the best opportunities",
+      "Multiple configurable search profiles",
+      "Integrated application history and tracking"
+    ],
+    "feat3_card_title": "Scout — Job Search",
+    "scout_match_92": "92% match",
+    "scout_match_87": "87% match",
+    "scout_match_81": "81% match",
+    "scout_job2_title": "Digital Project Manager",
+    "feat4_title": "Your projects, structured and tracked",
+    "feat4_desc": "Serenzer transforms your ideas into concrete projects. Through structured dialogue, it guides you step by step to explore each dimension of your project and reveal its full potential.",
+    "feat4_bullets": [
+      "AI-assisted project creation in conversation",
+      "Automatic structuring into actionable steps",
+      "Visual progress tracking",
+      "Integrated smart reminders and proactive suggestions",
+      "Project templates for common situations"
+    ],
+    "feat4_card_title": "Project — Career Transition Phase",
+    "proj_step1": "Complete skills assessment",
+    "proj_step2": "Identify 3 target sectors",
+    "proj_step3": "Update CV and LinkedIn",
+    "proj_step4": "Contact 5 industry professionals",
+    "proj_done": "Done",
+    "proj_progress": "50% completed",
+    "philo_title": "Three spheres for a balanced life",
+    "philo_subtitle": "Serenzer transforms your exchanges into a clear map of your life. It structures your profile into 12 dimensions, divided into three fundamental spheres: Being Self, Being in Relationship, and Being Together.",
+    "sphere1_sub": "First sphere",
+    "sphere1_title": "Being Self",
+    "sphere1_desc": "Know yourself, understand yourself, build yourself. Exploring your inner world as the foundation of lasting change.",
+    "sphere1_tags": ["Identity", "Inner Life", "Health", "Habits", "Current Challenges"],
+    "sphere2_sub": "Second sphere",
+    "sphere2_title": "Being in Relationship",
+    "sphere2_desc": "Open up to others, weave authentic connections. The quality of your relationships as a mirror of your fulfillment.",
+    "sphere2_tags": ["Relationships", "Emotional Life", "Social Life"],
+    "sphere3_sub": "Third sphere",
+    "sphere3_title": "Being Together",
+    "sphere3_desc": "Contribute to the collective, build your place in the world. Alignment between your aspirations and your concrete impact.",
+    "sphere3_tags": ["Work", "Finances", "Living Environment", "Goals"],
+    "how_title": "Your journey in four steps",
+    "how_subtitle": "No endless forms, no rigid methods. Serenzer adapts to you from the first exchange.",
+    "step1_title": "Sign up",
+    "step1_desc": "Create your account in seconds. Choose your language among 20 available.",
+    "step2_title": "Speak freely",
+    "step2_desc": "Chat with your Serenzer coach by text or voice. It learns to know you through conversations.",
+    "step3_title": "Get organized",
+    "step3_desc": "Create projects, activate Scout, plan your calendar, all from the conversation.",
+    "step4_title": "Track your evolution",
+    "step4_desc": "Take on challenges, track your progress and observe your evolution over time.",
+    "trust_title": "Your well-being and protection, our priority",
+    "trust_subtitle": "Serenzer was designed with the utmost attention to emotional safety and data protection.",
+    "trust1_title": "Alert detection",
+    "trust1_desc": "A monitoring system detects distress signals and directs to appropriate help resources for your country and language. A \"Self Care\" button is available to find emergency services in your country.",
+    "trust2_title": "Protected data",
+    "trust2_desc": "Your conversations and profile are secure. No data is resold or shared. They do not feed any AI engine. You have full control over your account data (GDPR).",
+    "trust3_title": "Ethics by design",
+    "trust3_desc": "No addictive mechanics, no time pressure. Serenzer respects your pace and encourages balanced use. You decide Serenzer's place in your life.",
+    "multi_title": "Speak your language",
+    "multi_subtitle": "Serenzer supports you in 20 languages, with cultural adaptations for each.",
+    "cta_title": "Ready to simplify your life?",
+    "cta_desc": "Join Serenzer and discover a companion that understands you, helps you decide and supports you every day.",
+    "cta_btn": "Start for free <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Being Self, Being in Relationship, Being Together",
+    "footer_legal": "Legal notice",
+    "footer_privacy": "Privacy",
+    "footer_contact": "Contact",
+    "footer_rights": "All rights reserved.",
+    "contact_title": "Contact us",
+    "contact_subtitle": "A question, a suggestion, a partnership? We're listening.",
+    "contact_name": "Name",
+    "contact_name_ph": "Your name",
+    "contact_email": "Email",
+    "contact_email_ph": "your@email.com",
+    "contact_subject": "Subject",
+    "contact_subject_general": "General question",
+    "contact_subject_support": "Technical support",
+    "contact_subject_partnership": "Partnership",
+    "contact_subject_press": "Press",
+    "contact_subject_other": "Other",
+    "contact_message": "Message",
+    "contact_message_ph": "Describe your request...",
+    "contact_send": "Send message",
+    "contact_success_title": "Message sent!",
+    "contact_success_desc": "Thank you for your message. We will reply as soon as possible."
+  },
+  "de": {
+    "page_title": "Serenzer — KI-Lebenscoach & persönlicher Assistent",
+    "page_desc": "Serenzer kombiniert Lebenscoaching und tägliche KI-Unterstützung.",
+    "nav_features": "Funktionen",
+    "nav_philosophy": "Philosophie",
+    "nav_how": "So funktioniert's",
+    "nav_languages": "Sprachen",
+    "nav_cta": "Loslegen",
+    "hero_tag": "KI-Coach & Assistent — 24/7",
+    "hero_title": "Ihr Lebenscoach und Ihr Alltagsassistent.",
+    "hero_subtitle": "Serenzer unterstützt Sie bei der Organisation Ihres Alltags, reduziert mentale Belastung und bietet moralische Unterstützung, alles durch eine intelligente Konversation, die Sie wirklich kennt",
+    "hero_cta_primary": "Serenzer entdecken <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "Was Sie tun können",
+    "mockup_ai_1": "Hallo! Ich bin Ihr Serenzer-Coach. Wie kann ich Ihnen heute helfen?",
+    "mockup_user_1": "Ich schwanke zwischen zwei Stellenangeboten und bin überwältigt von meinen Projekten.",
+    "mockup_ai_2": "Ich verstehe. Lassen Sie uns mit der Klärung Ihrer Prioritäten beginnen, dann helfe ich Ihnen, Ihre Projekte zu strukturieren.",
+    "mockup_placeholder": "Schreiben Sie eine Nachricht...",
+    "dual_coach_title": "Lebenscoach",
+    "dual_coach_desc": "Serenzer hilft Ihnen, Ihre Emotionen in Worte zu fassen, sie zu verstehen, Perspektive zu gewinnen und sich selbst besser kennenzulernen für eine bessere mentale Gesundheit.",
+    "dual_coach_tags": ["Emotionen", "Werte", "Beziehungen", "Wohlbefinden"],
+    "dual_assistant_title": "Persönlicher Assistent",
+    "dual_assistant_desc": "Serenzer hilft Ihnen, Ihre Projekte zu strukturieren und Ihren Alltag zu organisieren (z.B. Urlaubsplanung, Familienprojekte, Jobsuche, Terminplanung...) für eine reduzierte mentale Belastung.",
+    "dual_assistant_tags": ["Projekte", "Jobs", "Entscheidungen", "Organisation"],
+    "metrics_dimensions": "Lebensdimensionen",
+    "metrics_languages": "Sprachen",
+    "metrics_sources": "Job-Quellen",
+    "metrics_available": "Immer verfügbar",
+    "metrics_memory": "Kontextuelles Gedächtnis",
+    "showcase_title": "Alles, was Serenzer für Sie tun kann",
+    "showcase_subtitle": "Ein Begleiter, der Sie kennenlernt und Sie konkret unterstützt, von der Persönlichkeitsentwicklung bis zur Alltagsorganisation.",
+    "label_coach": "Lebenscoach",
+    "label_assistant": "Assistent",
+    "label_projects": "Projekte",
+    "feat1_title": "Ein Gespräch, das mit Ihnen wächst",
+    "feat1_desc": "Chatten Sie per Text oder Sprache mit Ihrem Coach. Serenzer stützt sich auf ein langfristiges semantisches Gedächtnis, um die Kontinuität Ihrer Gespräche zu bewahren. Konkret sind Ihre Gespräche nicht isoliert, sie sind Teil einer kohärenten Reise, die mit Ihnen wächst.",
+    "feat1_bullets": [
+      "Natürliche Text- und Sprachgespräche",
+      "Ganzheitliches 12-Dimensionen-Profil automatisch erstellt",
+      "Emotionserkennung und Tonanpassung in Echtzeit",
+      "Semantisches Gedächtnis aller Ihrer Gespräche",
+      "Personalisierte Herausforderungen basierend auf Ihren Fortschrittsbereichen"
+    ],
+    "feat1_card_title": "Gespräch mit Ihrem Coach",
+    "feat1_card_ai": "Ich sehe, dass Sie letzte Woche einen Konflikt bei der Arbeit erwähnt haben. Möchten Sie über die Entwicklung der Situation sprechen?",
+    "feat1_card_user": "Ja, es hat sich gut entwickelt nach unseren Gesprächen. Ich habe das Gefühl, dass dies etwas Neues für mich ist.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Vorgeschlagene Herausforderung</strong>, Möchten Sie, dass ich Ihnen eine persönliche Herausforderung vorschlage, um diese neue Fähigkeit zu entwickeln?",
+    "feat2_title": "Weniger mentale Belastung, mehr Klarheit bei Ihren Entscheidungen",
+    "feat2_desc": "Serenzer ist sowohl ein Raum für Reflexion als auch ein konkretes Werkzeug. Es unterstützt Sie bei der Organisation Ihres Tages, der Projektplanung und bietet Ereigniserinnerungen an, wenn Sie möchten.",
+    "feat2_bullets": [
+      "Entscheidungshilfe mit Vor- und Nachteile-Analyse",
+      "Intelligenter Kalender mit Erinnerungen und Vorbereitung",
+      "Geführtes Tagebuch zum Ausdrücken Ihrer Gedanken",
+      "Visuelle Fortschrittsverfolgung mit 12-Dimensionen-Diagrammen",
+      "Alles findet im Gespräch statt, null Komplexität"
+    ],
+    "feat2_card_title": "Dashboard",
+    "dash_being_self": "Selbst sein",
+    "dash_relations": "Beziehungen",
+    "dash_challenges": "Herausforderungen gemeistert",
+    "dash_mood": "Durchschn. Stimmung",
+    "feat3_title": "Automatisierte Multi-Domain-Suche",
+    "feat3_desc": "Scout sammelt Angebote, filtert sie nach Ihrem Profil und sendet Ihnen die passendsten per E-Mail. Mit der Zeit passt es sich Ihren Zielen an und leitet Sie durch Ihre nächsten Schritte. Scout kann beispielsweise für Job- oder Praktikumssuchen oder auch für Ticket- oder Hotelbuchungen verwendet werden...",
+    "feat3_bullets": [
+      "Mehrere aggregierte Quellen lokalisiert nach Wohnort",
+      "KI-Bewertung jedes Angebots nach Ihrem Profil und Prioritäten",
+      "Mehrsprachige E-Mail-Benachrichtigungen mit den besten Chancen",
+      "Mehrere konfigurierbare Suchprofile",
+      "Integrierter Bewerbungsverlauf und -verfolgung"
+    ],
+    "feat3_card_title": "Scout — Jobsuche",
+    "scout_match_92": "92% Übereinstimmung",
+    "scout_match_87": "87% Übereinstimmung",
+    "scout_match_81": "81% Übereinstimmung",
+    "scout_job2_title": "Digitaler Projektmanager",
+    "feat4_title": "Ihre Projekte, strukturiert und verfolgt",
+    "feat4_desc": "Serenzer verwandelt Ihre Ideen in konkrete Projekte. Durch einen strukturierten Dialog führt es Sie Schritt für Schritt, um jede Dimension Ihres Projekts zu erkunden und sein volles Potenzial zu enthüllen.",
+    "feat4_bullets": [
+      "KI-gestützte Projekterstellung im Gespräch",
+      "Automatische Strukturierung in umsetzbare Schritte",
+      "Visuelle Fortschrittsverfolgung",
+      "Integrierte intelligente Erinnerungen und proaktive Vorschläge",
+      "Projektvorlagen für häufige Situationen"
+    ],
+    "feat4_card_title": "Projekt — Berufliche Neuorientierungsphase",
+    "proj_step1": "Kompetenzbilanz erstellen",
+    "proj_step2": "3 Zielsektoren identifizieren",
+    "proj_step3": "Lebenslauf und LinkedIn aktualisieren",
+    "proj_step4": "5 Branchenprofis kontaktieren",
+    "proj_done": "Erledigt",
+    "proj_progress": "50% abgeschlossen",
+    "philo_title": "Drei Sphären für ein ausgeglichenes Leben",
+    "philo_subtitle": "Serenzer verwandelt Ihre Gespräche in eine klare Karte Ihres Lebens. Es strukturiert Ihr Profil in 12 Dimensionen, aufgeteilt in drei grundlegende Sphären: Selbst sein, In Beziehung sein und Zusammen sein.",
+    "sphere1_sub": "Erste Sphäre",
+    "sphere1_title": "Selbst sein",
+    "sphere1_desc": "Sich selbst kennen, sich selbst verstehen, sich selbst aufbauen. Die Erkundung Ihrer inneren Welt als Grundlage dauerhafter Veränderung.",
+    "sphere1_tags": ["Identität", "Innenleben", "Gesundheit", "Gewohnheiten", "Aktuelle Herausforderungen"],
+    "sphere2_sub": "Zweite Sphäre",
+    "sphere2_title": "In Beziehung sein",
+    "sphere2_desc": "Sich anderen öffnen, authentische Verbindungen knüpfen. Die Qualität Ihrer Beziehungen als Spiegel Ihrer Erfüllung.",
+    "sphere2_tags": ["Beziehungen", "Gefühlsleben", "Sozialleben"],
+    "sphere3_sub": "Dritte Sphäre",
+    "sphere3_title": "Zusammen sein",
+    "sphere3_desc": "Zum Kollektiv beitragen, Ihren Platz in der Welt aufbauen. Die Ausrichtung zwischen Ihren Bestrebungen und Ihrer konkreten Wirkung.",
+    "sphere3_tags": ["Arbeit", "Finanzen", "Lebensumfeld", "Ziele"],
+    "how_title": "Ihre Reise in vier Schritten",
+    "how_subtitle": "Keine endlosen Formulare, keine starren Methoden. Serenzer passt sich von Anfang an an Sie an.",
+    "step1_title": "Registrieren Sie sich",
+    "step1_desc": "Erstellen Sie Ihr Konto in Sekunden. Wählen Sie Ihre Sprache aus 20 verfügbaren.",
+    "step2_title": "Sprechen Sie frei",
+    "step2_desc": "Chatten Sie mit Ihrem Serenzer-Coach per Text oder Sprache. Er lernt Sie durch Gespräche kennen.",
+    "step3_title": "Organisieren Sie sich",
+    "step3_desc": "Erstellen Sie Projekte, aktivieren Sie Scout, planen Sie Ihren Kalender, alles aus dem Gespräch heraus.",
+    "step4_title": "Verfolgen Sie Ihre Entwicklung",
+    "step4_desc": "Nehmen Sie Herausforderungen an, verfolgen Sie Ihren Fortschritt und beobachten Sie Ihre Entwicklung im Laufe der Zeit.",
+    "trust_title": "Ihr Wohlbefinden und Ihr Schutz, unsere Priorität",
+    "trust_subtitle": "Serenzer wurde mit größter Aufmerksamkeit für emotionale Sicherheit und Datenschutz entwickelt.",
+    "trust1_title": "Alarmerkennung",
+    "trust1_desc": "Ein Überwachungssystem erkennt Notsignale und leitet zu geeigneten Hilfsressourcen für Ihr Land und Ihre Sprache. Ein \"Self Care\"-Button ist verfügbar, um Notdienste in Ihrem Land zu finden.",
+    "trust2_title": "Geschützte Daten",
+    "trust2_desc": "Ihre Gespräche und Ihr Profil sind sicher. Keine Daten werden weiterverkauft oder geteilt. Sie speisen keine KI-Engine. Sie haben volle Kontrolle über Ihre Kontodaten (DSGVO).",
+    "trust3_title": "Ethik von Grund auf",
+    "trust3_desc": "Keine Suchtmechanismen, kein Zeitdruck. Serenzer respektiert Ihr Tempo und fördert eine ausgewogene Nutzung. Sie entscheiden über Serenzers Platz in Ihrem Leben.",
+    "multi_title": "Sprechen Sie Ihre Sprache",
+    "multi_subtitle": "Serenzer unterstützt Sie in 20 Sprachen mit kulturellen Anpassungen für jede.",
+    "cta_title": "Bereit, Ihr Leben zu vereinfachen?",
+    "cta_desc": "Treten Sie Serenzer bei und entdecken Sie einen Begleiter, der Sie versteht, Ihnen bei Entscheidungen hilft und Sie jeden Tag unterstützt.",
+    "cta_btn": "Kostenlos starten <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Selbst sein, In Beziehung sein, Zusammen sein",
+    "footer_legal": "Impressum",
+    "footer_privacy": "Datenschutz",
+    "footer_contact": "Kontakt",
+    "footer_rights": "Alle Rechte vorbehalten.",
+    "contact_title": "Kontaktieren Sie uns",
+    "contact_subtitle": "Eine Frage, ein Vorschlag, eine Partnerschaft? Wir hören zu.",
+    "contact_name": "Name",
+    "contact_name_ph": "Ihr Name",
+    "contact_email": "E-Mail",
+    "contact_email_ph": "ihre@email.com",
+    "contact_subject": "Betreff",
+    "contact_subject_general": "Allgemeine Frage",
+    "contact_subject_support": "Technischer Support",
+    "contact_subject_partnership": "Partnerschaft",
+    "contact_subject_press": "Presse",
+    "contact_subject_other": "Sonstiges",
+    "contact_message": "Nachricht",
+    "contact_message_ph": "Beschreiben Sie Ihre Anfrage...",
+    "contact_send": "Nachricht senden",
+    "contact_success_title": "Nachricht gesendet!",
+    "contact_success_desc": "Vielen Dank für Ihre Nachricht. Wir werden so schnell wie möglich antworten."
+  },
+  "it": {
+    "page_title": "Serenzer — Life Coach AI & Assistente Personale",
+    "page_desc": "Serenzer combina life coaching e assistenza quotidiana tramite IA.",
+    "nav_features": "Funzionalità",
+    "nav_philosophy": "Filosofia",
+    "nav_how": "Come funziona",
+    "nav_languages": "Lingue",
+    "nav_cta": "Inizia",
+    "hero_tag": "Coach & Assistente IA — 24/7",
+    "hero_title": "Il tuo life coach e il tuo assistente quotidiano.",
+    "hero_subtitle": "Serenzer ti accompagna nella gestione della tua quotidianità, alleggerisce il carico mentale e offre supporto morale, il tutto attraverso una conversazione intelligente che ti conosce davvero",
+    "hero_cta_primary": "Scopri Serenzer <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "Cosa puoi fare",
+    "mockup_ai_1": "Ciao! Sono il tuo coach Serenzer. Come posso aiutarti oggi?",
+    "mockup_user_1": "Sono indeciso tra due offerte di lavoro e sono sopraffatto dai miei progetti.",
+    "mockup_ai_2": "Capisco. Iniziamo chiarendo le tue priorità, poi ti aiuterò a strutturare i tuoi progetti per vedere più chiaro.",
+    "mockup_placeholder": "Scrivi un messaggio...",
+    "dual_coach_title": "Life Coach",
+    "dual_coach_desc": "Serenzer ti aiuta a dare voce alle tue emozioni, comprenderle, prendere prospettiva e conoscerti meglio per una migliore salute mentale.",
+    "dual_coach_tags": ["Emozioni", "Valori", "Relazioni", "Benessere"],
+    "dual_assistant_title": "Assistente Personale",
+    "dual_assistant_desc": "Serenzer ti aiuta a strutturare i tuoi progetti e organizzare la tua quotidianità (es: gestione vacanze, progetti familiari, ricerca lavoro, organizzazione agenda...) per un carico mentale alleggerito.",
+    "dual_assistant_tags": ["Progetti", "Lavoro", "Decisioni", "Organizzazione"],
+    "metrics_dimensions": "Dimensioni di vita",
+    "metrics_languages": "Lingue",
+    "metrics_sources": "Fonti di lavoro",
+    "metrics_available": "Sempre disponibile",
+    "metrics_memory": "Memoria contestuale",
+    "showcase_title": "Tutto ciò che Serenzer può fare per te",
+    "showcase_subtitle": "Un compagno che impara a conoscerti e ti accompagna concretamente dallo sviluppo personale all'organizzazione quotidiana.",
+    "label_coach": "Life Coach",
+    "label_assistant": "Assistente",
+    "label_projects": "Progetti",
+    "feat1_title": "Una conversazione che evolve con te",
+    "feat1_desc": "Conversa per testo o voce con il tuo coach. Serenzer si basa su una memoria semantica a lungo termine per preservare la continuità dei tuoi scambi. Concretamente, le tue conversazioni non sono isolate, si inseriscono in un percorso coerente che evolve con te.",
+    "feat1_bullets": [
+      "Conversazioni naturali testuali e vocali",
+      "Profilo olistico in 12 dimensioni costruito automaticamente",
+      "Rilevamento delle emozioni e adattamento del tono in tempo reale",
+      "Memoria semantica di tutte le tue conversazioni",
+      "Sfide personalizzate basate sulle tue aree di progresso"
+    ],
+    "feat1_card_title": "Conversazione con il tuo coach",
+    "feat1_card_ai": "Vedo che la settimana scorsa hai menzionato un conflitto al lavoro. Vuoi parlare dell'evoluzione della situazione?",
+    "feat1_card_user": "Sì, è evoluto bene dopo i nostri scambi. Sento che è qualcosa di nuovo per me.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Sfida proposta</strong>, Vuoi che ti proponga una sfida personale per sviluppare questa nuova competenza?",
+    "feat2_title": "Meno carico mentale, più chiarezza nelle tue scelte",
+    "feat2_desc": "Serenzer è sia uno spazio di riflessione che uno strumento concreto. Ti accompagna nell'organizzazione della giornata, nella pianificazione di progetti e ti propone promemoria di eventi se lo desideri.",
+    "feat2_bullets": [
+      "Supporto alle decisioni con analisi pro e contro",
+      "Calendario intelligente con promemoria e preparazione",
+      "Diario guidato per esprimere i tuoi pensieri",
+      "Monitoraggio visivo dei progressi con grafici in 12 dimensioni",
+      "Tutto avviene in conversazione, zero complessità"
+    ],
+    "feat2_card_title": "Dashboard",
+    "dash_being_self": "Essere Sé",
+    "dash_relations": "Relazioni",
+    "dash_challenges": "Sfide completate",
+    "dash_mood": "Umore medio",
+    "feat3_title": "Ricerca multidominio automatizzata",
+    "feat3_desc": "Scout raccoglie offerte, le filtra secondo il tuo profilo e ti invia le più adeguate via email. Nel tempo, si adatta ai tuoi obiettivi e ti guida nei prossimi passi. Scout può essere utilizzato ad esempio per ricerche di lavoro o stage o anche per prenotazioni di biglietti o hotel...",
+    "feat3_bullets": [
+      "Molteplici fonti aggregate e localizzate in base al luogo di residenza",
+      "Punteggio IA di ogni offerta secondo il tuo profilo e priorità",
+      "Avvisi email multilingue con le migliori opportunità",
+      "Profili di ricerca multipli e configurabili",
+      "Storico e monitoraggio candidature integrato"
+    ],
+    "feat3_card_title": "Scout — Ricerca Lavoro",
+    "scout_match_92": "92% di compatibilità",
+    "scout_match_87": "87% di compatibilità",
+    "scout_match_81": "81% di compatibilità",
+    "scout_job2_title": "Responsabile di progetto digitale",
+    "feat4_title": "I tuoi progetti, strutturati e monitorati",
+    "feat4_desc": "Serenzer trasforma le tue idee in progetti concreti. Attraverso un dialogo strutturato, ti guida passo dopo passo per esplorare ogni dimensione del tuo progetto e rivelarne tutto il potenziale.",
+    "feat4_bullets": [
+      "Creazione di progetti assistita da IA in conversazione",
+      "Strutturazione automatica in passi attuabili",
+      "Monitoraggio visivo dei progressi",
+      "Promemoria intelligenti integrati e suggerimenti proattivi",
+      "Modelli di progetto per situazioni comuni"
+    ],
+    "feat4_card_title": "Progetto — Fase riconversione professionale",
+    "proj_step1": "Fare il bilancio delle competenze",
+    "proj_step2": "Identificare 3 settori target",
+    "proj_step3": "Aggiornare CV e LinkedIn",
+    "proj_step4": "Contattare 5 professionisti del settore",
+    "proj_done": "Fatto",
+    "proj_progress": "50% completato",
+    "philo_title": "Tre sfere per una vita equilibrata",
+    "philo_subtitle": "Serenzer trasforma i tuoi scambi in una mappa chiara della tua vita. Struttura il tuo profilo in 12 dimensioni, suddivise in tre sfere fondamentali: Essere Sé, Essere in Relazione ed Essere Insieme.",
+    "sphere1_sub": "Prima sfera",
+    "sphere1_title": "Essere Sé",
+    "sphere1_desc": "Conoscersi, comprendersi, costruirsi. L'esplorazione del tuo mondo interiore come fondamento di ogni cambiamento duraturo.",
+    "sphere1_tags": ["Identità", "Vita interiore", "Salute", "Abitudini", "Sfide attuali"],
+    "sphere2_sub": "Seconda sfera",
+    "sphere2_title": "Essere in Relazione",
+    "sphere2_desc": "Aprirsi agli altri, tessere legami autentici. La qualità delle tue relazioni come specchio della tua realizzazione.",
+    "sphere2_tags": ["Relazioni", "Vita affettiva", "Vita sociale"],
+    "sphere3_sub": "Terza sfera",
+    "sphere3_title": "Essere Insieme",
+    "sphere3_desc": "Contribuire al collettivo, costruire il tuo posto nel mondo. L'allineamento tra le tue aspirazioni e il tuo impatto concreto.",
+    "sphere3_tags": ["Lavoro", "Finanze", "Ambiente di vita", "Obiettivi"],
+    "how_title": "Il tuo percorso in quattro passi",
+    "how_subtitle": "Nessun modulo interminabile, nessun metodo rigido. Serenzer si adatta a te fin dal primo scambio.",
+    "step1_title": "Registrati",
+    "step1_desc": "Crea il tuo account in pochi secondi. Scegli la tua lingua tra le 20 disponibili.",
+    "step2_title": "Parla liberamente",
+    "step2_desc": "Conversa con il tuo coach Serenzer per testo o voce. Impara a conoscerti attraverso le conversazioni.",
+    "step3_title": "Organizzati",
+    "step3_desc": "Crea progetti, attiva Scout, pianifica il tuo calendario, tutto dalla conversazione.",
+    "step4_title": "Segui la tua evoluzione",
+    "step4_desc": "Affronta sfide, monitora i tuoi progressi e osserva la tua evoluzione nel tempo.",
+    "trust_title": "Il tuo benessere e la tua protezione, la nostra priorità",
+    "trust_subtitle": "Serenzer è stato progettato con la massima attenzione alla sicurezza emotiva e alla protezione dei dati.",
+    "trust1_title": "Rilevamento allarmi",
+    "trust1_desc": "Un sistema di monitoraggio rileva segnali di difficoltà e orienta verso risorse di aiuto adeguate al tuo paese e alla tua lingua. Un pulsante \"Self Care\" è disponibile per conoscere i servizi di emergenza nel tuo paese.",
+    "trust2_title": "Dati protetti",
+    "trust2_desc": "Le tue conversazioni e il tuo profilo sono sicuri. Nessun dato viene rivenduto o condiviso. Non alimentano alcun motore IA. Hai pieno controllo sui dati del tuo account (GDPR).",
+    "trust3_title": "Etica per progettazione",
+    "trust3_desc": "Nessuna meccanica di dipendenza, nessuna pressione temporale. Serenzer rispetta il tuo ritmo e incoraggia un uso equilibrato. Tu decidi il posto di Serenzer nella tua vita.",
+    "multi_title": "Parla la tua lingua",
+    "multi_subtitle": "Serenzer ti accompagna in 20 lingue, con adattamenti culturali per ciascuna.",
+    "cta_title": "Pronto a semplificare la tua vita?",
+    "cta_desc": "Unisciti a Serenzer e scopri un compagno che ti comprende, ti aiuta a decidere e ti accompagna ogni giorno.",
+    "cta_btn": "Inizia gratuitamente <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Essere Sé, Essere in Relazione, Essere Insieme",
+    "footer_legal": "Note legali",
+    "footer_privacy": "Privacy",
+    "footer_contact": "Contatto",
+    "footer_rights": "Tutti i diritti riservati.",
+    "contact_title": "Contattaci",
+    "contact_subtitle": "Una domanda, un suggerimento, una partnership? Siamo in ascolto.",
+    "contact_name": "Nome",
+    "contact_name_ph": "Il tuo nome",
+    "contact_email": "Email",
+    "contact_email_ph": "tua@email.com",
+    "contact_subject": "Oggetto",
+    "contact_subject_general": "Domanda generale",
+    "contact_subject_support": "Supporto tecnico",
+    "contact_subject_partnership": "Partnership",
+    "contact_subject_press": "Stampa",
+    "contact_subject_other": "Altro",
+    "contact_message": "Messaggio",
+    "contact_message_ph": "Descrivi la tua richiesta...",
+    "contact_send": "Invia messaggio",
+    "contact_success_title": "Messaggio inviato!",
+    "contact_success_desc": "Grazie per il tuo messaggio. Ti risponderemo il prima possibile."
+  },
+  "nl": {
+    "page_title": "Serenzer — AI Levenscoach & Persoonlijke Assistent",
+    "page_desc": "Serenzer combineert levenscoaching en dagelijkse AI-hulp.",
+    "nav_features": "Functies",
+    "nav_philosophy": "Filosofie",
+    "nav_how": "Hoe het werkt",
+    "nav_languages": "Talen",
+    "nav_cta": "Beginnen",
+    "hero_tag": "AI Coach & Assistent — 24/7",
+    "hero_title": "Uw levenscoach en uw dagelijkse assistent.",
+    "hero_subtitle": "Serenzer ondersteunt u bij het beheren van uw dagelijks leven, vermindert mentale belasting en biedt morele steun, allemaal via een intelligente conversatie die u echt kent",
+    "hero_cta_primary": "Ontdek Serenzer <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "hero_cta_secondary": "Wat u kunt doen",
+    "mockup_ai_1": "Hallo! Ik ben uw Serenzer-coach. Hoe kan ik u vandaag helpen?",
+    "mockup_user_1": "Ik twijfel tussen twee baanaanbiedingen en ben overweldigd door mijn projecten.",
+    "mockup_ai_2": "Ik begrijp het. Laten we beginnen met het verduidelijken van uw prioriteiten, dan help ik u uw projecten te structureren.",
+    "mockup_placeholder": "Schrijf een bericht...",
+    "dual_coach_title": "Levenscoach",
+    "dual_coach_desc": "Serenzer helpt u woorden te geven aan uw emoties, ze te begrijpen, perspectief te krijgen en uzelf beter te leren kennen voor een betere mentale gezondheid.",
+    "dual_coach_tags": ["Emoties", "Waarden", "Relaties", "Welzijn"],
+    "dual_assistant_title": "Persoonlijke Assistent",
+    "dual_assistant_desc": "Serenzer helpt u uw projecten te structureren en uw dagelijks leven te organiseren (bijv. vakantieplanning, familieprojecten, zoeken naar werk, agenda-organisatie...) voor een verminderde mentale belasting.",
+    "dual_assistant_tags": ["Projecten", "Werk", "Beslissingen", "Organisatie"],
+    "metrics_dimensions": "Levensdimensies",
+    "metrics_languages": "Talen",
+    "metrics_sources": "Baanbronnen",
+    "metrics_available": "Altijd beschikbaar",
+    "metrics_memory": "Contextueel geheugen",
+    "showcase_title": "Alles wat Serenzer voor u kan doen",
+    "showcase_subtitle": "Een metgezel die u leert kennen en u concreet ondersteunt van persoonlijke ontwikkeling tot dagelijkse organisatie.",
+    "label_coach": "Levenscoach",
+    "label_assistant": "Assistent",
+    "label_projects": "Projecten",
+    "feat1_title": "Een gesprek dat met u meegroeit",
+    "feat1_desc": "Chat per tekst of spraak met uw coach. Serenzer steunt op een langetermijn semantisch geheugen om de continuïteit van uw uitwisselingen te behouden. Concreet zijn uw gesprekken niet geïsoleerd, ze maken deel uit van een coherent traject dat met u meegroeit.",
+    "feat1_bullets": [
+      "Natuurlijke tekst- en spraakgesprekken",
+      "Holistisch 12-dimensioneel profiel automatisch opgebouwd",
+      "Real-time emotiedetectie en toonaanpassing",
+      "Semantisch geheugen van al uw gesprekken",
+      "Gepersonaliseerde uitdagingen op basis van uw voortgangsgebieden"
+    ],
+    "feat1_card_title": "Gesprek met uw coach",
+    "feat1_card_ai": "Ik zie dat u vorige week een conflict op het werk noemde. Wilt u praten over de ontwikkeling van de situatie?",
+    "feat1_card_user": "Ja, het is goed geëvolueerd na onze uitwisselingen. Ik voel dat dit iets nieuws voor mij is.",
+    "feat1_card_action": "<strong><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" style=\"width:18px;height:18px;vertical-align:middle;flex-shrink:0;\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#8FA89B\"/><circle cx=\"12\" cy=\"12\" r=\"7\" fill=\"#FFFFFF\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#6B8A78\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\" fill=\"#FFFFFF\"/></svg> Voorgestelde uitdaging</strong>, Wilt u dat ik een persoonlijke uitdaging voorstel om deze nieuwe vaardigheid te ontwikkelen?",
+    "feat2_title": "Minder mentale belasting, meer helderheid in uw keuzes",
+    "feat2_desc": "Serenzer is zowel een ruimte voor reflectie als een concreet hulpmiddel. Het ondersteunt u bij het organiseren van uw dag, het plannen van projecten en biedt evenementherrinneringen als u dat wenst.",
+    "feat2_bullets": [
+      "Beslissingsondersteuning met voor- en nadelenanalyse",
+      "Slimme agenda met herinneringen en voorbereiding",
+      "Begeleide dagboek om uw gedachten te uiten",
+      "Visuele voortgangsmonitoring met 12-dimensionale grafieken",
+      "Alles gebeurt in gesprek, nul complexiteit"
+    ],
+    "feat2_card_title": "Dashboard",
+    "dash_being_self": "Zelf Zijn",
+    "dash_relations": "Relaties",
+    "dash_challenges": "Uitdagingen voltooid",
+    "dash_mood": "Gem. stemming",
+    "feat3_title": "Geautomatiseerde multi-domein zoeken",
+    "feat3_desc": "Scout verzamelt aanbiedingen, filtert ze volgens uw profiel en stuurt u de meest geschikte per e-mail. Na verloop van tijd past het zich aan uw doelen aan en begeleidt u door uw volgende stappen. Scout kan bijvoorbeeld gebruikt worden voor baan- of stagezoekopdrachten of zelfs voor ticket- of hotelreserveringen...",
+    "feat3_bullets": [
+      "Meerdere geaggregeerde bronnen gelokaliseerd op basis van woonplaats",
+      "AI-scoring van elk aanbod volgens uw profiel en prioriteiten",
+      "Meertalige e-mailwaarschuwingen met de beste kansen",
+      "Meerdere configureerbare zoekprofielen",
+      "Geïntegreerde sollicitatiegeschiedenis en -tracking"
+    ],
+    "feat3_card_title": "Scout — Baanzoekopdracht",
+    "scout_match_92": "92% compatibiliteit",
+    "scout_match_87": "87% compatibiliteit",
+    "scout_match_81": "81% compatibiliteit",
+    "scout_job2_title": "Digitaal Projectmanager",
+    "feat4_title": "Uw projecten, gestructureerd en gevolgd",
+    "feat4_desc": "Serenzer transformeert uw ideeën in concrete projecten. Door middel van een gestructureerde dialoog begeleidt het u stap voor stap om elke dimensie van uw project te verkennen en het volledige potentieel ervan te onthullen.",
+    "feat4_bullets": [
+      "AI-ondersteunde projectcreatie in gesprek",
+      "Automatische structurering in uitvoerbare stappen",
+      "Visuele voortgangsmonitoring",
+      "Geïntegreerde slimme herinneringen en proactieve suggesties",
+      "Projectsjablonen voor veelvoorkomende situaties"
+    ],
+    "feat4_card_title": "Project — Professionele heroriëntatiefase",
+    "proj_step1": "Competentiebalans maken",
+    "proj_step2": "3 doelsectoren identificeren",
+    "proj_step3": "CV en LinkedIn bijwerken",
+    "proj_step4": "5 professionals uit de sector contacteren",
+    "proj_done": "Klaar",
+    "proj_progress": "50% voltooid",
+    "philo_title": "Drie sferen voor een evenwichtig leven",
+    "philo_subtitle": "Serenzer transformeert uw uitwisselingen in een duidelijke kaart van uw leven. Het structureert uw profiel in 12 dimensies, verdeeld over drie fundamentele sferen: Zelf Zijn, In Relatie Zijn en Samen Zijn.",
+    "sphere1_sub": "Eerste sfeer",
+    "sphere1_title": "Zelf Zijn",
+    "sphere1_desc": "Uzelf kennen, uzelf begrijpen, uzelf opbouwen. De verkenning van uw innerlijke wereld als basis van duurzame verandering.",
+    "sphere1_tags": ["Identiteit", "Innerlijk leven", "Gezondheid", "Gewoonten", "Huidige uitdagingen"],
+    "sphere2_sub": "Tweede sfeer",
+    "sphere2_title": "In Relatie Zijn",
+    "sphere2_desc": "Openstaan voor anderen, authentieke banden weven. De kwaliteit van uw relaties als spiegel van uw vervulling.",
+    "sphere2_tags": ["Relaties", "Affectief leven", "Sociaal leven"],
+    "sphere3_sub": "Derde sfeer",
+    "sphere3_title": "Samen Zijn",
+    "sphere3_desc": "Bijdragen aan het collectief, uw plaats in de wereld opbouwen. De afstemming tussen uw aspiraties en uw concrete impact.",
+    "sphere3_tags": ["Werk", "Financiën", "Leefomgeving", "Doelen"],
+    "how_title": "Uw reis in vier stappen",
+    "how_subtitle": "Geen eindeloze formulieren, geen rigide methoden. Serenzer past zich vanaf de eerste uitwisseling aan u aan.",
+    "step1_title": "Registreer",
+    "step1_desc": "Maak uw account in seconden aan. Kies uw taal uit 20 beschikbare.",
+    "step2_title": "Spreek vrij",
+    "step2_desc": "Chat met uw Serenzer-coach per tekst of spraak. Het leert u kennen door gesprekken.",
+    "step3_title": "Organiseer uzelf",
+    "step3_desc": "Maak projecten, activeer Scout, plan uw agenda, allemaal vanuit het gesprek.",
+    "step4_title": "Volg uw evolutie",
+    "step4_desc": "Neem uitdagingen aan, volg uw voortgang en observeer uw evolutie in de loop van de tijd.",
+    "trust_title": "Uw welzijn en bescherming, onze prioriteit",
+    "trust_subtitle": "Serenzer is ontworpen met de grootst mogelijke aandacht voor emotionele veiligheid en gegevensbescherming.",
+    "trust1_title": "Alarmdetectie",
+    "trust1_desc": "Een monitoringsysteem detecteert noodsignalen en verwijst naar geschikte hulpbronnen voor uw land en taal. Een \"Self Care\"-knop is beschikbaar om nooddiensten in uw land te vinden.",
+    "trust2_title": "Beschermde gegevens",
+    "trust2_desc": "Uw gesprekken en profiel zijn veilig. Geen gegevens worden doorverkocht of gedeeld. Ze voeden geen AI-motor. U heeft volledige controle over uw accountgegevens (AVG).",
+    "trust3_title": "Ethiek door ontwerp",
+    "trust3_desc": "Geen verslavende mechanismen, geen tijdsdruk. Serenzer respecteert uw tempo en moedigt evenwichtig gebruik aan. U beslist over de plaats van Serenzer in uw leven.",
+    "multi_title": "Spreek uw taal",
+    "multi_subtitle": "Serenzer ondersteunt u in 20 talen, met culturele aanpassingen voor elk.",
+    "cta_title": "Klaar om uw leven te vereenvoudigen?",
+    "cta_desc": "Sluit u aan bij Serenzer en ontdek een metgezel die u begrijpt, u helpt beslissen en u elke dag ondersteunt.",
+    "cta_btn": "Gratis beginnen <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+    "footer_tagline": "Zelf Zijn, In Relatie Zijn, Samen Zijn",
+    "footer_legal": "Juridische kennisgeving",
+    "footer_privacy": "Privacy",
+    "footer_contact": "Contact",
+    "footer_rights": "Alle rechten voorbehouden.",
+    "contact_title": "Neem contact op",
+    "contact_subtitle": "Een vraag, een suggestie, een partnerschap? Wij luisteren.",
+    "contact_name": "Naam",
+    "contact_name_ph": "Uw naam",
+    "contact_email": "E-mail",
+    "contact_email_ph": "uw@email.com",
+    "contact_subject": "Onderwerp",
+    "contact_subject_general": "Algemene vraag",
+    "contact_subject_support": "Technische ondersteuning",
+    "contact_subject_partnership": "Partnerschap",
+    "contact_subject_press": "Pers",
+    "contact_subject_other": "Anders",
+    "contact_message": "Bericht",
+    "contact_message_ph": "Beschrijf uw verzoek...",
+    "contact_send": "Bericht verzenden",
+    "contact_success_title": "Bericht verzonden!",
+    "contact_success_desc": "Bedankt voor uw bericht. We zullen zo snel mogelijk antwoorden."
+  }
+}
+
+// ========== I18N ENGINE ==========
+const langLabels={fr:'FR',en:'EN',de:'DE',it:'IT',es:'ES',ja:'日本語',ko:'한국어',nl:'NL',zh:'中文'};
+let currentLang='fr';
+function detectLang(){const p=new URLSearchParams(location.search),u=p.get('lang');if(u&&T[u])return u;const s=localStorage.getItem('serenzer_lang');if(s&&T[s])return s;const b=navigator.languages||[navigator.language||'fr'];for(const l of b){const k=l.split('-')[0].toLowerCase();if(T[k])return k}return'fr'}
+function applyLang(lang){currentLang=lang;const t=T[lang];document.documentElement.lang=lang;document.title=t.page_title;document.querySelector('meta[name="description"]').content=t.page_desc;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k]!==undefined)el.textContent=t[k]});
+document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html');if(t[k]!==undefined)el.innerHTML=t[k]});
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.getAttribute('data-i18n-placeholder');if(t[k]!==undefined)el.placeholder=t[k]});
+document.querySelectorAll('[data-i18n-tags]').forEach(el=>{const k=el.getAttribute('data-i18n-tags');if(t[k]&&Array.isArray(t[k])){const c=el.classList.contains('sphere__dimensions')?'sphere__dim-tag':'dual-role__tag';el.innerHTML=t[k].map(tag=>`<span class="${c}">${tag}</span>`).join('')}});
+document.querySelectorAll('[data-i18n-list]').forEach(el=>{const k=el.getAttribute('data-i18n-list');if(t[k]&&Array.isArray(t[k]))el.innerHTML=t[k].map(i=>`<li>${i}</li>`).join('')});
+document.querySelectorAll('select option[data-i18n]').forEach(o=>{const k=o.getAttribute('data-i18n');if(t[k]!==undefined)o.textContent=t[k]});
+document.getElementById('langLabel').textContent=langLabels[lang];
+document.querySelectorAll('.lang-switcher__option').forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));
+const pl=document.querySelector('.footer__link[href*="privacy-policy"]');if(pl)pl.href=`https://apps.serenzer.com/privacy-policy?lang=${lang}`;
+localStorage.setItem('serenzer_lang',lang)}
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded',()=>{
+applyLang(detectLang());
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+const mt=document.getElementById('mobileToggle'),nl=document.getElementById('navLinks');mt.addEventListener('click',()=>nl.classList.toggle('open'));nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('open')));
+const ls=document.getElementById('langSwitcher'),lb=document.getElementById('langBtn');lb.addEventListener('click',e=>{e.stopPropagation();ls.classList.toggle('open')});document.querySelectorAll('.lang-switcher__option').forEach(o=>o.addEventListener('click',()=>{applyLang(o.dataset.lang);ls.classList.remove('open')}));document.addEventListener('click',()=>ls.classList.remove('open'));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-80,behavior:'smooth'})})});
+const modal=document.getElementById('contactModal'),cl=document.getElementById('contactLink'),mc=document.getElementById('modalClose'),cf=document.getElementById('contactForm'),cs=document.getElementById('contactSuccess');
+cl.addEventListener('click',e=>{e.preventDefault();modal.classList.add('active');document.body.style.overflow='hidden'});
+function closeModal(){modal.classList.remove('active');document.body.style.overflow='';setTimeout(()=>{cf.style.display='';cs.classList.remove('show');cf.reset()},350)}
+mc.addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('active'))closeModal()});
+cf.addEventListener('submit',async e=>{e.preventDefault();const btn=cf.querySelector('button[type=submit]');btn.disabled=true;btn.style.opacity='.6';try{const r=await fetch('https://apps.serenzer.com/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:cf.querySelector('#contactName').value.trim(),email:cf.querySelector('#contactEmail').value.trim(),subject:cf.querySelector('#contactSubject').value,message:cf.querySelector('#contactMessage').value.trim(),lang:currentLang})});if(!r.ok)throw new Error('API error');cf.style.display='none';cs.classList.add('show');setTimeout(closeModal,3000)}catch(err){console.error(err);btn.disabled=false;btn.style.opacity='1';alert(currentLang==='fr'?'Erreur lors de l\'envoi. Veuillez réessayer.':currentLang==='de'?'Fehler beim Senden. Bitte versuchen Sie es erneut.':currentLang==='it'?'Errore durante l\'invio. Riprova.':'Error sending message. Please try again.')}})
+});
+</script>
+</body>
+</html>

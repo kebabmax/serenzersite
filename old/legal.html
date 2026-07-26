@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions l&#233;gales — Serenzer</title>
+<meta name="description" content="Mentions l&#233;gales du site Serenzer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lin-calme: #F8F6F2;
+  --encre-douce: #2F3A3F;
+  --argile-clair: #EFE9DF;
+  --pierre-pale: #D9D4CC;
+  --cendre-tiede: #4E4A46;
+  --sauge-douce: #8FA89B;
+  --sable-chaud: #D1B38B;
+  --mousse-legere: #A6C3B3;
+  --sauge-deep: #6E8E7A;
+  --sauge-light: rgba(143, 168, 155, 0.12);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --max-width: 800px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--encre-douce);
+  background-color: var(--lin-calme);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--sauge-douce); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--sauge-deep); }
+
+/* ---- Navigation ---- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-sm) 0;
+  background: rgba(248, 246, 242, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--pierre-pale);
+}
+
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--encre-douce);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.nav__logo {
+  height: 36px;
+  width: auto;
+}
+
+.nav__back {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cendre-tiede);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav__back:hover { color: var(--sauge-douce); }
+
+/* ---- Page ---- */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px var(--space-md) var(--space-xl);
+}
+
+.page__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--encre-douce);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.page__date {
+  font-size: 0.85rem;
+  color: var(--pierre-pale);
+  margin-bottom: var(--space-lg);
+}
+
+.legal-section {
+  margin-bottom: var(--space-lg);
+}
+
+.legal-section__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--encre-douce);
+  margin-bottom: var(--space-sm);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--argile-clair);
+}
+
+.legal-section p {
+  font-size: 0.95rem;
+  color: var(--cendre-tiede);
+  line-height: 1.8;
+  margin-bottom: var(--space-sm);
+  max-width: none;
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section strong {
+  color: var(--encre-douce);
+  font-weight: 500;
+}
+
+.legal-info {
+  padding: var(--space-md);
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--argile-clair);
+  margin-bottom: var(--space-sm);
+}
+
+.legal-info p {
+  margin-bottom: 0.3rem;
+}
+
+.legal-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Footer ---- */
+.footer {
+  padding: var(--space-lg) 0 var(--space-md);
+  border-top: 1px solid var(--argile-clair);
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--encre-douce);
+}
+
+.footer__tagline {
+  font-size: 0.8rem;
+  color: var(--pierre-pale);
+  margin-top: 0.25rem;
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__link {
+  font-size: 0.85rem;
+  color: var(--cendre-tiede);
+}
+
+.footer__link:hover { color: var(--sauge-douce); }
+
+.footer__bottom {
+  max-width: var(--max-width);
+  margin: var(--space-md) auto 0;
+  padding: var(--space-sm) var(--space-md) 0;
+  border-top: 1px solid var(--argile-clair);
+  text-align: center;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  color: var(--pierre-pale);
+}
+
+@media (max-width: 600px) {
+  .page { padding: 100px var(--space-sm) var(--space-lg); }
+  .footer__inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="https://serenzer.com" class="nav__brand"><img src="https://apps.serenzer.com/static/serenzer_wave.png" alt="Serenzer" class="nav__logo"> Serenzer</a>
+    <a href="https://serenzer.com" class="nav__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Retour au site
+    </a>
+  </div>
+</nav>
+
+<!-- CONTENU -->
+<main class="page">
+
+  <h1 class="page__title">Mentions l&#233;gales</h1>
+  <p class="page__date">Derni&#232;re mise &#224; jour : f&#233;vrier 2025</p>
+
+  <!-- EDITEUR -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">&#201;diteur du site</h2>
+    <div class="legal-info">
+      <p><strong>Serenzer Ltd</strong></p>
+      <p>Soci&#233;t&#233; de droit irlandais (Limited Company)</p>
+      <p>Num&#233;ro d'enregistrement (CRO) : 803801</p>
+      <p>Si&#232;ge social : 77 Camden Street Lower, Saint Kevin's, Dublin, D02 XE80, Ireland</p>
+      <p>Email : <span id="emailContact"></span></p>
+    </div>
+  </section>
+
+  <!-- DIRECTEUR DE PUBLICATION -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Directrice de la publication</h2>
+    <p>Maya Jore, en qualit&#233; de repr&#233;sentante de Serenzer Ltd.</p>
+  </section>
+
+  <!-- HEBERGEUR -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">H&#233;bergement</h2>
+    <div class="legal-info">
+      <p><strong>Hostinger International Ltd</strong></p>
+      <p>61 Lordou Vironos Street, 6023 Larnaca, Chypre</p>
+      <p>Site web : <a href="https://www.hostinger.com" target="_blank" rel="noopener">www.hostinger.com</a></p>
+    </div>
+  </section>
+
+  <!-- PROPRIETE INTELLECTUELLE -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Propri&#233;t&#233; intellectuelle</h2>
+    <p><strong>Serenzer&#174;</strong> est une marque d&#233;pos&#233;e de Serenzer Ltd.</p>
+    <p>L'ensemble du contenu du site serenzer.com et de l'application Serenzer &#8212; incluant sans s'y limiter les textes, images, graphismes, logos, ic&#244;nes, sons, logiciels, code source, bases de donn&#233;es et l'architecture g&#233;n&#233;rale &#8212; est la propri&#233;t&#233; exclusive de Serenzer Ltd ou de ses partenaires et est prot&#233;g&#233; par les lois irlandaises, europ&#233;ennes et internationales relatives &#224; la propri&#233;t&#233; intellectuelle.</p>
+    <p>Toute reproduction, repr&#233;sentation, modification, publication ou adaptation de tout ou partie des &#233;l&#233;ments du site, quel que soit le moyen ou le proc&#233;d&#233; utilis&#233;, est interdite sans l'autorisation &#233;crite pr&#233;alable de Serenzer Ltd.</p>
+  </section>
+
+  <!-- DONNEES PERSONNELLES -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Protection des donn&#233;es personnelles</h2>
+    <p>Serenzer Ltd accorde une importance particuli&#232;re &#224; la protection de vos donn&#233;es personnelles et s'engage &#224; les traiter dans le respect du R&#232;glement G&#233;n&#233;ral sur la Protection des Donn&#233;es (RGPD &#8212; R&#232;glement UE 2016/679).</p>
+    <div class="legal-info">
+      <p><strong>Responsable du traitement</strong></p>
+      <p>Serenzer Ltd, 77 Camden Street Lower, Saint Kevin's, Dublin, D02 XE80, Ireland</p>
+    </div>
+    <div class="legal-info">
+      <p><strong>D&#233;l&#233;gu&#233; &#224; la protection des donn&#233;es (DPO)</strong></p>
+      <p>Raphael Jore</p>
+      <p>Email : <span id="emailDpo"></span></p>
+    </div>
+    <p>Pour en savoir plus sur la mani&#232;re dont nous collectons, utilisons et prot&#233;geons vos donn&#233;es, consultez notre <a href="https://apps.serenzer.com/privacy-policy?lang=fr">Politique de confidentialit&#233;</a>.</p>
+    <p>Conform&#233;ment au RGPD, vous disposez d'un droit d'acc&#232;s, de rectification, d'effacement, de limitation, de portabilit&#233; et d'opposition concernant vos donn&#233;es personnelles. Vous pouvez exercer ces droits en contactant notre DPO &#224; l'adresse indiqu&#233;e ci-dessus.</p>
+    <p>En cas de litige non r&#233;solu, vous avez &#233;galement le droit d'introduire une r&#233;clamation aupr&#232;s de la Data Protection Commission (DPC) irlandaise ou de l'autorit&#233; de contr&#244;le comp&#233;tente de votre pays de r&#233;sidence.</p>
+  </section>
+
+  <!-- COOKIES -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Cookies</h2>
+    <p>Le site serenzer.com peut utiliser des cookies n&#233;cessaires au bon fonctionnement du service, notamment pour la gestion des sessions utilisateurs et les pr&#233;f&#233;rences linguistiques.</p>
+    <p>Aucun cookie publicitaire ou de tra&#231;age &#224; des fins commerciales n'est utilis&#233;. Pour plus d'informations, consultez notre <a href="https://apps.serenzer.com/privacy-policy?lang=fr">Politique de confidentialit&#233;</a>.</p>
+  </section>
+
+  <!-- RESPONSABILITE -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Limitation de responsabilit&#233;</h2>
+    <p>Serenzer est une plateforme d'accompagnement personnel assist&#233;e par intelligence artificielle. Elle ne se substitue en aucun cas &#224; un suivi m&#233;dical, psychologique ou th&#233;rapeutique professionnel.</p>
+    <p>Serenzer Ltd s'efforce de fournir des informations aussi pr&#233;cises que possible. Toutefois, elle ne saurait &#234;tre tenue responsable des omissions, des inexactitudes ou des carences dans la mise &#224; jour des informations pr&#233;sentes sur le site.</p>
+    <p>L'utilisateur est seul responsable de l'usage qu'il fait des contenus et des conseils propos&#233;s par la plateforme.</p>
+  </section>
+
+  <!-- DROIT APPLICABLE -->
+  <section class="legal-section">
+    <h2 class="legal-section__title">Droit applicable</h2>
+    <p>Les pr&#233;sentes mentions l&#233;gales sont r&#233;gies par le droit irlandais. Tout litige relatif &#224; l'utilisation du site serenzer.com sera soumis &#224; la comp&#233;tence des tribunaux de Dublin, Irlande, sous r&#233;serve des dispositions imp&#233;ratives applicables au consommateur dans son pays de r&#233;sidence.</p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand"><img src="https://apps.serenzer.com/static/serenzer_wave.png" alt="Serenzer" style="height:28px;width:auto;display:inline-block;vertical-align:middle;margin-right:0.4rem;">Serenzer</div>
+      <div class="footer__tagline">&#202;tre Soi, &#202;tre en Relation, &#202;tre Ensemble</div>
+    </div>
+    <div class="footer__links">
+      <a href="https://apps.serenzer.com/privacy-policy?lang=fr" class="footer__link">Confidentialit&#233;</a>
+      <a href="https://serenzer.com" class="footer__link">Accueil</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p class="footer__copy">&#169; 2025 Serenzer Ltd. Tous droits r&#233;serv&#233;s.</p>
+  </div>
+</footer>
+
+<script>
+// Obfuscation email anti-spam
+(function() {
+  var p = ['c','o','n','t','a','c','t'];
+  var d = ['s','e','r','e','n','z','e','r','.','c','o','m'];
+  var p2 = ['d','p','o'];
+
+  function buildEmail(parts, domain) {
+    return parts.join('') + String.fromCharCode(64) + domain.join('');
+  }
+
+  function createLink(addr) {
+    var a = document.createElement('a');
+    a.href = 'mai' + 'lto:' + addr;
+    a.textContent = addr;
+    a.style.color = '#8FA89B';
+    a.style.fontWeight = '500';
+    a.style.textDecoration = 'none';
+    return a;
+  }
+
+  var el1 = document.getElementById('emailContact');
+  if (el1) {
+    el1.parentNode.replaceChild(createLink(buildEmail(p, d)), el1);
+  }
+
+  var el2 = document.getElementById('emailDpo');
+  if (el2) {
+    el2.parentNode.replaceChild(createLink(buildEmail(p2, d)), el2);
+  }
+})();
+</script>
+
+</body>
+</html>
