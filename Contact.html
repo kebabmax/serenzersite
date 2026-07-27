@@ -393,7 +393,7 @@ a:hover { color: var(--sauge-deep); }
 <meta property="og:url" content="https://serenzer.com/Contact.html">
 <meta property="og:site_name" content="Serenzer">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta property="og:image" content="https://serenzer.com/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png">
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="473">
 <meta property="og:image:alt" content="Serenzer">
@@ -420,7 +420,7 @@ a:hover { color: var(--sauge-deep); }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Serenzer">
 <meta name="twitter:description" content="Contactez Serenzer. Une question, une suggestion ou une demande ? Écrivez-nous, nous vous répondrons rapidement.">
-<meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta name="twitter:image" content="https://serenzer.com/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png">
 
 <script type="application/ld+json">
 {
@@ -441,7 +441,7 @@ a:hover { color: var(--sauge-deep); }
 <nav class="nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__brand">
-      <img src="/assets/serenzer_wave.png" alt="Serenzer" class="nav__logo"> Serenzer
+      <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer" class="nav__logo">
     </a>
     <a href="index.html" class="nav__back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -515,13 +515,12 @@ a:hover { color: var(--sauge-deep); }
   <div class="footer__inner">
     <div>
       <div class="footer__brand">
-        <img src="/assets/serenzer_wave.png" alt="Serenzer">
-        Serenzer
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </div>
-      <div class="footer__tagline" data-i18n="contact_footer_tagline">Idées, projets, calendrier, suivi</div>
+      <div class="footer__tagline" data-i18n="contact_footer_tagline">Idées, Organisations, calendrier, suivi</div>
     </div>
     <div class="footer__links">
-      <a href="https://apps.serenzer.com/legal" class="footer__link" data-i18n="contact_footer_legal">Mentions légales</a>
+      <a href="https://apps.serenzer.com/legal" data-legal-page="legal" class="footer__link" data-i18n="contact_footer_legal">Mentions légales</a>
       <a href="team.html" class="footer__link" data-i18n="nav_team">Équipe</a>
       <a href="index.html" class="footer__link" data-i18n="contact_footer_home">Accueil</a>
     </div>
@@ -562,6 +561,9 @@ a:hover { color: var(--sauge-deep); }
   var dict = (window.SERENZER_I18N && window.SERENZER_I18N[lang]) || window.SERENZER_I18N.fr;
   document.documentElement.setAttribute('lang', lang);
   if (RTL.indexOf(lang) >= 0) document.documentElement.setAttribute('dir','rtl');
+  document.querySelectorAll('[data-legal-page]').forEach(function(el){
+    el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+  });
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = dict[el.getAttribute('data-i18n')];
     if (v == null) return;

@@ -30,8 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title data-i18n="meta_title">Serenzer — Assistant IA pour organiser projets et idées</title>
-<meta name="description" data-i18n-attr="content" data-i18n="meta_description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<title data-i18n="meta_title">Serenzer — Assistant IA pour organiser Organisations et idées</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta_description" content="Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -134,6 +134,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     flex:none;
     display:grid;place-items:center;
   }
+  .brand__mark--logo{width:auto;height:32px}
+  .brand__mark--logo img{width:auto;height:100%}
   .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
   .brand__mark svg{width:20px;height:20px;color:#fff}
   .brand__name{
@@ -149,6 +151,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition:color var(--transition-normal);
   }
   .nav__links a:hover{color:var(--color-text-primary)}
+  .nav__link--page{
+    display:inline-flex;align-items:center;gap:6px;
+    padding-left:var(--space-lg);
+    border-left:1px solid var(--color-pierre-pale);
+  }
+  .nav__link--page svg{width:13px;height:13px}
   .nav__right{display:flex;align-items:center;gap:var(--space-md)}
   .lang-select{
     position:relative;
@@ -510,46 +518,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .stat__label{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
   .stat__value{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;color:var(--color-encre-douce)}
-  .dashboard__items{display:grid;gap:var(--space-sm)}
-  .dash-item{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:var(--space-md) var(--space-lg);
-    border-radius:var(--radius-md);
-    background:var(--color-lin-calme);
-  }
-  .dash-item__left{display:flex;align-items:center;gap:var(--space-md)}
-  .dash-item__icon{
-    width:32px;height:32px;border-radius:var(--radius-md);
-    background:var(--color-accent-light);color:var(--color-accent);
-    display:grid;place-items:center;flex:none;
-  }
-  .dash-item__icon svg{width:16px;height:16px}
-  .dash-item__icon--alt{background:rgba(166,195,179,.22);color:#658a73}
-  .dash-item__icon--warm{background:rgba(209,179,139,.25);color:#9a7740}
-  .dash-item__icon--neutral{background:var(--color-pierre-pale);color:var(--color-cendre-tiede)}
-  .dash-item__label{font-size:var(--text-sm);font-weight:500}
-  .dash-item__count{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
 
-  /* scout */
-  .scout{display:grid;gap:var(--space-md)}
-  .scout-card{
-    background:var(--color-lin-calme);
-    border:1px solid var(--color-border-light);
-    border-radius:var(--radius-md);
+  /* faq */
+  .faq{display:flex;flex-direction:column;gap:var(--space-3xl)}
+  .faq-cat__title{
+    font-family:var(--font-display);font-weight:500;letter-spacing:-.015em;
+    font-size:var(--text-md);color:var(--color-encre-douce);
+    margin-bottom:var(--space-lg);
+  }
+  .faq-cat__intro{
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    background:var(--color-lin-calme);border-radius:var(--radius-lg);
+    padding:var(--space-lg);margin-bottom:var(--space-lg);line-height:1.55;
+  }
+  .faq-list{display:flex;flex-direction:column;gap:var(--space-sm)}
+  .faq-item{
+    border:1px solid var(--color-pierre-pale);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);
     padding:var(--space-lg);
+    font-size:var(--text-base);font-weight:500;
+    color:var(--color-encre-douce);
   }
-  .scout-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-md);margin-bottom:6px}
-  .scout-card__role{font-size:var(--text-sm);font-weight:600;color:var(--color-encre-douce)}
-  .scout-card__meta{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-sm)}
-  .scout-card__bar{
-    height:4px;background:var(--color-argile-clair);border-radius:var(--radius-full);
-    overflow:hidden;margin-bottom:6px;
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item__chevron{flex:none;width:18px;height:18px;color:var(--color-cendre-tiede);transition:transform var(--transition-normal)}
+  .faq-item[open] .faq-item__chevron{transform:rotate(180deg)}
+  .faq-item__answer{
+    padding:0 var(--space-lg) var(--space-lg);
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    line-height:1.6;
   }
-  .scout-card__bar i{display:block;height:100%;background:var(--color-accent);border-radius:inherit}
-  .scout-card__rel{display:flex;align-items:center;justify-content:space-between;font-size:var(--text-xs);font-weight:500}
-  .scout-card__rel--high{color:var(--color-accent)}
-  .scout-card__rel--mid{color:#658a73}
-  .scout-card__rel--low{color:#9a7740}
+  .faq-item__answer a{color:var(--color-accent);text-decoration:underline}
 
   /* project (feature 4) */
   .project__progress{
@@ -844,13 +847,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="x-default" href="https://serenzer.com/">
 
 <!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
-<meta property="og:title" content="Serenzer — Assistant IA pour organiser projets et idées">
-<meta property="og:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta property="og:title" content="Serenzer — Assistant IA pour organiser Organisations et idées">
+<meta property="og:description" content="Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serenzer.com/">
 <meta property="og:site_name" content="Serenzer">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta property="og:image" content="https://serenzer.com/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png">
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="473">
 <meta property="og:image:alt" content="Serenzer">
@@ -875,16 +878,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Serenzer — Assistant IA pour organiser projets et idées">
-<meta name="twitter:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
-<meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta name="twitter:title" content="Serenzer — Assistant IA pour organiser Organisations et idées">
+<meta name="twitter:description" content="Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta name="twitter:image" content="https://serenzer.com/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Serenzer",
-  "description": "Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.",
+  "description": "Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "Web, iOS, Android",
   "inLanguage": "fr",
@@ -899,18 +902,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a class="brand" href="#">
-      <span class="brand__mark" aria-hidden="true">
-        <img src="/assets/serenzer_wave.png" alt="Serenzer">
+      <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </span>
-      <span class="brand__name">Serenzer</span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#features" data-i18n="nav_features">Fonctionnalités</a>
-      <a href="#how" data-i18n="nav_how">Fonctionnement</a>
+      <a href="#how" data-i18n="nav_how">Comment ça marche</a>
       <a href="#trust" data-i18n="nav_trust">Confiance</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
       <a href="#languages" data-i18n="nav_languages">Langues</a>
-      <a href="pricing.html" data-i18n="nav_pricing">Tarifs</a>
+      <a class="nav__link--page" href="pricing.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg><span data-i18n="nav_pricing">Tarifs</span></a>
     </nav>
 
     <div class="nav__right">
@@ -940,10 +943,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="hero__copy">
         <div class="hero__tag">
           <span class="hero__tag-dot"></span>
-          <span data-i18n="hero_tag">Assistant personnel IA — organisation, projets, calendrier</span>
+          <span data-i18n="hero_tag">Assistant personnel IA — organisation, Organisations, calendrier</span>
         </div>
         <h1 class="hero__title" data-i18n="hero_title">Un assistant IA pour structurer vos idées et organiser votre quotidien.</h1>
-        <p class="hero__subtitle" data-i18n="hero_subtitle">Serenzer vous aide à clarifier vos priorités, organiser vos projets, préparer vos journées et centraliser vos informations dans une interface simple et conversationnelle.</p>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">Serenzer vous aide à clarifier vos priorités, organiser vos Organisations, préparer vos journées et centraliser vos informations dans une interface simple et conversationnelle.</p>
         <div class="hero__ctas">
           <a class="btn btn--primary btn--lg" href="https://apps.serenzer.com">
             <span data-i18n="hero_cta_primary">Découvrir l’assistant</span>
@@ -982,7 +985,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>
               </svg>
             </span>
-            <div class="msg__bubble" data-i18n="mockup_ai_1">Bonjour, je peux vous aider à organiser une idée, structurer un projet ou préparer votre journée.</div>
+            <div class="msg__bubble" data-i18n="mockup_ai_1">Bonjour, je peux vous aider à organiser une idée, structurer une Organisation ou préparer votre journée.</div>
           </div>
           <div class="msg msg--user">
             <span class="msg__avatar" aria-hidden="true">
@@ -1040,8 +1043,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </svg>
           </div>
           <h3 class="role-card__title" data-i18n="dual_card2_title">Organisation</h3>
-          <p class="role-card__desc" data-i18n="dual_card2_desc">Serenzer aide à organiser les projets, les tâches, les rappels et le calendrier depuis une interface conversationnelle.</p>
-          <div class="tag-row" data-i18n-tags="dual_card2_tags"><span class="tag">Projets</span><span class="tag">Calendrier</span><span class="tag">Rappels</span><span class="tag">Suivi</span></div>
+          <p class="role-card__desc" data-i18n="dual_card2_desc">Serenzer aide à organiser les Organisations, les tâches, les rappels et le calendrier depuis une interface conversationnelle.</p>
+          <div class="tag-row" data-i18n-tags="dual_card2_tags"><span class="tag">Organisations</span><span class="tag">Calendrier</span><span class="tag">Rappels</span><span class="tag">Suivi</span></div>
         </div>
       </div>
     </div>
@@ -1052,7 +1055,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container">
       <div class="section__head reveal">
         <h2 class="section__title" data-i18n="showcase_title">Ce que Serenzer peut vous aider à organiser</h2>
-        <p class="section__subtitle" data-i18n="showcase_subtitle">Un espace conversationnel pour structurer les idées, suivre les projets et garder une continuité dans le quotidien.</p>
+        <p class="section__subtitle" data-i18n="showcase_subtitle">Un espace conversationnel pour structurer les idées, suivre les Organisations et garder une continuité dans le quotidien.</p>
       </div>
 
       <!-- Feature 1 -->
@@ -1060,7 +1063,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="feature__copy">
           <span class="eyebrow" data-i18n="f1_label">Conversation</span>
           <h3 data-i18n="f1_title">Une conversation structurée qui garde le contexte</h3>
-          <p data-i18n="f1_desc">Échangez par texte ou par voix. Serenzer peut conserver les éléments utiles de vos échanges pour faciliter le suivi de vos projets, préférences et décisions.</p>
+          <p data-i18n="f1_desc">Échangez par texte ou par voix. Serenzer écoute et retient ce qui compte, pour que vous n'ayez pas à vous répéter : vos organisations, vos préférences et vos décisions restent accessibles au fil de vos échanges.</p>
           <ul class="feature__bullets" data-i18n-bullets="f1_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conversations texte et vocales</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conservation du contexte utile</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Synthèses et listes d’actions</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Suivi des sujets importants</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Suggestions toujours validées par l’utilisateur</span></li></ul>
         </div>
         <div class="feature__visual">
@@ -1100,7 +1103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="feature__copy">
           <span class="eyebrow" data-i18n="f2_label">Repères</span>
           <h3 data-i18n="f2_title">Des repères pour mieux organiser les priorités</h3>
-          <p data-i18n="f2_desc">Serenzer peut aider à transformer une réflexion ou une liste d’idées en actions concrètes, rappels, événements ou projets.</p>
+          <p data-i18n="f2_desc">Serenzer peut aider à structurer une réflexion ou une liste d’idées en actions concrètes, rappels, événements ou Organisations.</p>
           <ul class="feature__bullets" data-i18n-bullets="f2_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Comparaison simple des options</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Calendrier et rappels</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Notes structurées</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Tableaux de suivi</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Fonctionnement conversationnel</span></li></ul>
         </div>
         <div class="feature__visual">
@@ -1114,88 +1117,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="stat"><div class="stat__label" data-i18n="f2_dash_balance_label">Organisation</div><div class="stat__value">76%</div></div>
               <div class="stat"><div class="stat__label" data-i18n="f2_dash_done_label">Actions suivies</div><div class="stat__value">18</div></div>
             </div>
-            <div class="dashboard__items">
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 4v16"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_projects">Projets</span>
-                </div>
-                <span class="dash-item__count">5</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--alt" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21a6 6 0 0 1 12 0"/><path d="M16 11l2 2 4-4"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_relations">Relations</span>
-                </div>
-                <span class="dash-item__count">12</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--warm" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_tasks">Tâches</span>
-                </div>
-                <span class="dash-item__count">8</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--neutral" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_notes">Notes</span>
-                </div>
-                <span class="dash-item__count">24</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Feature 3 - Scout -->
-      <article class="feature reveal">
-        <div class="feature__copy">
-          <span class="eyebrow" data-i18n="f3_label">Scout</span>
-          <h3 data-i18n="f3_title">Scout — votre veille personnalisée</h3>
-          <p data-i18n="f3_desc">Scout rassemble des offres ou informations depuis plusieurs sources, applique vos critères de recherche et vous envoie les résultats pertinents par email.</p>
-          <ul class="feature__bullets" data-i18n-bullets="f3_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Sources agrégées selon la recherche configurée</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Classement selon les critères sélectionnés</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Alertes email multilingues</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Profils de recherche configurables</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Historique de suivi intégré</span></li></ul>
-        </div>
-        <div class="feature__visual">
-          <div class="visual">
-            <div class="visual__header">
-              <span class="visual__title" data-i18n="f3_result_title">Résultats Scout</span>
-              <span class="visual__pill">3</span>
-            </div>
-            <div class="scout">
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">Product Designer</span>
-                  <span class="scout-card__rel scout-card__rel--high" data-i18n="f3_relevance_high">Très pertinent</span>
-                </div>
-                <div class="scout-card__meta">Nantes · CDI · Remote partiel</div>
-                <div class="scout-card__bar"><i style="width:92%"></i></div>
-              </div>
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">UX Researcher</span>
-                  <span class="scout-card__rel scout-card__rel--mid" data-i18n="f3_relevance_mid">Pertinent</span>
-                </div>
-                <div class="scout-card__meta">Lyon · CDI · Hybride</div>
-                <div class="scout-card__bar"><i style="width:78%;background:#658a73"></i></div>
-              </div>
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">Service Designer</span>
-                  <span class="scout-card__rel scout-card__rel--low" data-i18n="f3_relevance_low">À examiner</span>
-                </div>
-                <div class="scout-card__meta">Paris · Freelance</div>
-                <div class="scout-card__bar"><i style="width:64%;background:#9a7740"></i></div>
-              </div>
-            </div>
           </div>
         </div>
       </article>
@@ -1203,15 +1124,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Feature 4 - Projects (reverse) -->
       <article class="feature feature--reverse reveal">
         <div class="feature__copy">
-          <span class="eyebrow" data-i18n="f4_label">Projets</span>
-          <h3 data-i18n="f4_title">Vos projets, structurés et suivis</h3>
-          <p data-i18n="f4_desc">Serenzer transforme une idée en plan clair, avec étapes, échéances, rappels et suivi de progression.</p>
-          <ul class="feature__bullets" data-i18n-bullets="f4_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Création de projets en conversation</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Découpage en étapes simples</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Suivi visuel</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Rappels intégrés</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Modèles de projets courants</span></li></ul>
+          <span class="eyebrow" data-i18n="f4_label">Organisations</span>
+          <h3 data-i18n="f4_title">Vos Organisations, structurées et suivies</h3>
+          <p data-i18n="f4_desc">Serenzer aide à structurer une idée en plan clair, avec étapes, échéances, rappels et suivi de progression.</p>
+          <ul class="feature__bullets" data-i18n-bullets="f4_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Création d’Organisations en conversation</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Découpage en étapes simples</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Suivi visuel</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Rappels intégrés</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Modèles d’Organisations courantes</span></li></ul>
         </div>
         <div class="feature__visual">
           <div class="visual">
             <div class="visual__header">
-              <span class="visual__title" data-i18n="f4_card_title">Projet — Préparation professionnelle</span>
+              <span class="visual__title" data-i18n="f4_card_title">Organisation — Préparation professionnelle</span>
               <span class="visual__pill">2/4</span>
             </div>
             <div class="project__progress">
@@ -1247,8 +1168,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section class="section">
     <div class="container">
       <div class="section__head reveal">
-        <h2 class="section__title" data-i18n="philo_title">Trois espaces pour mieux organiser le quotidien</h2>
-        <p class="section__subtitle" data-i18n="philo_subtitle">Serenzer structure les informations autour de trois espaces simples : idées, relations pratiques et projets.</p>
+        <h2 class="section__title" data-i18n="philo_title">Ce que Serenzer aide à organiser au quotidien</h2>
+        <p class="section__subtitle" data-i18n="philo_subtitle">Serenzer aide à gérer vos idées, vos échanges et vos priorités, dans un même espace conversationnel.</p>
       </div>
 
       <div class="spheres reveal">
@@ -1285,7 +1206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <path d="M15 14l1.5 1.5L19 13"/>
             </svg>
           </div>
-          <h3 class="sphere__title" data-i18n="philo_s3_title">Projets</h3>
+          <h3 class="sphere__title" data-i18n="philo_s3_title">Organisations</h3>
           <p class="sphere__desc" data-i18n="philo_s3_desc">Objectifs, tâches, échéances, documents, rappels et étapes à suivre.</p>
           <div class="tag-row" data-i18n-tags="philo_s3_tags"><span class="tag">Travail</span><span class="tag">Organisation</span><span class="tag">Finances</span><span class="tag">Planning</span></div>
         </div>
@@ -1315,7 +1236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="step">
           <div class="step__num">3</div>
           <h3 class="step__title" data-i18n="how_s3_title">Structurez</h3>
-          <p class="step__desc" data-i18n="how_s3_desc">Transformez vos idées en projets, tâches, rappels ou recherches.</p>
+          <p class="step__desc" data-i18n="how_s3_desc">Structurez vos idées en Organisations, tâches, rappels ou recherches.</p>
         </div>
         <div class="step">
           <div class="step__num">4</div>
@@ -1380,13 +1301,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </section>
 
+  <!-- === FAQ === -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" data-i18n="faq_title">Foire aux questions</h2>
+        <p class="section__subtitle" data-i18n="faq_subtitle">Vous avez des questions sur Serenzer ? Voici de quoi vous éclairer.</p>
+      </div>
+      <div class="faq reveal" id="faqContent"></div>
+    </div>
+  </section>
+
   <!-- === FINAL CTA === -->
   <section class="section section--tight">
     <div class="container">
       <div class="final-cta reveal">
         <div class="final-cta__inner">
-          <h2 class="final-cta__title" data-i18n="cta_final_title">Prêt à mieux organiser vos idées et vos projets ?</h2>
-          <p class="final-cta__subtitle" data-i18n="cta_final_subtitle">Découvrez un assistant IA conçu pour structurer vos informations, suivre vos projets et garder vos priorités accessibles.</p>
+          <h2 class="final-cta__title" data-i18n="cta_final_title">Prêt à mieux organiser vos idées et vos Organisations ?</h2>
+          <p class="final-cta__subtitle" data-i18n="cta_final_subtitle">Découvrez un assistant IA conçu pour structurer vos informations, suivre vos Organisations et garder vos priorités accessibles.</p>
           <a class="btn btn--primary btn--lg" href="https://apps.serenzer.com">
             <span data-i18n="cta_final_button">Commencer gratuitement</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1403,18 +1335,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer__top">
       <div class="footer__brand">
         <div class="brand">
-          <span class="brand__mark" aria-hidden="true">
-            <img src="/assets/serenzer_wave.png" alt="Serenzer">
-          </span>
-          <span class="brand__name">Serenzer</span>
+          <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
+      </span>
         </div>
-        <p class="footer__tagline" data-i18n="footer_tagline">Idées, projets, calendrier, suivi</p>
+        <p class="footer__tagline" data-i18n="footer_tagline">Idées, Organisations, calendrier, suivi</p>
       </div>
       <div class="footer__col">
         <h4 data-i18n="footer_product">Produit</h4>
         <ul>
           <li><a href="#features" data-i18n="nav_features">Fonctionnalités</a></li>
-          <li><a href="#how" data-i18n="nav_how">Fonctionnement</a></li>
+          <li><a href="#how" data-i18n="nav_how">Comment ça marche</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="#languages" data-i18n="nav_languages">Langues</a></li>
           <li><a href="pricing.html" data-i18n="nav_pricing">Tarifs</a></li>
         </ul>
@@ -1430,9 +1362,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_legal">Légal</h4>
         <ul>
-          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
-          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
-          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
         </ul>
       </div>
     </div>
@@ -1482,6 +1414,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', (['ar','he'].indexOf(lang) >= 0) ? 'rtl' : 'ltr');
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
 
     // text
     document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -1535,6 +1472,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         el.appendChild(li);
       });
     });
+
+    // faq
+    var faqRoot = document.getElementById('faqContent');
+    var faq = dict.faq;
+    if(faqRoot && faq){
+      faqRoot.innerHTML = '';
+      faq.cats.forEach(function(cat, catIndex){
+        var block = document.createElement('div');
+        block.className = 'faq-cat';
+        var h3 = document.createElement('h3');
+        h3.className = 'faq-cat__title';
+        h3.textContent = cat.title;
+        block.appendChild(h3);
+        if(catIndex === faq.cats.length - 1 && faq.betaIntro){
+          var intro = document.createElement('p');
+          intro.className = 'faq-cat__intro';
+          intro.textContent = faq.betaIntro;
+          block.appendChild(intro);
+        }
+        var list = document.createElement('div');
+        list.className = 'faq-list';
+        cat.items.forEach(function(item){
+          var details = document.createElement('details');
+          details.className = 'faq-item';
+          var summary = document.createElement('summary');
+          var qSpan = document.createElement('span');
+          qSpan.textContent = item.q;
+          var chevron = document.createElement('span');
+          chevron.className = 'faq-item__chevron';
+          chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+          summary.appendChild(qSpan);
+          summary.appendChild(chevron);
+          var answer = document.createElement('div');
+          answer.className = 'faq-item__answer';
+          var aP = document.createElement('p');
+          aP.textContent = item.a;
+          answer.appendChild(aP);
+          if(item.linkLabel && item.linkHref){
+            var link = document.createElement('a');
+            link.href = item.linkHref;
+            link.textContent = item.linkLabel;
+            answer.appendChild(link);
+          }
+          details.appendChild(summary);
+          details.appendChild(answer);
+          list.appendChild(details);
+        });
+        block.appendChild(list);
+        faqRoot.appendChild(block);
+      });
+    }
 
     // current lang label
     var current = LANGS.find(function(l){return l.code===lang;});
