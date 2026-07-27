@@ -30,7 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="contact_meta_title">Kontakt — Serenzer</title>
+<title data-i18n="contact_meta_title">Kontakt · Serenzer</title>
+<link rel="icon" href="/favicon.ico">
 <meta name="description" data-i18n-attr="content" data-i18n="contact_meta_description" content="Skontaktuj się z Serenzer. Masz pytanie, sugestię lub prośbę? Napisz do nas, a odpowiemy szybko.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +61,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; max-width: 100%; overflow-x: hidden; }
+body { max-width: 100%; overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -360,6 +362,7 @@ a:hover { color: var(--sauge-deep); }
 
 
 
+
 <!-- SEO / Meta -->
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://serenzer.com/pl/Contact.html">
@@ -387,7 +390,7 @@ a:hover { color: var(--sauge-deep); }
 <link rel="alternate" hreflang="x-default" href="https://serenzer.com/Contact.html">
 
 <!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
-<meta property="og:title" content="Kontakt — Serenzer">
+<meta property="og:title" content="Kontakt · Serenzer">
 <meta property="og:description" content="Skontaktuj się z Serenzer. Masz pytanie, sugestię lub prośbę? Napisz do nas, a odpowiemy szybko.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serenzer.com/pl/Contact.html">
@@ -418,7 +421,7 @@ a:hover { color: var(--sauge-deep); }
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kontakt — Serenzer">
+<meta name="twitter:title" content="Kontakt · Serenzer">
 <meta name="twitter:description" content="Skontaktuj się z Serenzer. Masz pytanie, sugestię lub prośbę? Napisz do nas, a odpowiemy szybko.">
 <meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
 
@@ -441,7 +444,7 @@ a:hover { color: var(--sauge-deep); }
 <nav class="nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__brand">
-      <img src="/assets/serenzer_wave.png" alt="Serenzer" class="nav__logo"> Serenzer
+      <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer" class="nav__logo">
     </a>
     <a href="index.html" class="nav__back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -515,13 +518,12 @@ a:hover { color: var(--sauge-deep); }
   <div class="footer__inner">
     <div>
       <div class="footer__brand">
-        <img src="/assets/serenzer_wave.png" alt="Serenzer">
-        Serenzer
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </div>
-      <div class="footer__tagline" data-i18n="contact_footer_tagline">Pomysły, projekty, kalendarz, śledzenie</div>
+      <div class="footer__tagline" data-i18n="contact_footer_tagline">Pomysły, Organizacje, kalendarz, śledzenie</div>
     </div>
     <div class="footer__links">
-      <a href="https://apps.serenzer.com/legal" class="footer__link" data-i18n="contact_footer_legal">Informacje prawne</a>
+      <a href="https://apps.serenzer.com/legal" data-legal-page="legal" class="footer__link" data-i18n="contact_footer_legal">Informacje prawne</a>
       <a href="team.html" class="footer__link" data-i18n="nav_team">Zespół</a>
       <a href="index.html" class="footer__link" data-i18n="contact_footer_home">Strona główna</a>
     </div>
@@ -562,6 +564,9 @@ a:hover { color: var(--sauge-deep); }
   var dict = (window.SERENZER_I18N && window.SERENZER_I18N[lang]) || window.SERENZER_I18N.fr;
   document.documentElement.setAttribute('lang', lang);
   if (RTL.indexOf(lang) >= 0) document.documentElement.setAttribute('dir','rtl');
+  document.querySelectorAll('[data-legal-page]').forEach(function(el){
+    el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+  });
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = dict[el.getAttribute('data-i18n')];
     if (v == null) return;
