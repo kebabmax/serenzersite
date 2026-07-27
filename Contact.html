@@ -518,10 +518,10 @@ a:hover { color: var(--sauge-deep); }
         <img src="/assets/serenzer_wave.png" alt="Serenzer">
         Serenzer
       </div>
-      <div class="footer__tagline" data-i18n="contact_footer_tagline">Idées, projets, calendrier, suivi</div>
+      <div class="footer__tagline" data-i18n="contact_footer_tagline">Idées, Organisations, calendrier, suivi</div>
     </div>
     <div class="footer__links">
-      <a href="https://apps.serenzer.com/legal" class="footer__link" data-i18n="contact_footer_legal">Mentions légales</a>
+      <a href="https://apps.serenzer.com/legal" data-legal-page="legal" class="footer__link" data-i18n="contact_footer_legal">Mentions légales</a>
       <a href="team.html" class="footer__link" data-i18n="nav_team">Équipe</a>
       <a href="index.html" class="footer__link" data-i18n="contact_footer_home">Accueil</a>
     </div>
@@ -562,6 +562,9 @@ a:hover { color: var(--sauge-deep); }
   var dict = (window.SERENZER_I18N && window.SERENZER_I18N[lang]) || window.SERENZER_I18N.fr;
   document.documentElement.setAttribute('lang', lang);
   if (RTL.indexOf(lang) >= 0) document.documentElement.setAttribute('dir','rtl');
+  document.querySelectorAll('[data-legal-page]').forEach(function(el){
+    el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+  });
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = dict[el.getAttribute('data-i18n')];
     if (v == null) return;

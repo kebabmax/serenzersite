@@ -753,7 +753,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </span>
           <span class="brand__name">Serenzer</span>
         </div>
-        <p class="footer__tagline" data-i18n="footer_tagline">Idées, projets, calendrier, suivi</p>
+        <p class="footer__tagline" data-i18n="footer_tagline">Idées, Organisations, calendrier, suivi</p>
       </div>
       <div class="footer__col">
         <h4 data-i18n="footer_product">Produit</h4>
@@ -773,9 +773,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_legal">Légal</h4>
         <ul>
-          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
-          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
-          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
         </ul>
       </div>
     </div>
@@ -800,6 +800,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
     if(!dict) return;
     document.documentElement.setAttribute('lang', lang);
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
       var val = dict[key];

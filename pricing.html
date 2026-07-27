@@ -269,8 +269,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="x-default" href="https://serenzer.com/pricing.html">
 
 <!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
-<meta property="og:title" content="Serenzer — Assistant IA pour organiser projets et idées">
-<meta property="og:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta property="og:title" content="Serenzer — Assistant IA pour organiser Organisations et idées">
+<meta property="og:description" content="Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serenzer.com/pricing.html">
 <meta property="og:site_name" content="Serenzer">
@@ -300,8 +300,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Serenzer — Assistant IA pour organiser projets et idées">
-<meta name="twitter:description" content="Assistant personnel IA pour structurer vos idées, organiser vos projets, suivre vos tâches et centraliser vos informations du quotidien.">
+<meta name="twitter:title" content="Serenzer — Assistant IA pour organiser Organisations et idées">
+<meta name="twitter:description" content="Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.">
 <meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
 </head>
 <body>
@@ -562,7 +562,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span data-i18n="pricing_faq_q5">Qu’est-ce que l’Organisation personnelle ?</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq__a" data-i18n="pricing_faq_a5">L’Organisation personnelle est une interface dédiée à la gestion structurée de vos projets, tâches et documents, en complément de la conversation.</div>
+        <div class="faq__a" data-i18n="pricing_faq_a5">L’Organisation personnelle est une interface dédiée à la gestion structurée de vos Organisations, tâches et documents, en complément de la conversation.</div>
       </div>
 
     </div>
@@ -593,7 +593,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </span>
           <span class="brand__name">Serenzer</span>
         </div>
-        <p class="footer__tagline" data-i18n="footer_tagline">Idées, projets, calendrier, suivi</p>
+        <p class="footer__tagline" data-i18n="footer_tagline">Idées, Organisations, calendrier, suivi</p>
       </div>
       <div class="footer__col">
         <h4 data-i18n="footer_product">Produit</h4>
@@ -615,9 +615,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_legal">Légal</h4>
         <ul>
-          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
-          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
-          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">Confidentialité</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">Conditions d’utilisation</a></li>
         </ul>
       </div>
     </div>
@@ -639,6 +639,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var dict=window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr;
     document.documentElement.setAttribute('lang',lang);
     document.documentElement.setAttribute('dir', (['ar','he'].indexOf(lang) >= 0) ? 'rtl' : 'ltr');
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key=el.getAttribute('data-i18n');
       if(dict[key]!==undefined&&typeof dict[key]==='string') el.textContent=dict[key];
