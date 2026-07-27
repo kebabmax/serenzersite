@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<!-- Redirection langue (avant tout rendu, pour eviter un flash de la page FR) -->
+<script>
+(function(){
+  try {
+    var CODES = ['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+    var pathMatch = window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
+    if(pathMatch) return;
+    var stored = null;
+    try { stored = localStorage.getItem('serenzer_lang'); } catch(e){}
+    var target = null;
+    if(stored && CODES.indexOf(stored) >= 0){
+      target = stored;
+    } else {
+      var prefs = navigator.languages || [navigator.language || ''];
+      for(var i = 0; i < prefs.length; i++){
+        var c = String(prefs[i]).slice(0,2).toLowerCase();
+        if(CODES.indexOf(c) >= 0){ target = c; break; }
+      }
+    }
+    if(target && target !== 'fr'){
+      var rest = window.location.pathname.replace(/^\//, '');
+      window.location.replace('/' + target + '/' + rest + window.location.search + window.location.hash);
+    }
+  } catch(e){}
+})();
+</script>
 <!-- Consent Mode v2 — DOIT preceder GTM -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -1392,34 +1418,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // === Languages ===
   var LANGS = [{code:'fr', label:'Français'},{code:'en', label:'English'},{code:'de', label:'Deutsch'},{code:'it', label:'Italiano'},{code:'es', label:'Español'},{code:'nl', label:'Nederlands'},{code:'pt', label:'Português'},{code:'da', label:'Dansk'},{code:'sv', label:'Svenska'},{code:'no', label:'Norsk'},{code:'pl', label:'Polski'},{code:'ru', label:'Русский'},{code:'tr', label:'Türkçe'},{code:'ar', label:'العربية'},{code:'he', label:'עברית'},{code:'hi', label:'हिन्दी'},{code:'ja', label:'日本語'},{code:'ko', label:'한국어'},{code:'zh', label:'中文'}];
 
-  var stored = null;
-  try { stored = localStorage.getItem('serenzer_lang'); } catch(e){}
-  var browserPref = (navigator.language||'fr').slice(0,2).toLowerCase();
   // Initial language: detected from URL first (so /en/ -> en), fallback to FR (root = x-default).
+  // La redirection cote client (racine -> langue preferee) se fait plus tot,
+  // en tete de <head>, avant le premier rendu (evite le flash de la page FR).
   var pathMatch = window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
   var initial = pathMatch ? pathMatch[1] : 'fr';
-
-  // Racine uniquement : rediriger vers la langue preferee.
-  // Cote client seulement -> les crawlers voient toujours le x-default (FR).
-  // Priorite : choix memorise > langues du navigateur > FR (aucune redirection).
-  if(!pathMatch){
-    var codes = LANGS.map(function(l){ return l.code; });
-    var target = null;
-    if(stored && codes.indexOf(stored) >= 0){
-      target = stored;
-    } else {
-      var prefs = navigator.languages || [navigator.language || ''];
-      for(var i = 0; i < prefs.length; i++){
-        var c = String(prefs[i]).slice(0,2).toLowerCase();
-        if(codes.indexOf(c) >= 0){ target = c; break; }
-      }
-    }
-    if(target && target !== 'fr'){
-      var rest = window.location.pathname.replace(/^\//, '');
-      window.location.replace('/' + target + '/' + rest + window.location.search + window.location.hash);
-      return;
-    }
-  }
 
   function applyI18n(lang){
     var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
