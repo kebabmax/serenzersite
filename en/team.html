@@ -30,7 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title data-i18n="team_meta_title">The Team — Serenzer</title>
+<title data-i18n="team_meta_title">The Team · Serenzer</title>
+<link rel="icon" href="/favicon.ico">
 <meta name="description" data-i18n-attr="content" data-i18n="team_meta_description" content="Serenzer was co-founded by the entire Jore family. Meet the six people — and the dog — behind the AI personal assistant.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
   body{
     background:var(--color-background);
     color:var(--color-text-primary);
@@ -116,7 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* === NAV === */
   .nav{
-    position:sticky;top:0;z-index:50;
+    position:fixed;top:0;left:0;right:0;z-index:50;
     background:rgba(248,246,242,.85);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
@@ -135,21 +136,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:grid;place-items:center;
   }
   .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .brand__mark--logo{width:auto;height:32px;overflow:hidden}
+  .brand__mark--logo img{width:auto !important;height:100%}
   .brand__name{
     font-family:var(--font-display);
     font-size:var(--text-lg);
     font-weight:500;letter-spacing:-.01em;
     color:var(--color-encre-douce);
   }
-  .nav__links{display:none;gap:var(--space-3xl);align-items:center}
+  .nav__links{display:none;flex-shrink:0;gap:clamp(8px,1.5vw,32px);align-items:center;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{white-space:nowrap;flex:none}
   .nav__links a{
     font-size:var(--text-sm);font-weight:500;
     color:var(--color-text-secondary);
     transition:color var(--transition-normal);
   }
   .nav__links a:hover{color:var(--color-text-primary)}
+  .nav__link--page{display:inline-flex;align-items:center;gap:6px;padding-left:var(--space-lg);border-left:1px solid var(--color-pierre-pale)}
   .nav__links a.is-active{color:var(--color-accent)}
   .nav__right{display:flex;align-items:center;gap:var(--space-md)}
+  .nav__toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:36px;height:36px;flex:none;
+    border-radius:var(--radius-md);
+    background:transparent;
+    color:var(--color-text-secondary);
+    transition:background var(--transition-normal);
+  }
+  .nav__toggle:hover{background:var(--color-argile-clair)}
+  .mobile-nav{
+    position:fixed;top:var(--header-height,68px);left:0;right:0;
+    display:flex;flex-direction:column;
+    background:var(--color-surface,#fff);
+    border-bottom:1px solid var(--color-border-light);
+    box-shadow:var(--shadow-lg);
+    padding:var(--space-md) var(--space-2xl);
+    opacity:0;visibility:hidden;
+    transform:translateY(-8px);
+    transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);
+    z-index:49;
+    max-height:calc(100vh - var(--header-height,68px));overflow-y:auto;
+  }
+  .mobile-nav.is-open{opacity:1;visibility:visible;transform:none}
+  .mobile-nav a{
+    padding:var(--space-md) 0;
+    font-size:var(--text-base);font-weight:500;
+    color:var(--color-text-primary);
+    border-bottom:1px solid var(--color-border-light);
+  }
+  .mobile-nav a:last-child{border-bottom:none}
+  .mobile-nav a.is-active{color:var(--color-accent)}
   .lang-select{position:relative}
   .lang-select__btn{
     display:inline-flex;align-items:center;gap:var(--space-sm);
@@ -163,7 +200,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .lang-select__btn svg{width:14px;height:14px}
   .lang-select__menu{
     position:absolute;top:calc(100% + 6px);right:0;
-    min-width:160px;
+    width:min(300px,calc(100vw - 32px));
+    display:grid;grid-template-columns:1fr 1fr;gap:2px;
+    max-height:min(70vh,480px);overflow-y:auto;
     background:var(--color-surface);
     border:1px solid var(--color-border-light);
     border-radius:var(--radius-md);
@@ -175,6 +214,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     z-index:10;
   }
   .lang-select.is-open .lang-select__menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-select__heading{
+    grid-column:1/-1;
+    padding:8px 12px 4px;
+    font-size:var(--text-xs);font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;
+    color:var(--color-text-muted);
+  }
   .lang-select__item{
     display:flex;align-items:center;justify-content:space-between;
     width:100%;
@@ -422,8 +468,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   @media (min-width:960px){
     .nav__links{display:flex}
+    .nav__toggle{display:none}
+    .mobile-nav{display:none !important}
   }
 </style>
+
 
 
 
@@ -461,7 +510,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="x-default" href="https://serenzer.com/team.html">
 
 <!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
-<meta property="og:title" content="The Team — Serenzer">
+<meta property="og:title" content="The Team · Serenzer">
 <meta property="og:description" content="Serenzer was co-founded by the entire Jore family. Meet the six people — and the dog — behind the AI personal assistant.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serenzer.com/en/team.html">
@@ -492,7 +541,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Team — Serenzer">
+<meta name="twitter:title" content="The Team · Serenzer">
 <meta name="twitter:description" content="Serenzer was co-founded by the entire Jore family. Meet the six people — and the dog — behind the AI personal assistant.">
 <meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
 
@@ -516,28 +565,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a class="brand" href="./">
-      <span class="brand__mark" aria-hidden="true">
-        <img src="/assets/serenzer_wave.png" alt="Serenzer">
+      <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </span>
-      <span class="brand__name">Serenzer</span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
-      <a href="./#features" data-i18n="nav_features">Features</a>
-      <a href="./#how" data-i18n="nav_how">How it works</a>
-      <a href="./#trust" data-i18n="nav_trust">Trust</a>
-      <a href="team.html" class="is-active" data-i18n="nav_team">Team</a>
+      <a href="./" data-i18n="nav_home">Home</a>
+      <a href="team.html" class="is-active" data-i18n="nav_about">About</a>
+      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a>
+      <a class="nav__link--page" href="./#faq" data-i18n="nav_faq">FAQ</a>
     </nav>
 
     <div class="nav__right">
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+      </button>
       <div class="lang-select" id="langSelect">
         <button class="lang-select__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="9"/>
             <path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/>
           </svg>
           <span id="langLabel">Français</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
         </button>
@@ -546,9 +597,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a class="btn btn--primary btn--sm" href="https://apps.serenzer.com" data-i18n="nav_login">Sign in</a>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile">
+    <a href="./" data-i18n="nav_home">Home</a>
+    <a href="team.html" class="is-active" data-i18n="nav_about">About</a>
+    <a href="pricing.html" data-i18n="nav_pricing">Pricing</a>
+    <a href="./#faq" data-i18n="nav_faq">FAQ</a>
+  </nav>
 </header>
 
-<main>
+<main style="padding-top:var(--header-height,68px)">
 
   <!-- === TEAM HERO (récit) === -->
   <section class="team-hero">
@@ -748,12 +805,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer__top">
       <div class="footer__brand">
         <div class="brand">
-          <span class="brand__mark" aria-hidden="true">
-            <img src="/assets/serenzer_wave.png" alt="Serenzer">
-          </span>
-          <span class="brand__name">Serenzer</span>
+          <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
+      </span>
         </div>
-        <p class="footer__tagline" data-i18n="footer_tagline">Ideas, projects, calendar, tracking</p>
+        <p class="footer__tagline" data-i18n="footer_tagline">Ideas, Organisations, calendar, tracking</p>
       </div>
       <div class="footer__col">
         <h4 data-i18n="footer_product">Product</h4>
@@ -773,9 +829,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_legal">Legal</h4>
         <ul>
-          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Privacy</a></li>
-          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Legal notice</a></li>
-          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Terms of use</a></li>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">Privacy</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">Legal notice</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">Terms of use</a></li>
         </ul>
       </div>
     </div>
@@ -800,6 +856,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
     if(!dict) return;
     document.documentElement.setAttribute('lang', lang);
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
       var val = dict[key];
@@ -818,6 +879,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   // === Build language menu ===
   var menu = document.getElementById('langMenu');
+  var menuDict = (window.SERENZER_I18N && (window.SERENZER_I18N[initial] || window.SERENZER_I18N.fr)) || {};
+  if(menuDict.lang_menu_heading){
+    var heading = document.createElement('li');
+    heading.className = 'lang-select__heading';
+    heading.setAttribute('role','presentation');
+    heading.textContent = menuDict.lang_menu_heading;
+    menu.appendChild(heading);
+  }
   LANGS.forEach(function(l){
     var li = document.createElement('li');
     var btn = document.createElement('button');
@@ -840,6 +909,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     li.appendChild(btn);
     menu.appendChild(li);
   });
+
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  if(navToggle && mobileNav){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen?'true':'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!mobileNav.contains(e.target) && e.target !== navToggle){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
 
   var sel = document.getElementById('langSelect');
   var langBtn = document.getElementById('langBtn');

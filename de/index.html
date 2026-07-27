@@ -28,10 +28,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MK96QMHK');</script>
 <!-- End Google Tag Manager -->
 
+<!-- Redirection langue (avant tout rendu, pour eviter un flash de la page FR) -->
+<script>
+(function(){
+  try {
+    var CODES = ['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+    var pathMatch = window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
+    if(pathMatch) return;
+    var stored = null;
+    try { stored = localStorage.getItem('serenzer_lang'); } catch(e){}
+    var target = null;
+    if(stored && CODES.indexOf(stored) >= 0){
+      target = stored;
+    } else {
+      var prefs = navigator.languages || [navigator.language || ''];
+      for(var i = 0; i < prefs.length; i++){
+        var c = String(prefs[i]).slice(0,2).toLowerCase();
+        if(CODES.indexOf(c) >= 0){ target = c; break; }
+      }
+    }
+    if(target && target !== 'fr'){
+      var rest = window.location.pathname.replace(/^\//, '');
+      window.location.replace('/' + target + '/' + rest + window.location.search + window.location.hash);
+    }
+  } catch(e){}
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title data-i18n="meta_title">Serenzer — KI-Assistent für Projekte und Aufgaben</title>
-<meta name="description" data-i18n-attr="content" data-i18n="meta_description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Projekten, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
+<title data-i18n="meta_title">Serenzer · KI-Assistent für Organisationen und Aufgaben</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="description" data-i18n-attr="content" data-i18n="meta_description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Organisationen, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -91,7 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
   body{
     background:var(--color-background);
     color:var(--color-text-primary);
@@ -116,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* === NAV === */
   .nav{
-    position:sticky;top:0;z-index:50;
+    position:fixed;top:0;left:0;right:0;z-index:50;
     background:rgba(248,246,242,.85);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
@@ -135,6 +162,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:grid;place-items:center;
   }
   .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .brand__mark--logo{width:auto;height:32px;overflow:hidden}
+  .brand__mark--logo img{width:auto !important;height:100%}
   .brand__mark svg{width:20px;height:20px;color:#fff}
   .brand__name{
     font-family:var(--font-display);
@@ -142,14 +171,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight:500;letter-spacing:-.01em;
     color:var(--color-encre-douce);
   }
-  .nav__links{display:none;gap:var(--space-3xl);align-items:center}
+  .nav__links{display:none;flex-shrink:0;gap:clamp(8px,1.5vw,32px);align-items:center;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{white-space:nowrap;flex:none}
   .nav__links a{
     font-size:var(--text-sm);font-weight:500;
     color:var(--color-text-secondary);
     transition:color var(--transition-normal);
   }
   .nav__links a:hover{color:var(--color-text-primary)}
+  .nav__link--page{
+    display:inline-flex;align-items:center;gap:6px;
+    padding-left:var(--space-lg);
+    border-left:1px solid var(--color-pierre-pale);
+  }
   .nav__right{display:flex;align-items:center;gap:var(--space-md)}
+  .nav__toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:36px;height:36px;flex:none;
+    border-radius:var(--radius-md);
+    background:transparent;
+    color:var(--color-text-secondary);
+    transition:background var(--transition-normal);
+  }
+  .nav__toggle:hover{background:var(--color-argile-clair)}
+  .mobile-nav{
+    position:fixed;top:var(--header-height,68px);left:0;right:0;
+    display:flex;flex-direction:column;
+    background:var(--color-surface,#fff);
+    border-bottom:1px solid var(--color-border-light);
+    box-shadow:var(--shadow-lg);
+    padding:var(--space-md) var(--space-2xl);
+    opacity:0;visibility:hidden;
+    transform:translateY(-8px);
+    transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);
+    z-index:49;
+    max-height:calc(100vh - var(--header-height,68px));overflow-y:auto;
+  }
+  .mobile-nav.is-open{opacity:1;visibility:visible;transform:none}
+  .mobile-nav a{
+    padding:var(--space-md) 0;
+    font-size:var(--text-base);font-weight:500;
+    color:var(--color-text-primary);
+    border-bottom:1px solid var(--color-border-light);
+  }
+  .mobile-nav a:last-child{border-bottom:none}
   .lang-select{
     position:relative;
   }
@@ -165,7 +231,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .lang-select__btn svg{width:14px;height:14px}
   .lang-select__menu{
     position:absolute;top:calc(100% + 6px);right:0;
-    min-width:160px;
+    width:min(300px,calc(100vw - 32px));
+    display:grid;grid-template-columns:1fr 1fr;gap:2px;
+    max-height:min(70vh,480px);overflow-y:auto;
     background:var(--color-surface);
     border:1px solid var(--color-border-light);
     border-radius:var(--radius-md);
@@ -177,6 +245,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     z-index:10;
   }
   .lang-select.is-open .lang-select__menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-select__heading{
+    grid-column:1/-1;
+    padding:8px 12px 4px;
+    font-size:var(--text-xs);font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;
+    color:var(--color-text-muted);
+  }
   .lang-select__item{
     display:flex;align-items:center;justify-content:space-between;
     width:100%;
@@ -510,46 +585,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .stat__label{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
   .stat__value{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;color:var(--color-encre-douce)}
-  .dashboard__items{display:grid;gap:var(--space-sm)}
-  .dash-item{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:var(--space-md) var(--space-lg);
-    border-radius:var(--radius-md);
-    background:var(--color-lin-calme);
-  }
-  .dash-item__left{display:flex;align-items:center;gap:var(--space-md)}
-  .dash-item__icon{
-    width:32px;height:32px;border-radius:var(--radius-md);
-    background:var(--color-accent-light);color:var(--color-accent);
-    display:grid;place-items:center;flex:none;
-  }
-  .dash-item__icon svg{width:16px;height:16px}
-  .dash-item__icon--alt{background:rgba(166,195,179,.22);color:#658a73}
-  .dash-item__icon--warm{background:rgba(209,179,139,.25);color:#9a7740}
-  .dash-item__icon--neutral{background:var(--color-pierre-pale);color:var(--color-cendre-tiede)}
-  .dash-item__label{font-size:var(--text-sm);font-weight:500}
-  .dash-item__count{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
 
-  /* scout */
-  .scout{display:grid;gap:var(--space-md)}
-  .scout-card{
-    background:var(--color-lin-calme);
-    border:1px solid var(--color-border-light);
-    border-radius:var(--radius-md);
+  /* faq */
+  .faq{display:flex;flex-direction:column;gap:var(--space-3xl)}
+  .faq-cat__title{
+    font-family:var(--font-display);font-weight:500;letter-spacing:-.015em;
+    font-size:var(--text-md);color:var(--color-encre-douce);
+    margin-bottom:var(--space-lg);
+  }
+  .faq-cat__intro{
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    background:var(--color-lin-calme);border-radius:var(--radius-lg);
+    padding:var(--space-lg);margin-bottom:var(--space-lg);line-height:1.55;
+  }
+  .faq-list{display:flex;flex-direction:column;gap:var(--space-sm)}
+  .faq-item{
+    border:1px solid var(--color-pierre-pale);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);
     padding:var(--space-lg);
+    font-size:var(--text-base);font-weight:500;
+    color:var(--color-encre-douce);
   }
-  .scout-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-md);margin-bottom:6px}
-  .scout-card__role{font-size:var(--text-sm);font-weight:600;color:var(--color-encre-douce)}
-  .scout-card__meta{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-sm)}
-  .scout-card__bar{
-    height:4px;background:var(--color-argile-clair);border-radius:var(--radius-full);
-    overflow:hidden;margin-bottom:6px;
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item__chevron{flex:none;width:18px;height:18px;color:var(--color-cendre-tiede);transition:transform var(--transition-normal)}
+  .faq-item[open] .faq-item__chevron{transform:rotate(180deg)}
+  .faq-item__answer{
+    padding:0 var(--space-lg) var(--space-lg);
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    line-height:1.6;
   }
-  .scout-card__bar i{display:block;height:100%;background:var(--color-accent);border-radius:inherit}
-  .scout-card__rel{display:flex;align-items:center;justify-content:space-between;font-size:var(--text-xs);font-weight:500}
-  .scout-card__rel--high{color:var(--color-accent)}
-  .scout-card__rel--mid{color:#658a73}
-  .scout-card__rel--low{color:#9a7740}
+  .faq-item__answer a{color:var(--color-accent);text-decoration:underline}
 
   /* project (feature 4) */
   .project__progress{
@@ -796,6 +866,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   @media (min-width:960px){
     .nav__links{display:flex}
+    .nav__toggle{display:none}
+    .mobile-nav{display:none !important}
     .hero__grid{grid-template-columns:1.05fr 1fr;gap:var(--space-7xl)}
     .how{grid-template-columns:repeat(4,1fr)}
   }
@@ -806,6 +878,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   [dir="rtl"] .msg--user{flex-direction:row}
 </style>
 <!-- JSON-LD: SoftwareApplication / ProductivityApplication -->
+
 
 
 
@@ -844,8 +917,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="x-default" href="https://serenzer.com/">
 
 <!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
-<meta property="og:title" content="Serenzer — KI-Assistent für Projekte und Aufgaben">
-<meta property="og:description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Projekten, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
+<meta property="og:title" content="Serenzer · KI-Assistent für Organisationen und Aufgaben">
+<meta property="og:description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Organisationen, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serenzer.com/de/">
 <meta property="og:site_name" content="Serenzer">
@@ -875,8 +948,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Serenzer — KI-Assistent für Projekte und Aufgaben">
-<meta name="twitter:description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Projekten, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
+<meta name="twitter:title" content="Serenzer · KI-Assistent für Organisationen und Aufgaben">
+<meta name="twitter:description" content="Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Organisationen, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.">
 <meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
 
 <script type="application/ld+json">
@@ -884,7 +957,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Serenzer",
-  "description": "Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Projekten, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.",
+  "description": "Persönlicher KI-Assistent zum Strukturieren von Ideen, Organisieren von Organisationen, Verfolgen von Aufgaben und Zentralisieren täglicher Informationen.",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "Web, iOS, Android",
   "inLanguage": "de",
@@ -899,29 +972,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a class="brand" href="#">
-      <span class="brand__mark" aria-hidden="true">
-        <img src="/assets/serenzer_wave.png" alt="Serenzer">
+      <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </span>
-      <span class="brand__name">Serenzer</span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
-      <a href="#features" data-i18n="nav_features">Funktionen</a>
-      <a href="#how" data-i18n="nav_how">Funktionsweise</a>
-      <a href="#trust" data-i18n="nav_trust">Vertrauen</a>
-      <a href="#languages" data-i18n="nav_languages">Sprachen</a>
+      <a href="#" data-i18n="nav_home">Startseite</a>
+      <a href="team.html" data-i18n="nav_about">Über uns</a>
       <a href="pricing.html" data-i18n="nav_pricing">Preise</a>
+      <a class="nav__link--page" href="#faq" data-i18n="nav_faq">FAQ</a>
     </nav>
 
     <div class="nav__right">
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/>
+        </svg>
+      </button>
       <div class="lang-select" id="langSelect">
         <button class="lang-select__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="9"/>
             <path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/>
           </svg>
           <span id="langLabel">Français</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
         </button>
@@ -930,9 +1006,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a class="btn btn--primary btn--sm" href="https://apps.serenzer.com" data-i18n="nav_login">Anmelden</a>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile">
+    <a href="#" data-i18n="nav_home">Startseite</a>
+    <a href="team.html" data-i18n="nav_about">Über uns</a>
+    <a href="pricing.html" data-i18n="nav_pricing">Preise</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
+  </nav>
 </header>
 
-<main>
+<main style="padding-top:var(--header-height,68px)">
 
   <!-- === HERO === -->
   <section class="hero">
@@ -940,10 +1022,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="hero__copy">
         <div class="hero__tag">
           <span class="hero__tag-dot"></span>
-          <span data-i18n="hero_tag">Persönlicher KI-Assistent — Organisation, Projekte, Kalender</span>
+          <span data-i18n="hero_tag">Persönlicher KI-Assistent · Organisation, Organisationen, Kalender</span>
         </div>
         <h1 class="hero__title" data-i18n="hero_title">Ein KI-Assistent, der Ihre Ideen strukturiert und Ihren Alltag organisiert.</h1>
-        <p class="hero__subtitle" data-i18n="hero_subtitle">Serenzer hilft Ihnen, Prioritäten zu klären, Projekte zu organisieren, Ihre Tage vorzubereiten und Ihre Informationen in einer einfachen, dialogorientierten Oberfläche zu bündeln.</p>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">Serenzer hilft Ihnen, Prioritäten zu klären, Organisationen zu organisieren, Ihre Tage vorzubereiten und Ihre Informationen in einer einfachen, dialogorientierten Oberfläche zu bündeln.</p>
         <div class="hero__ctas">
           <a class="btn btn--primary btn--lg" href="https://apps.serenzer.com">
             <span data-i18n="hero_cta_primary">Den Assistenten entdecken</span>
@@ -982,7 +1064,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>
               </svg>
             </span>
-            <div class="msg__bubble" data-i18n="mockup_ai_1">Hallo, ich kann Ihnen helfen, eine Idee zu ordnen, ein Projekt zu strukturieren oder Ihren Tag vorzubereiten.</div>
+            <div class="msg__bubble" data-i18n="mockup_ai_1">Hallo, ich kann Ihnen helfen, eine Idee zu ordnen, ein Organisation zu strukturieren oder Ihren Tag vorzubereiten.</div>
           </div>
           <div class="msg msg--user">
             <span class="msg__avatar" aria-hidden="true">
@@ -1040,8 +1122,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </svg>
           </div>
           <h3 class="role-card__title" data-i18n="dual_card2_title">Organisation</h3>
-          <p class="role-card__desc" data-i18n="dual_card2_desc">Serenzer hilft, Projekte, Aufgaben, Erinnerungen und den Kalender über eine dialogorientierte Oberfläche zu organisieren.</p>
-          <div class="tag-row" data-i18n-tags="dual_card2_tags"><span class="tag">Projekte</span><span class="tag">Kalender</span><span class="tag">Erinnerungen</span><span class="tag">Verfolgung</span></div>
+          <p class="role-card__desc" data-i18n="dual_card2_desc">Serenzer hilft, Organisationen, Aufgaben, Erinnerungen und den Kalender über eine dialogorientierte Oberfläche zu organisieren.</p>
+          <div class="tag-row" data-i18n-tags="dual_card2_tags"><span class="tag">Organisationen</span><span class="tag">Kalender</span><span class="tag">Erinnerungen</span><span class="tag">Verfolgung</span></div>
         </div>
       </div>
     </div>
@@ -1051,8 +1133,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section class="section" id="features">
     <div class="container">
       <div class="section__head reveal">
-        <h2 class="section__title" data-i18n="showcase_title">Was Serenzer Ihnen zu organisieren hilft</h2>
-        <p class="section__subtitle" data-i18n="showcase_subtitle">Ein dialogorientierter Raum, um Ideen zu strukturieren, Projekte zu verfolgen und Kontinuität im Alltag zu bewahren.</p>
+        <h2 class="section__title" data-i18n="showcase_title">Wie Serenzer Ihnen im Alltag nützlich sein kann</h2>
+        <p class="section__subtitle" data-i18n="showcase_subtitle">Ein dialogorientierter Raum, um Ideen zu strukturieren, Organisationen zu verfolgen und Kontinuität im Alltag zu bewahren.</p>
       </div>
 
       <!-- Feature 1 -->
@@ -1060,7 +1142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="feature__copy">
           <span class="eyebrow" data-i18n="f1_label">Konversation</span>
           <h3 data-i18n="f1_title">Ein strukturiertes Gespräch, das den Kontext bewahrt</h3>
-          <p data-i18n="f1_desc">Tauschen Sie sich per Text oder Stimme aus. Serenzer kann nützliche Elemente Ihrer Gespräche bewahren, um die Verfolgung von Projekten, Vorlieben und Entscheidungen zu erleichtern.</p>
+          <p data-i18n="f1_desc">Tauschen Sie sich per Text oder Stimme aus. Serenzer hört zu und merkt sich, was wichtig ist, damit Sie sich nicht wiederholen müssen: Ihre Organisationen, Vorlieben und Entscheidungen bleiben im Gesprächsverlauf zugänglich.</p>
           <ul class="feature__bullets" data-i18n-bullets="f1_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Text- und Sprachgespräche</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Bewahrung des nützlichen Kontexts</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Zusammenfassungen und Aktionslisten</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Verfolgung wichtiger Themen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Vorschläge stets vom Nutzer bestätigt</span></li></ul>
         </div>
         <div class="feature__visual">
@@ -1089,7 +1171,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span class="v-action__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </span>
-              <span data-i18n-html="f1_card_action"><strong>Vorgeschlagener Schritt</strong>: eine einfache Tabelle mit Kriterien, Vorteilen, Grenzen und nächsten Aktionen erstellen.</span>
+              <span data-i18n-html="f1_card_action"><strong>Denkanstoß</strong>: eine einfache Tabelle mit Kriterien, Vorteilen, Grenzen und nächsten Aktionen erstellen.</span>
             </div>
           </div>
         </div>
@@ -1100,7 +1182,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="feature__copy">
           <span class="eyebrow" data-i18n="f2_label">Anhaltspunkte</span>
           <h3 data-i18n="f2_title">Anhaltspunkte zur besseren Ordnung der Prioritäten</h3>
-          <p data-i18n="f2_desc">Serenzer kann eine Überlegung oder eine Ideenliste in konkrete Aktionen, Erinnerungen, Termine oder Projekte umwandeln.</p>
+          <p data-i18n="f2_desc">Serenzer kann eine Überlegung oder eine Ideenliste in konkrete Aktionen, Erinnerungen, Termine oder Organisationen umwandeln.</p>
           <ul class="feature__bullets" data-i18n-bullets="f2_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Einfacher Optionsvergleich</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Kalender und Erinnerungen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Strukturierte Notizen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Verfolgungstabellen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Dialogorientierter Ablauf</span></li></ul>
         </div>
         <div class="feature__visual">
@@ -1114,88 +1196,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="stat"><div class="stat__label" data-i18n="f2_dash_balance_label">Organisation</div><div class="stat__value">76%</div></div>
               <div class="stat"><div class="stat__label" data-i18n="f2_dash_done_label">Verfolgte Aktionen</div><div class="stat__value">18</div></div>
             </div>
-            <div class="dashboard__items">
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 4v16"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_projects">Projekte</span>
-                </div>
-                <span class="dash-item__count">5</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--alt" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21a6 6 0 0 1 12 0"/><path d="M16 11l2 2 4-4"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_relations">Beziehungen</span>
-                </div>
-                <span class="dash-item__count">12</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--warm" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_tasks">Aufgaben</span>
-                </div>
-                <span class="dash-item__count">8</span>
-              </div>
-              <div class="dash-item">
-                <div class="dash-item__left">
-                  <span class="dash-item__icon dash-item__icon--neutral" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-                  </span>
-                  <span class="dash-item__label" data-i18n="f2_dash_notes">Notizen</span>
-                </div>
-                <span class="dash-item__count">24</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Feature 3 - Scout -->
-      <article class="feature reveal">
-        <div class="feature__copy">
-          <span class="eyebrow" data-i18n="f3_label">Scout</span>
-          <h3 data-i18n="f3_title">Scout — Ihre maßgeschneiderte Beobachtung</h3>
-          <p data-i18n="f3_desc">Scout sammelt Angebote oder Informationen aus mehreren Quellen, wendet Ihre Suchkriterien an und sendet Ihnen die relevanten Ergebnisse per E-Mail.</p>
-          <ul class="feature__bullets" data-i18n-bullets="f3_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Quellen entsprechend der konfigurierten Suche zusammengeführt</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Sortierung nach gewählten Kriterien</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Mehrsprachige E-Mail-Benachrichtigungen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Konfigurierbare Suchprofile</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Integrierte Verfolgungs­historie</span></li></ul>
-        </div>
-        <div class="feature__visual">
-          <div class="visual">
-            <div class="visual__header">
-              <span class="visual__title" data-i18n="f3_result_title">Scout-Ergebnisse</span>
-              <span class="visual__pill">3</span>
-            </div>
-            <div class="scout">
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">Product Designer</span>
-                  <span class="scout-card__rel scout-card__rel--high" data-i18n="f3_relevance_high">Sehr relevant</span>
-                </div>
-                <div class="scout-card__meta">Nantes · CDI · Remote partiel</div>
-                <div class="scout-card__bar"><i style="width:92%"></i></div>
-              </div>
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">UX Researcher</span>
-                  <span class="scout-card__rel scout-card__rel--mid" data-i18n="f3_relevance_mid">Relevant</span>
-                </div>
-                <div class="scout-card__meta">Lyon · CDI · Hybride</div>
-                <div class="scout-card__bar"><i style="width:78%;background:#658a73"></i></div>
-              </div>
-              <div class="scout-card">
-                <div class="scout-card__head">
-                  <span class="scout-card__role">Service Designer</span>
-                  <span class="scout-card__rel scout-card__rel--low" data-i18n="f3_relevance_low">Zu prüfen</span>
-                </div>
-                <div class="scout-card__meta">Paris · Freelance</div>
-                <div class="scout-card__bar"><i style="width:64%;background:#9a7740"></i></div>
-              </div>
-            </div>
           </div>
         </div>
       </article>
@@ -1203,15 +1203,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- Feature 4 - Projects (reverse) -->
       <article class="feature feature--reverse reveal">
         <div class="feature__copy">
-          <span class="eyebrow" data-i18n="f4_label">Projekte</span>
-          <h3 data-i18n="f4_title">Ihre Projekte, strukturiert und verfolgt</h3>
-          <p data-i18n="f4_desc">Serenzer verwandelt eine Idee in einen klaren Plan mit Schritten, Fristen, Erinnerungen und Fortschrittsverfolgung.</p>
-          <ul class="feature__bullets" data-i18n-bullets="f4_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Projekte im Gespräch erstellen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Aufteilung in einfache Schritte</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Visuelle Verfolgung</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Integrierte Erinnerungen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Vorlagen für gängige Projekte</span></li></ul>
+          <span class="eyebrow" data-i18n="f4_label">Organisationen</span>
+          <h3 data-i18n="f4_title">Ihre Organisationen, strukturiert und verfolgt</h3>
+          <p data-i18n="f4_desc">Serenzer hilft dabei, eine Idee in einen klaren Plan zu strukturieren, mit Schritten, Fristen, Erinnerungen und Fortschrittsverfolgung.</p>
+          <ul class="feature__bullets" data-i18n-bullets="f4_bullets"><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Organisationen im Gespräch erstellen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Aufteilung in einfache Schritte</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Visuelle Verfolgung</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Integrierte Erinnerungen</span></li><li><span class="feature__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Vorlagen für gängige Organisationen</span></li></ul>
         </div>
         <div class="feature__visual">
           <div class="visual">
             <div class="visual__header">
-              <span class="visual__title" data-i18n="f4_card_title">Projekt — Berufliche Vorbereitung</span>
+              <span class="visual__title" data-i18n="f4_card_title">Organisation · Berufliche Vorbereitung</span>
               <span class="visual__pill">2/4</span>
             </div>
             <div class="project__progress">
@@ -1247,8 +1247,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section class="section">
     <div class="container">
       <div class="section__head reveal">
-        <h2 class="section__title" data-i18n="philo_title">Drei Räume zur besseren Organisation des Alltags</h2>
-        <p class="section__subtitle" data-i18n="philo_subtitle">Serenzer strukturiert Informationen um drei einfache Räume: Ideen, praktische Interaktionen und Projekte.</p>
+        <h2 class="section__title" data-i18n="philo_title">Was Serenzer im Alltag zu organisieren hilft</h2>
+        <p class="section__subtitle" data-i18n="philo_subtitle">Serenzer hilft, Ihre Ideen, Austausche und Prioritäten in einem einzigen Gesprächsraum zu verwalten.</p>
       </div>
 
       <div class="spheres reveal">
@@ -1285,7 +1285,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <path d="M15 14l1.5 1.5L19 13"/>
             </svg>
           </div>
-          <h3 class="sphere__title" data-i18n="philo_s3_title">Projekte</h3>
+          <h3 class="sphere__title" data-i18n="philo_s3_title">Organisationen</h3>
           <p class="sphere__desc" data-i18n="philo_s3_desc">Ziele, Aufgaben, Fristen, Dokumente, Erinnerungen und zu verfolgende Schritte.</p>
           <div class="tag-row" data-i18n-tags="philo_s3_tags"><span class="tag">Arbeit</span><span class="tag">Organisation</span><span class="tag">Finanzen</span><span class="tag">Planung</span></div>
         </div>
@@ -1315,7 +1315,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="step">
           <div class="step__num">3</div>
           <h3 class="step__title" data-i18n="how_s3_title">Strukturieren</h3>
-          <p class="step__desc" data-i18n="how_s3_desc">Verwandeln Sie Ihre Ideen in Projekte, Aufgaben, Erinnerungen oder Suchen.</p>
+          <p class="step__desc" data-i18n="how_s3_desc">Verwandeln Sie Ihre Ideen in Organisationen, Aufgaben, Erinnerungen oder Suchen.</p>
         </div>
         <div class="step">
           <div class="step__num">4</div>
@@ -1380,13 +1380,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </section>
 
+  <!-- === FAQ === -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" data-i18n="faq_title">Foire aux questions</h2>
+        <p class="section__subtitle" data-i18n="faq_subtitle">Vous avez des questions sur Serenzer ? Voici de quoi vous éclairer.</p>
+      </div>
+      <div class="faq reveal" id="faqContent"></div>
+    </div>
+  </section>
+
   <!-- === FINAL CTA === -->
   <section class="section section--tight">
     <div class="container">
       <div class="final-cta reveal">
         <div class="final-cta__inner">
-          <h2 class="final-cta__title" data-i18n="cta_final_title">Bereit, Ihre Ideen und Projekte besser zu organisieren?</h2>
-          <p class="final-cta__subtitle" data-i18n="cta_final_subtitle">Entdecken Sie einen KI-Assistenten, der Ihre Informationen strukturiert, Ihre Projekte verfolgt und Ihre Prioritäten zugänglich hält.</p>
+          <h2 class="final-cta__title" data-i18n="cta_final_title">Bereit, Ihre Ideen und Organisationen besser zu organisieren?</h2>
+          <p class="final-cta__subtitle" data-i18n="cta_final_subtitle">Entdecken Sie einen KI-Assistenten, der Ihre Informationen strukturiert, Ihre Organisationen verfolgt und Ihre Prioritäten zugänglich hält.</p>
           <a class="btn btn--primary btn--lg" href="https://apps.serenzer.com">
             <span data-i18n="cta_final_button">Kostenlos starten</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1403,18 +1414,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer__top">
       <div class="footer__brand">
         <div class="brand">
-          <span class="brand__mark" aria-hidden="true">
-            <img src="/assets/serenzer_wave.png" alt="Serenzer">
-          </span>
-          <span class="brand__name">Serenzer</span>
+          <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
+      </span>
         </div>
-        <p class="footer__tagline" data-i18n="footer_tagline">Ideen, Projekte, Kalender, Verfolgung</p>
+        <p class="footer__tagline" data-i18n="footer_tagline">Ideen, Organisationen, Kalender, Verfolgung</p>
       </div>
       <div class="footer__col">
         <h4 data-i18n="footer_product">Produkt</h4>
         <ul>
           <li><a href="#features" data-i18n="nav_features">Funktionen</a></li>
           <li><a href="#how" data-i18n="nav_how">Funktionsweise</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="#languages" data-i18n="nav_languages">Sprachen</a></li>
           <li><a href="pricing.html" data-i18n="nav_pricing">Preise</a></li>
         </ul>
@@ -1430,9 +1441,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_legal">Rechtliches</h4>
         <ul>
-          <li><a href="https://apps.serenzer.com/privacy-policy" data-i18n="footer_legal_privacy">Datenschutz</a></li>
-          <li><a href="https://apps.serenzer.com/legal" data-i18n="footer_legal_mentions">Impressum</a></li>
-          <li><a href="https://apps.serenzer.com/terms" data-i18n="footer_legal_terms">Nutzungsbedingungen</a></li>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">Datenschutz</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">Impressum</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">Nutzungsbedingungen</a></li>
         </ul>
       </div>
     </div>
@@ -1449,39 +1460,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // === Languages ===
   var LANGS = [{code:'fr', label:'Français'},{code:'en', label:'English'},{code:'de', label:'Deutsch'},{code:'it', label:'Italiano'},{code:'es', label:'Español'},{code:'nl', label:'Nederlands'},{code:'pt', label:'Português'},{code:'da', label:'Dansk'},{code:'sv', label:'Svenska'},{code:'no', label:'Norsk'},{code:'pl', label:'Polski'},{code:'ru', label:'Русский'},{code:'tr', label:'Türkçe'},{code:'ar', label:'العربية'},{code:'he', label:'עברית'},{code:'hi', label:'हिन्दी'},{code:'ja', label:'日本語'},{code:'ko', label:'한국어'},{code:'zh', label:'中文'}];
 
-  var stored = null;
-  try { stored = localStorage.getItem('serenzer_lang'); } catch(e){}
-  var browserPref = (navigator.language||'fr').slice(0,2).toLowerCase();
   // Initial language: detected from URL first (so /en/ -> en), fallback to FR (root = x-default).
+  // La redirection cote client (racine -> langue preferee) se fait plus tot,
+  // en tete de <head>, avant le premier rendu (evite le flash de la page FR).
   var pathMatch = window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
   var initial = pathMatch ? pathMatch[1] : 'fr';
-
-  // Racine uniquement : rediriger vers la langue preferee.
-  // Cote client seulement -> les crawlers voient toujours le x-default (FR).
-  // Priorite : choix memorise > langues du navigateur > FR (aucune redirection).
-  if(!pathMatch){
-    var codes = LANGS.map(function(l){ return l.code; });
-    var target = null;
-    if(stored && codes.indexOf(stored) >= 0){
-      target = stored;
-    } else {
-      var prefs = navigator.languages || [navigator.language || ''];
-      for(var i = 0; i < prefs.length; i++){
-        var c = String(prefs[i]).slice(0,2).toLowerCase();
-        if(codes.indexOf(c) >= 0){ target = c; break; }
-      }
-    }
-    if(target && target !== 'fr'){
-      var rest = window.location.pathname.replace(/^\//, '');
-      window.location.replace('/' + target + '/' + rest + window.location.search + window.location.hash);
-      return;
-    }
-  }
 
   function applyI18n(lang){
     var dict = window.SERENZER_I18N[lang] || window.SERENZER_I18N.fr;
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', (['ar','he'].indexOf(lang) >= 0) ? 'rtl' : 'ltr');
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
 
     // text
     document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -1536,6 +1529,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       });
     });
 
+    // faq
+    var faqRoot = document.getElementById('faqContent');
+    var faq = dict.faq;
+    if(faqRoot && faq){
+      faqRoot.innerHTML = '';
+      faq.cats.forEach(function(cat, catIndex){
+        var block = document.createElement('div');
+        block.className = 'faq-cat';
+        var h3 = document.createElement('h3');
+        h3.className = 'faq-cat__title';
+        h3.textContent = cat.title;
+        block.appendChild(h3);
+        if(catIndex === faq.cats.length - 1 && faq.betaIntro){
+          var intro = document.createElement('p');
+          intro.className = 'faq-cat__intro';
+          intro.textContent = faq.betaIntro;
+          block.appendChild(intro);
+        }
+        var list = document.createElement('div');
+        list.className = 'faq-list';
+        cat.items.forEach(function(item){
+          var details = document.createElement('details');
+          details.className = 'faq-item';
+          var summary = document.createElement('summary');
+          var qSpan = document.createElement('span');
+          qSpan.textContent = item.q;
+          var chevron = document.createElement('span');
+          chevron.className = 'faq-item__chevron';
+          chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+          summary.appendChild(qSpan);
+          summary.appendChild(chevron);
+          var answer = document.createElement('div');
+          answer.className = 'faq-item__answer';
+          var aP = document.createElement('p');
+          aP.textContent = item.a;
+          answer.appendChild(aP);
+          if(item.linkLabel && item.linkHref){
+            var link = document.createElement('a');
+            link.href = item.linkHref;
+            link.textContent = item.linkLabel;
+            answer.appendChild(link);
+          }
+          details.appendChild(summary);
+          details.appendChild(answer);
+          list.appendChild(details);
+        });
+        block.appendChild(list);
+        faqRoot.appendChild(block);
+      });
+    }
+
     // current lang label
     var current = LANGS.find(function(l){return l.code===lang;});
     var lbl = document.getElementById('langLabel');
@@ -1555,6 +1599,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   // build language menu
   var menu = document.getElementById('langMenu');
+  var menuDict = (window.SERENZER_I18N && (window.SERENZER_I18N[initial] || window.SERENZER_I18N.fr)) || {};
+  if(menuDict.lang_menu_heading){
+    var heading = document.createElement('li');
+    heading.className = 'lang-select__heading';
+    heading.setAttribute('role','presentation');
+    heading.textContent = menuDict.lang_menu_heading;
+    menu.appendChild(heading);
+  }
   LANGS.forEach(function(l){
     var li = document.createElement('li');
     var btn = document.createElement('button');
@@ -1581,6 +1633,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     li.appendChild(btn);
     menu.appendChild(li);
   });
+
+  // mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  if(navToggle && mobileNav){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen?'true':'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!mobileNav.contains(e.target) && e.target !== navToggle){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
 
   // toggle menu
   var sel = document.getElementById('langSelect');
