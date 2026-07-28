@@ -165,7 +165,7 @@ window.SERENZER_I18N = {
     footer_legal_privacy: "Confidentialité",
     footer_legal_terms: "Conditions d’utilisation",
     footer_legal_contact: "Contact",
-    nav_pricing: "Abonnement",
+    nav_pricing: "Abonnements",
     pricing_meta_title: "Serenzer · Tarifs",
     pricing_meta_description: "Découvrez les offres Serenzer : Free, Plus et Premium. Essai gratuit, sans engagement.",
     faq_meta_title: "Foire aux questions · Serenzer",
