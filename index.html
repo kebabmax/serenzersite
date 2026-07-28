@@ -866,6 +866,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+
 <!-- SEO / Meta -->
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://serenzer.com/">
@@ -931,26 +932,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://serenzer.com/#organization",
-      "name": "Serenzer",
-      "legalName": "Serenzer Ltd",
-      "url": "https://serenzer.com/",
-      "logo": "https://serenzer.com/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Serenzer",
-      "description": "Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web, iOS, Android",
-      "inLanguage": "fr",
-      "url": "https://serenzer.com/",
-      "publisher": { "@id": "https://serenzer.com/#organization" }
-    }
-  ]
+  "@type": "SoftwareApplication",
+  "name": "Serenzer",
+  "description": "Assistant personnel IA pour structurer vos idées, organiser vos Organisations, suivre vos tâches et centraliser vos informations du quotidien.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "inLanguage": "fr",
+  "url": "https://serenzer.com/",
+  "publisher": { "@type": "Organization", "name": "Serenzer Ltd" }
 }
 </script>
 </head>

@@ -579,6 +579,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .v-action strong{font-weight:600}
 
   /* dashboard (feature 2) */
+  .notes-mini{display:flex;flex-direction:column;gap:var(--space-md)}
+  .notes-mini__item{display:flex;align-items:baseline;gap:var(--space-md);padding-bottom:var(--space-md);border-bottom:1px solid var(--color-border-light)}
+  .notes-mini__item:last-child{border-bottom:none;padding-bottom:0}
+  .notes-mini__item .tag{flex:none}
+  .notes-mini__item span:last-child{font-size:var(--text-sm);color:var(--color-text-secondary)}
   .dashboard__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-bottom:var(--space-lg)}
   .stat{
     background:var(--color-lin-calme);
@@ -588,40 +593,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .stat__label{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
   .stat__value{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;color:var(--color-encre-douce)}
 
-  /* faq */
-  .faq{display:flex;flex-direction:column;gap:var(--space-3xl)}
-  .faq-cat__title{
-    font-family:var(--font-display);font-weight:500;letter-spacing:-.015em;
-    font-size:var(--text-md);color:var(--color-encre-douce);
-    margin-bottom:var(--space-lg);
-  }
-  .faq-cat__intro{
-    font-size:var(--text-sm);color:var(--color-text-secondary);
-    background:var(--color-lin-calme);border-radius:var(--radius-lg);
-    padding:var(--space-lg);margin-bottom:var(--space-lg);line-height:1.55;
-  }
-  .faq-list{display:flex;flex-direction:column;gap:var(--space-sm)}
-  .faq-item{
-    border:1px solid var(--color-pierre-pale);
-    border-radius:var(--radius-lg);
-    overflow:hidden;
-  }
-  .faq-item summary{
-    list-style:none;cursor:pointer;
-    display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);
-    padding:var(--space-lg);
-    font-size:var(--text-base);font-weight:500;
-    color:var(--color-encre-douce);
-  }
-  .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item__chevron{flex:none;width:18px;height:18px;color:var(--color-cendre-tiede);transition:transform var(--transition-normal)}
-  .faq-item[open] .faq-item__chevron{transform:rotate(180deg)}
-  .faq-item__answer{
-    padding:0 var(--space-lg) var(--space-lg);
-    font-size:var(--text-sm);color:var(--color-text-secondary);
-    line-height:1.6;
-  }
-  .faq-item__answer a{color:var(--color-accent);text-decoration:underline}
 
   /* project (feature 4) */
   .project__progress{
@@ -895,6 +866,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+
 <!-- SEO / Meta -->
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://serenzer.com/nl/">
@@ -986,7 +958,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="#" class="is-active" data-i18n="nav_home">Home</a>
       <a href="team.html" data-i18n="nav_about">Over ons</a>
       <a href="pricing.html" data-i18n="nav_pricing">Prijzen</a>
-      <a class="nav__link--page" href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a class="nav__link--page" href="faq.html" data-i18n="nav_faq">FAQ</a>
     </nav>
 
     <div class="nav__right">
@@ -1015,7 +987,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#" class="is-active" data-i18n="nav_home">Home</a>
     <a href="team.html" data-i18n="nav_about">Over ons</a>
     <a href="pricing.html" data-i18n="nav_pricing">Prijzen</a>
-    <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    <a href="faq.html" data-i18n="nav_faq">FAQ</a>
   </nav>
 </header>
 
@@ -1196,10 +1168,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span class="visual__title" data-i18n="f2_label">Referenties</span>
               <span class="visual__pill">Live</span>
             </div>
-            <div class="dashboard__stats">
-              <div class="stat"><div class="stat__label" data-i18n="f2_dash_score_label">Notities</div><div class="stat__value">24</div></div>
-              <div class="stat"><div class="stat__label" data-i18n="f2_dash_balance_label">Organisatie</div><div class="stat__value">76%</div></div>
-              <div class="stat"><div class="stat__label" data-i18n="f2_dash_done_label">Opgevolgde acties</div><div class="stat__value">18</div></div>
+            <div class="notes-mini">
+              <div class="notes-mini__item">
+                <span class="tag" data-i18n="f2_note1_tag">Beslissing</span>
+                <span data-i18n="f2_note1_text">Kiezen tussen de twee aanbiedingen voor vrijdag</span>
+              </div>
+              <div class="notes-mini__item">
+                <span class="tag" data-i18n="f2_note2_tag">Prioriteit</span>
+                <span data-i18n="f2_note2_text">Leverancier opnieuw contacteren voor einde maand</span>
+              </div>
+              <div class="notes-mini__item">
+                <span class="tag" data-i18n="f2_note3_tag">Opvolging</span>
+                <span data-i18n="f2_note3_text">Belangrijkste punten van het gesprek op dinsdag</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1385,17 +1366,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </section>
 
-  <!-- === FAQ === -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section__head reveal">
-        <h2 class="section__title" data-i18n="faq_title">Foire aux questions</h2>
-        <p class="section__subtitle" data-i18n="faq_subtitle">Vous avez des questions sur Serenzer ? Voici de quoi vous éclairer.</p>
-      </div>
-      <div class="faq reveal" id="faqContent"></div>
-    </div>
-  </section>
-
   <!-- === FINAL CTA === -->
   <section class="section section--tight">
     <div class="container">
@@ -1430,7 +1400,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ul>
           <li><a href="#features" data-i18n="nav_features">Functies</a></li>
           <li><a href="#how" data-i18n="nav_how">Werking</a></li>
-          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="#languages" data-i18n="nav_languages">Talen</a></li>
           <li><a href="pricing.html" data-i18n="nav_pricing">Prijzen</a></li>
         </ul>
@@ -1533,57 +1503,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         el.appendChild(li);
       });
     });
-
-    // faq
-    var faqRoot = document.getElementById('faqContent');
-    var faq = dict.faq;
-    if(faqRoot && faq){
-      faqRoot.innerHTML = '';
-      faq.cats.forEach(function(cat, catIndex){
-        var block = document.createElement('div');
-        block.className = 'faq-cat';
-        var h3 = document.createElement('h3');
-        h3.className = 'faq-cat__title';
-        h3.textContent = cat.title;
-        block.appendChild(h3);
-        if(catIndex === faq.cats.length - 1 && faq.betaIntro){
-          var intro = document.createElement('p');
-          intro.className = 'faq-cat__intro';
-          intro.textContent = faq.betaIntro;
-          block.appendChild(intro);
-        }
-        var list = document.createElement('div');
-        list.className = 'faq-list';
-        cat.items.forEach(function(item){
-          var details = document.createElement('details');
-          details.className = 'faq-item';
-          var summary = document.createElement('summary');
-          var qSpan = document.createElement('span');
-          qSpan.textContent = item.q;
-          var chevron = document.createElement('span');
-          chevron.className = 'faq-item__chevron';
-          chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
-          summary.appendChild(qSpan);
-          summary.appendChild(chevron);
-          var answer = document.createElement('div');
-          answer.className = 'faq-item__answer';
-          var aP = document.createElement('p');
-          aP.textContent = item.a;
-          answer.appendChild(aP);
-          if(item.linkLabel && item.linkHref){
-            var link = document.createElement('a');
-            link.href = item.linkHref;
-            link.textContent = item.linkLabel;
-            answer.appendChild(link);
-          }
-          details.appendChild(summary);
-          details.appendChild(answer);
-          list.appendChild(details);
-        });
-        block.appendChild(list);
-        faqRoot.appendChild(block);
-      });
-    }
 
     // current lang label
     var current = LANGS.find(function(l){return l.code===lang;});
@@ -1693,19 +1612,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
-
-  // === Nav active state: Accueil <-> FAQ (ancres sur la meme page) ===
-  var faqSection = document.getElementById('faq');
-  var homeLinks = document.querySelectorAll('.nav__links a[data-i18n="nav_home"], .mobile-nav a[data-i18n="nav_home"]');
-  var faqLinks = document.querySelectorAll('.nav__links a[data-i18n="nav_faq"], .mobile-nav a[data-i18n="nav_faq"]');
-  function onScrollSpy(){
-    if(!faqSection) return;
-    var isFaq = window.scrollY + 80 >= faqSection.offsetTop;
-    homeLinks.forEach(function(a){ a.classList.toggle('is-active', !isFaq); });
-    faqLinks.forEach(function(a){ a.classList.toggle('is-active', isFaq); });
-  }
-  window.addEventListener('scroll', onScrollSpy, {passive:true});
-  onScrollSpy();
 
   // === Reveal on scroll ===
   if('IntersectionObserver' in window){

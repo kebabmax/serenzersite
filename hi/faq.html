@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<!-- Consent Mode v2 — DOIT preceder GTM -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+try {
+  if (localStorage.getItem('serenzer_consent') === 'granted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+} catch(e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MK96QMHK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="faq_meta_title">सामान्य प्रश्न · Serenzer</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="description" data-i18n-attr="content" data-i18n="faq_meta_description" content="Serenzer के बारे में आपके सभी सवालों के जवाब: खोज, उपयोग, सदस्यता, सुरक्षा और सहायता।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json" id="faqJsonLd">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[]
+}
+</script>
+<style>
+  :root{
+    --color-lin-calme:#F8F6F2;
+    --color-cendre-tiede:#4E4A46;
+    --color-argile-clair:#EFE9DF;
+    --color-pierre-pale:#D9D4CC;
+    --color-sauge-douce:#8FA89B;
+    --color-sable-chaud:#D1B38B;
+    --color-mousse-legere:#A6C3B3;
+    --color-encre-douce:#2F3A3F;
+    --color-background:var(--color-lin-calme);
+    --color-surface:#FFFFFF;
+    --color-text-primary:var(--color-encre-douce);
+    --color-text-secondary:var(--color-cendre-tiede);
+    --color-text-muted:#9A958F;
+    --color-text-light:#B5B0A8;
+    --color-accent:var(--color-sauge-douce);
+    --color-accent-hover:#7A9587;
+    --color-accent-light:rgba(143,168,155,.15);
+    --color-border:var(--color-argile-clair);
+    --color-border-light:#F0EBE3;
+    --color-success:var(--color-sauge-douce);
+    --color-warning:var(--color-sable-chaud);
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --text-xs:11px;--text-sm:13px;--text-base:15px;--text-md:17px;
+    --text-lg:20px;--text-xl:24px;--text-2xl:28px;
+    --space-xs:4px;--space-sm:8px;--space-md:12px;--space-lg:16px;
+    --space-xl:20px;--space-2xl:24px;--space-3xl:32px;--space-4xl:40px;
+    --space-5xl:48px;--space-6xl:64px;--space-7xl:80px;--space-8xl:96px;
+    --radius-xs:4px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;
+    --radius-xl:20px;--radius-2xl:24px;--radius-full:9999px;
+    --shadow-sm:0 1px 3px rgba(47,58,63,.04);
+    --shadow-md:0 2px 8px rgba(47,58,63,.06);
+    --shadow-lg:0 4px 16px rgba(47,58,63,.08);
+    --shadow-xl:0 8px 24px rgba(47,58,63,.10);
+    --shadow-accent:0 4px 12px rgba(143,168,155,.35);
+    --transition-fast:100ms ease;
+    --transition-normal:150ms ease;
+    --transition-slow:250ms ease;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
+  body{background:var(--color-background);color:var(--color-text-primary);font-family:var(--font-body);font-size:var(--text-base);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none}
+  ul{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  img,svg{display:block;max-width:100%}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--space-2xl);}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(248,246,242,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color var(--transition-normal);}
+  .nav.is-scrolled{border-bottom-color:var(--color-border-light)}
+  .nav__inner{height:68px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:var(--space-md)}
+  .brand__mark{width:40px;height:40px;flex:none;display:grid;place-items:center;}
+  .brand__mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .brand__mark--logo{width:auto;height:32px;overflow:hidden}
+  .brand__mark--logo img{width:auto !important;height:32px}
+  .brand__name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;letter-spacing:-.01em;color:var(--color-encre-douce);}
+  .nav__links{display:none;flex-shrink:0;gap:clamp(8px,1.5vw,32px);align-items:center;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{white-space:nowrap;flex:none}
+  .nav__links a{font-size:var(--text-sm);font-weight:500;color:var(--color-text-secondary);transition:color var(--transition-normal);}
+  .nav__links a:hover{color:var(--color-text-primary)}
+  .nav__links a.is-active{color:var(--color-accent)}
+  .nav__link--page{display:inline-flex;align-items:center;gap:6px;padding-left:var(--space-lg);border-left:1px solid var(--color-pierre-pale)}
+  .nav__right{display:flex;align-items:center;gap:var(--space-md)}
+  .nav__toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;flex:none;border-radius:var(--radius-md);background:transparent;color:var(--color-text-secondary);transition:background var(--transition-normal);}
+  .nav__toggle:hover{background:var(--color-argile-clair)}
+  .mobile-nav{position:fixed;top:68px;left:0;right:0;display:flex;flex-direction:column;background:var(--color-surface,#fff);border-bottom:1px solid var(--color-border-light);box-shadow:var(--shadow-lg);padding:var(--space-md) var(--space-2xl);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);z-index:49;max-height:calc(100vh - 68px);overflow-y:auto;}
+  .mobile-nav.is-open{opacity:1;visibility:visible;transform:none}
+  .mobile-nav a{padding:var(--space-md) 0;font-size:var(--text-base);font-weight:500;color:var(--color-text-primary);border-bottom:1px solid var(--color-border-light);}
+  .mobile-nav a:last-child{border-bottom:none}
+  .mobile-nav a.is-active{color:var(--color-accent)}
+  .lang-select{position:relative;}
+  .lang-select__btn{display:inline-flex;align-items:center;gap:var(--space-sm);padding:8px 12px;border-radius:var(--radius-md);background:transparent;color:var(--color-text-secondary);font-size:var(--text-sm);font-weight:500;transition:background var(--transition-normal);}
+  .lang-select__btn:hover{background:var(--color-argile-clair)}
+  .lang-select__btn svg{width:14px;height:14px}
+  .lang-select__menu{position:absolute;top:calc(100% + 6px);right:0;width:min(300px,calc(100vw - 32px));display:grid;grid-template-columns:1fr 1fr;gap:2px;max-height:min(70vh,480px);overflow-y:auto;background:var(--color-surface);border:1px solid var(--color-border-light);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:4px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity var(--transition-normal),transform var(--transition-normal),visibility var(--transition-normal);z-index:10;}
+  .lang-select.is-open .lang-select__menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-select__heading{grid-column:1/-1;padding:8px 12px 4px;font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-muted);}
+  .lang-select__item{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 12px;border-radius:var(--radius-sm);font-size:var(--text-sm);font-weight:500;color:var(--color-text-primary);text-align:left;transition:background var(--transition-fast);}
+  .lang-select__item:hover{background:var(--color-lin-calme)}
+  .lang-select__item.is-active{color:var(--color-accent)}
+  .lang-select__check{width:14px;height:14px;opacity:0}
+  .lang-select__item.is-active .lang-select__check{opacity:1}
+
+  /* BUTTONS */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);font-size:var(--text-base);font-weight:500;border-radius:var(--radius-lg);transition:background var(--transition-normal),color var(--transition-normal),transform var(--transition-fast);white-space:nowrap;}
+  .btn--primary{background:var(--color-accent);color:#fff}
+  .btn--primary:hover{background:var(--color-accent-hover)}
+  .btn--secondary{background:var(--color-argile-clair);color:var(--color-text-primary)}
+  .btn--secondary:hover{background:var(--color-pierre-pale)}
+  .btn--sm{padding:var(--space-sm) var(--space-lg);font-size:var(--text-sm)}
+  .btn:active{transform:scale(.98)}
+
+  /* SECTION */
+  .section{padding:var(--space-7xl) 0}
+  .section__head{text-align:center;max-width:680px;margin:0 auto var(--space-6xl)}
+  .eyebrow{display:inline-block;font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--color-accent);margin-bottom:var(--space-md);}
+  .section__title{font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.015em;color:var(--color-encre-douce);margin:0 0 var(--space-lg);text-wrap:balance;}
+  .section__subtitle{font-size:var(--text-md);line-height:1.6;color:var(--color-text-secondary);margin:0;text-wrap:pretty;}
+
+  /* FAQ */
+  .faq-wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:var(--space-3xl)}
+  .faq-cat__title{
+    font-family:var(--font-display);font-weight:500;letter-spacing:-.015em;
+    font-size:var(--text-md);color:var(--color-encre-douce);
+    margin-bottom:var(--space-lg);
+  }
+  .faq-cat__intro{
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    background:var(--color-lin-calme);border-radius:var(--radius-lg);
+    padding:var(--space-lg);margin-bottom:var(--space-lg);line-height:1.55;
+  }
+  .faq-list{display:flex;flex-direction:column;gap:var(--space-sm)}
+  .faq-item{
+    border:1px solid var(--color-pierre-pale);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);
+    padding:var(--space-lg);
+    font-size:var(--text-base);font-weight:500;
+    color:var(--color-encre-douce);
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item__chevron{flex:none;width:18px;height:18px;color:var(--color-cendre-tiede);transition:transform var(--transition-normal)}
+  .faq-item[open] .faq-item__chevron{transform:rotate(180deg)}
+  .faq-item__answer{
+    padding:0 var(--space-lg) var(--space-lg);
+    font-size:var(--text-sm);color:var(--color-text-secondary);
+    line-height:1.6;
+  }
+  .faq-item__answer a{color:var(--color-accent);text-decoration:underline}
+
+  /* FOOTER */
+  .footer{padding:var(--space-6xl) 0 var(--space-4xl);border-top:1px solid var(--color-border-light);}
+  .footer__top{display:grid;grid-template-columns:1fr;gap:var(--space-4xl);margin-bottom:var(--space-4xl);}
+  .footer__tagline{font-size:var(--text-sm);color:var(--color-text-muted);margin:var(--space-sm) 0 0;}
+  .footer__col h4{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin:0 0 var(--space-lg);}
+  .footer__col ul li{margin-bottom:var(--space-md);}
+  .footer__col ul li a{font-size:var(--text-sm);color:var(--color-text-secondary);transition:color var(--transition-normal);}
+  .footer__col ul li a:hover{color:var(--color-text-primary)}
+  .footer__bottom{display:flex;flex-wrap:wrap;gap:var(--space-md);justify-content:space-between;padding-top:var(--space-3xl);border-top:1px solid var(--color-border-light);font-size:var(--text-xs);color:var(--color-text-muted);}
+
+  /* MEDIA */
+  @media(min-width:768px){
+    .nav__links{display:flex;}
+    .nav__toggle{display:none}
+    .mobile-nav{display:none !important}
+    .footer__top{grid-template-columns:2fr 1fr 1fr 1fr;}
+  }
+
+  /* ===== RTL (ar, he) ===== */
+  [dir="rtl"] .lang-select__menu{right:auto;left:0}
+  [dir="rtl"] .lang-select__item{text-align:right}
+</style>
+
+
+
+
+
+<!-- SEO / Meta -->
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://serenzer.com/hi/faq.html">
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html">
+<link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html">
+<link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html">
+<link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html">
+<link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html">
+<link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html">
+<link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html">
+<link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html">
+<link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html">
+<link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html">
+<link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html">
+<link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html">
+<link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html">
+<link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html">
+<link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html">
+<link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html">
+<link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html">
+<link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html">
+<link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html">
+<link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html">
+
+<!-- OpenGraph (apercu WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:title" content="सामान्य प्रश्न · Serenzer">
+<meta property="og:description" content="Serenzer के बारे में आपके सभी सवालों के जवाब: खोज, उपयोग, सदस्यता, सुरक्षा और सहायता।">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://serenzer.com/hi/faq.html">
+<meta property="og:site_name" content="Serenzer">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:image" content="https://serenzer.com/assets/serenzer_wave.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="473">
+<meta property="og:image:alt" content="Serenzer">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="pt_PT">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="सामान्य प्रश्न · Serenzer">
+<meta name="twitter:description" content="Serenzer के बारे में आपके सभी सवालों के जवाब: खोज, उपयोग, सदस्यता, सुरक्षा और सहायता।">
+<meta name="twitter:image" content="https://serenzer.com/assets/serenzer_wave.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Serenzer",
+  "description": "Serenzer के बारे में आपके सभी सवालों के जवाब: खोज, उपयोग, सदस्यता, सुरक्षा और सहायता।",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "inLanguage": "hi",
+  "url": "https://serenzer.com/hi/faq.html",
+  "publisher": { "@type": "Organization", "name": "Serenzer Ltd" }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/" data-i18n="nav_home">होम</a>
+      <a href="team.html" data-i18n="nav_about">हमारे बारे में</a>
+      <a href="pricing.html" data-i18n="nav_pricing">मूल्य निर्धारण</a>
+      <a class="nav__link--page is-active" href="faq.html" data-i18n="nav_faq">सामान्य प्रश्न</a>
+    </nav>
+    <div class="nav__right">
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+      </button>
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+          <span id="langLabel">Français</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="lang-select__menu" role="listbox" id="langMenu"></ul>
+      </div>
+      <a class="btn btn--primary btn--sm" href="https://apps.serenzer.com" data-i18n="nav_login">लॉग इन करें</a>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile">
+    <a href="/" data-i18n="nav_home">होम</a>
+    <a href="team.html" data-i18n="nav_about">हमारे बारे में</a>
+    <a href="pricing.html" data-i18n="nav_pricing">मूल्य निर्धारण</a>
+    <a class="is-active" href="faq.html" data-i18n="nav_faq">सामान्य प्रश्न</a>
+  </nav>
+</header>
+
+<main style="padding-top:var(--header-height,68px)">
+
+<section class="section">
+  <div class="container">
+    <div class="section__head reveal">
+      <h1 class="section__title" data-i18n="faq_title">Foire aux questions</h1>
+      <p class="section__subtitle" data-i18n="faq_subtitle">Vous avez des questions sur Serenzer ? Voici de quoi vous éclairer.</p>
+    </div>
+    <div class="faq-wrap" id="faqContent"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="brand">
+          <span class="brand__mark brand__mark--logo">
+        <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
+      </span>
+        </div>
+        <p class="footer__tagline" data-i18n="footer_tagline">विचार, ऑर्गनाइज़ेशन, कैलेंडर, ट्रैकिंग</p>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_product">उत्पाद</h4>
+        <ul>
+          <li><a href="/#features" data-i18n="nav_features">सुविधाएँ</a></li>
+          <li><a href="/#how" data-i18n="nav_how">कार्यप्रणाली</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">सामान्य प्रश्न</a></li>
+          <li><a href="/#languages" data-i18n="nav_languages">भाषाएँ</a></li>
+          <li><a href="pricing.html" data-i18n="nav_pricing">मूल्य निर्धारण</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_company">कंपनी</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com" data-i18n="nav_login">लॉग इन करें</a></li>
+          <li><a href="team.html" data-i18n="nav_team">टीम</a></li>
+          <li><a href="Contact.html" data-i18n="footer_legal_contact">संपर्क</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer_legal">कानूनी</h4>
+        <ul>
+          <li><a href="https://apps.serenzer.com/privacy-policy" data-legal-page="privacy-policy" data-i18n="footer_legal_privacy">गोपनीयता</a></li>
+          <li><a href="https://apps.serenzer.com/legal" data-legal-page="legal" data-i18n="footer_legal_mentions">कानूनी नोटिस</a></li>
+          <li><a href="https://apps.serenzer.com/terms" data-legal-page="terms" data-i18n="footer_legal_terms">उपयोग की शर्तें</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_copy">© 2026 Serenzer. सर्वाधिकार सुरक्षित।</span>
+      <span>apps.serenzer.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/i18n.js"></script>
+<script>
+(function(){
+  var LANGS = [{code:'fr', label:'Français'},{code:'en', label:'English'},{code:'de', label:'Deutsch'},{code:'it', label:'Italiano'},{code:'es', label:'Español'},{code:'nl', label:'Nederlands'},{code:'pt', label:'Português'},{code:'da', label:'Dansk'},{code:'sv', label:'Svenska'},{code:'no', label:'Norsk'},{code:'pl', label:'Polski'},{code:'ru', label:'Русский'},{code:'tr', label:'Türkçe'},{code:'ar', label:'العربية'},{code:'he', label:'עברית'},{code:'hi', label:'हिन्दी'},{code:'ja', label:'日本語'},{code:'ko', label:'한국어'},{code:'zh', label:'中文'}];
+  var pathMatch=window.location.pathname.match(/^\/(fr|en|de|it|es|nl|pt|da|sv|no|pl|ru|tr|ar|he|hi|ja|ko|zh)(\/|$)/);
+  var initial=pathMatch?pathMatch[1]:'fr';
+
+  function renderFaq(dict){
+    var faqRoot = document.getElementById('faqContent');
+    var faq = dict.faq;
+    if(!faqRoot || !faq) return;
+    faqRoot.innerHTML = '';
+    var jsonLdItems = [];
+    faq.cats.forEach(function(cat, catIndex){
+      var block = document.createElement('div');
+      block.className = 'faq-cat';
+      var h2 = document.createElement('h2');
+      h2.className = 'faq-cat__title';
+      h2.textContent = cat.title;
+      block.appendChild(h2);
+      if(catIndex === faq.cats.length - 1 && faq.betaIntro){
+        var intro = document.createElement('p');
+        intro.className = 'faq-cat__intro';
+        intro.textContent = faq.betaIntro;
+        block.appendChild(intro);
+      }
+      var list = document.createElement('div');
+      list.className = 'faq-list';
+      cat.items.forEach(function(item){
+        var details = document.createElement('details');
+        details.className = 'faq-item';
+        var summary = document.createElement('summary');
+        var qSpan = document.createElement('span');
+        qSpan.textContent = item.q;
+        var chevron = document.createElement('span');
+        chevron.className = 'faq-item__chevron';
+        chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+        summary.appendChild(qSpan);
+        summary.appendChild(chevron);
+        var answer = document.createElement('div');
+        answer.className = 'faq-item__answer';
+        var aP = document.createElement('p');
+        aP.textContent = item.a;
+        answer.appendChild(aP);
+        if(item.linkLabel && item.linkHref){
+          var link = document.createElement('a');
+          link.href = item.linkHref;
+          link.textContent = item.linkLabel;
+          answer.appendChild(link);
+        }
+        details.appendChild(summary);
+        details.appendChild(answer);
+        list.appendChild(details);
+        jsonLdItems.push({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a }
+        });
+      });
+      block.appendChild(list);
+      faqRoot.appendChild(block);
+    });
+    var ld = document.getElementById('faqJsonLd');
+    if(ld){
+      try{
+        var data = JSON.parse(ld.textContent);
+        data.mainEntity = jsonLdItems;
+        ld.textContent = JSON.stringify(data);
+      }catch(e){}
+    }
+  }
+
+  function applyI18n(lang){
+    var dict=window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr;
+    document.documentElement.setAttribute('lang',lang);
+    document.documentElement.setAttribute('dir', (['ar','he'].indexOf(lang) >= 0) ? 'rtl' : 'ltr');
+
+    // legal pages: preserve active language
+    document.querySelectorAll('[data-legal-page]').forEach(function(el){
+      el.href = 'https://apps.serenzer.com/' + el.getAttribute('data-legal-page') + '?lang=' + lang;
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key=el.getAttribute('data-i18n');
+      if(dict[key]!==undefined&&typeof dict[key]==='string') el.textContent=dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      var attr=el.getAttribute('data-i18n-attr');
+      var key=el.getAttribute('data-i18n');
+      if(dict[key]!==undefined) el.setAttribute(attr,dict[key]);
+    });
+    var lbl=LANGS.find(function(l){return l.code===lang;});
+    document.getElementById('langLabel').textContent=lbl?lbl.label:'Français';
+    renderFaq(dict);
+    try{localStorage.setItem('serenzer_lang',lang);}catch(e){}
+  }
+
+  // Lang menu
+  var menu=document.getElementById('langMenu');
+  var menuDict=(window.SERENZER_I18N&&(window.SERENZER_I18N[initial]||window.SERENZER_I18N.fr))||{};
+  if(menuDict.lang_menu_heading){
+    var heading=document.createElement('li');
+    heading.className='lang-select__heading';
+    heading.setAttribute('role','presentation');
+    heading.textContent=menuDict.lang_menu_heading;
+    menu.appendChild(heading);
+  }
+  LANGS.forEach(function(l){
+    var li=document.createElement('li');
+    var btn=document.createElement('button');
+    btn.className='lang-select__item'+(l.code===initial?' is-active':'');
+    btn.setAttribute('role','option');
+    btn.innerHTML=l.label+'<svg class="lang-select__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg>';
+    btn.addEventListener('click',function(){
+      var root=window.location.origin;
+      if(l.code==='fr') window.location.href=root+'/faq.html';
+      else window.location.href=root+'/'+l.code+'/faq.html';
+    });
+    li.appendChild(btn);
+    menu.appendChild(li);
+  });
+
+  var navToggle=document.getElementById('navToggle');
+  var mobileNav=document.getElementById('mobileNav');
+  if(navToggle&&mobileNav){
+    navToggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=mobileNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!mobileNav.contains(e.target)&&e.target!==navToggle){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var langSelect=document.getElementById('langSelect');
+  var langBtn=document.getElementById('langBtn');
+  langBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=langSelect.classList.toggle('is-open');
+    langBtn.setAttribute('aria-expanded',open);
+  });
+  document.addEventListener('click',function(){
+    langSelect.classList.remove('is-open');
+    langBtn.setAttribute('aria-expanded','false');
+  });
+
+  // Nav scroll
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('is-scrolled',window.scrollY>10);
+  },{passive:true});
+
+  applyI18n(initial);
+})();
+</script>
+<!-- Banniere de consentement Serenzer -->
+<style>
+  .srz-consent{
+    position:fixed; inset-inline:0; bottom:0; z-index:9999;
+    background:var(--color-surface,#FFFFFF);
+    border-top:1px solid var(--color-pierre-pale,#D9D4CC);
+    box-shadow:0 -4px 24px rgba(47,58,63,.10);
+    padding:20px 24px; display:none;
+    font-family:var(--font-body,'Inter',system-ui,sans-serif);
+  }
+  .srz-consent.is-open{display:block}
+  .srz-consent__inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+  .srz-consent__title{
+    font-family:var(--font-display,'Fraunces',Georgia,serif);
+    font-size:1.05rem;font-weight:600;margin:0 0 6px;
+    color:var(--color-encre-douce,#2F3A3F);
+  }
+  .srz-consent__text{margin:0;font-size:.9rem;line-height:1.55;color:var(--color-cendre-tiede,#4E4A46)}
+  .srz-consent__link{color:var(--color-sauge-douce,#8FA89B);text-decoration:underline}
+  .srz-consent__actions{display:flex;flex-wrap:wrap;gap:12px}
+  .srz-consent__btn{
+    flex:1 1 160px;min-height:44px;padding:11px 22px;
+    border-radius:999px;border:1px solid var(--color-sauge-douce,#8FA89B);
+    font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;
+    transition:background .2s,color .2s;
+  }
+  .srz-consent__btn--accept{background:var(--color-sauge-douce,#8FA89B);color:#fff}
+  .srz-consent__btn--accept:hover{background:var(--color-accent-hover,#7A9587)}
+  .srz-consent__btn--refuse{background:transparent;color:var(--color-encre-douce,#2F3A3F)}
+  .srz-consent__btn--refuse:hover{background:var(--color-argile-clair,#EFE9DF)}
+  @media (min-width:760px){
+    .srz-consent__inner{flex-direction:row;align-items:center;gap:32px}
+    .srz-consent__body{flex:1}
+    .srz-consent__actions{flex:0 0 auto}
+    .srz-consent__btn{flex:0 0 auto;min-width:150px}
+  }
+</style>
+<div class="srz-consent" id="srzConsent" role="dialog" aria-live="polite">
+  <div class="srz-consent__inner">
+    <div class="srz-consent__body">
+      <p class="srz-consent__title" data-srz="cookie_title"></p>
+      <p class="srz-consent__text">
+        <span data-srz="cookie_text"></span>
+        <a class="srz-consent__link" id="srzMore" href="#" target="_blank" rel="noopener" data-srz="cookie_more"></a>
+      </p>
+    </div>
+    <div class="srz-consent__actions">
+      <button type="button" class="srz-consent__btn srz-consent__btn--refuse" id="srzRefuse" data-srz="cookie_refuse"></button>
+      <button type="button" class="srz-consent__btn srz-consent__btn--accept" id="srzAccept" data-srz="cookie_accept"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var SUP=['fr','en','de','it','es','nl','pt','da','sv','no','pl','ru','tr','ar','he','hi','ja','ko','zh'];
+  var KEY='serenzer_consent';
+  var m=window.location.pathname.match(/^\/([a-z]{2})(\/|$)/);
+  var lang=(m&&SUP.indexOf(m[1])>=0)?m[1]:'fr';
+  var D=(window.SERENZER_I18N&&(window.SERENZER_I18N[lang]||window.SERENZER_I18N.fr))||{};
+  var box=document.getElementById('srzConsent');
+  if(!box) return;
+  box.querySelectorAll('[data-srz]').forEach(function(el){
+    var v=D[el.getAttribute('data-srz')];
+    if(v!=null) el.textContent=v;
+  });
+  var more=document.getElementById('srzMore');
+  if(more) more.href='https://apps.serenzer.com/cookies?lang='+lang;
+  function read(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem(KEY,v); }catch(e){} }
+  function open(){ box.classList.add('is-open'); }
+  function close(){ box.classList.remove('is-open'); }
+  function decide(v){
+    write(v);
+    if(typeof gtag==='function'){
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+    }
+    if(v==='granted'&&window.dataLayer){ window.dataLayer.push({event:'srz_consent_granted'}); }
+    close();
+  }
+  document.getElementById('srzAccept').addEventListener('click',function(){decide('granted');});
+  document.getElementById('srzRefuse').addEventListener('click',function(){decide('denied');});
+  if(!read()) open();
+  var label=D.cookie_manage||'Cookies';
+  var host=document.querySelector('.footer__links, .footer__col:last-child ul, .footer__bottom');
+  if(host){
+    var a=document.createElement('a');
+    a.href='#'; a.className='footer__link'; a.textContent=label; a.style.cursor='pointer';
+    a.addEventListener('click',function(e){ e.preventDefault(); open(); });
+    if(host.tagName==='UL'){ var li=document.createElement('li'); li.appendChild(a); host.appendChild(li); }
+    else host.appendChild(a);
+  }
+})();
+</script>
+
+</body>
+</html>

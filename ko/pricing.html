@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {
       "@type":"Product",
       "name":"Serenzer Plus",
-      "description":"Rituels, challenges, calendrier et accès WhatsApp.",
+      "description":"Rituels, challenges et calendrier.",
       "brand":{"@type":"Brand","name":"Serenzer"},
       "offers":[
         {"@type":"Offer","price":"9.99","priceCurrency":"EUR","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock","url":"https://apps.serenzer.com"},
@@ -263,6 +263,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+
 <!-- SEO / Meta -->
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://serenzer.com/ko/pricing.html">
@@ -339,7 +340,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="/" data-i18n="nav_home">홈</a>
       <a href="team.html" data-i18n="nav_about">소개</a>
       <a href="pricing.html" class="is-active" data-i18n="nav_pricing">요금제</a>
-      <a class="nav__link--page" href="/#faq" data-i18n="nav_faq">FAQ</a>
+      <a class="nav__link--page" href="/faq.html" data-i18n="nav_faq">FAQ</a>
     </nav>
     <div class="nav__right">
       <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
@@ -360,7 +361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="/" data-i18n="nav_home">홈</a>
     <a href="team.html" data-i18n="nav_about">소개</a>
     <a href="pricing.html" class="is-active" data-i18n="nav_pricing">요금제</a>
-    <a href="/#faq" data-i18n="nav_faq">FAQ</a>
+    <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
   </nav>
 </header>
 
@@ -438,9 +439,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <!-- PLUS -->
-      <div class="plan-card">
+      <div class="plan-card plan-card--featured">
+        <div class="plan-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z"/></svg>
+          <span data-i18n="pricing_premium_badge">추천</span>
+        </div>
         <div class="plan-name" data-i18n="pricing_plus_name">Plus</div>
-        <div class="plan-desc" data-i18n="pricing_plus_desc">루틴, 챌린지, 캘린더 및 WhatsApp.</div>
+        <div class="plan-desc" data-i18n="pricing_plus_desc">루틴, 챌린지 및 캘린더.</div>
         <div class="plan-price" id="plusPrice">
           <div class="plan-price__amount"><span class="price-monthly">9,99</span><span class="price-yearly" style="display:none">79</span> <span style="font-size:var(--text-xl)">€</span></div>
           <div class="plan-price__period price-monthly" data-i18n="pricing_per_month">/ 월</div>
@@ -474,8 +479,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span data-i18n="pricing_feat_calendar">스마트 캘린더</span>
           </li>
           <li>
-            <svg class="feat-icon feat-icon--check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 8 6 12 14 4"/></svg>
-            <span data-i18n="pricing_feat_whatsapp">WhatsApp 접근*</span>
+            <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
+            <span style="color:var(--color-text-muted)" data-i18n="pricing_feat_whatsapp">WhatsApp 접근*</span>
           </li>
           <li>
             <svg class="feat-icon feat-icon--dash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/></svg>
@@ -486,11 +491,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <!-- PREMIUM -->
-      <div class="plan-card plan-card--featured">
-        <div class="plan-badge">
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z"/></svg>
-          <span data-i18n="pricing_premium_badge">추천</span>
-        </div>
+      <div class="plan-card">
         <div class="plan-name" data-i18n="pricing_premium_name">Premium</div>
         <div class="plan-desc" data-i18n="pricing_premium_desc">개인 정리 기능이 포함된 완전한 요금제.</div>
         <div class="plan-price" id="premiumPrice">
@@ -627,7 +628,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ul>
           <li><a href="/#features" data-i18n="nav_features">기능</a></li>
           <li><a href="/#how" data-i18n="nav_how">작동 방식</a></li>
-          <li><a href="/#faq" data-i18n="nav_faq">FAQ</a></li>
+          <li><a href="/faq.html" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="/#languages" data-i18n="nav_languages">언어</a></li>
           <li><a href="pricing.html" data-i18n="nav_pricing">요금제</a></li>
         </ul>
