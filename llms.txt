@@ -1,0 +1,20 @@
+# Serenzer
+
+> Serenzer est un assistant personnel IA qui aide à structurer les idées, organiser des Organisations (projets, tâches, documents), gérer un calendrier et des rappels, et suivre des rituels et des challenges au quotidien — via une interface conversationnelle en texte ou en voix, disponible en 19 langues.
+
+Serenzer est développé par Serenzer Ltd (Dublin, Irlande). Ce site (serenzer.com) est le site vitrine du produit ; l'application elle-même est disponible sur apps.serenzer.com (web, iOS, Android).
+
+## Pages principales
+
+- [Accueil](https://serenzer.com/) : présentation générale, fonctionnalités et philosophie du produit
+- [Abonnement](https://serenzer.com/pricing.html) : détail des offres Free, Plus et Premium
+- [FAQ](https://serenzer.com/faq.html) : réponses aux questions fréquentes (découverte, utilisation, abonnements, sécurité, support)
+- [À propos](https://serenzer.com/team.html) : histoire de Serenzer et présentation de l'équipe fondatrice
+- [Contact](https://serenzer.com/Contact.html) : formulaire de contact
+
+## À noter
+
+- Le site est disponible en 19 langues (fr, en, de, it, es, nl, pt, da, sv, no, pl, ru, tr, ar, he, hi, ja, ko, zh), accessibles via un préfixe de langue (ex. https://serenzer.com/en/).
+- Serenzer est actuellement en version bêta.
+- Serenzer n'est pas accessible aux mineurs.
+- Les conditions d'utilisation, la politique de confidentialité et les mentions légales sont hébergées sur apps.serenzer.com.
