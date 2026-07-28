@@ -894,6 +894,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+
 <!-- SEO / Meta -->
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://serenzer.com/fr/">
@@ -1692,6 +1693,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  // === Nav active state: Accueil <-> FAQ (ancres sur la meme page) ===
+  var faqSection = document.getElementById('faq');
+  var homeLinks = document.querySelectorAll('.nav__links a[data-i18n="nav_home"], .mobile-nav a[data-i18n="nav_home"]');
+  var faqLinks = document.querySelectorAll('.nav__links a[data-i18n="nav_faq"], .mobile-nav a[data-i18n="nav_faq"]');
+  function onScrollSpy(){
+    if(!faqSection) return;
+    var isFaq = window.scrollY + 80 >= faqSection.offsetTop;
+    homeLinks.forEach(function(a){ a.classList.toggle('is-active', !isFaq); });
+    faqLinks.forEach(function(a){ a.classList.toggle('is-active', isFaq); });
+  }
+  window.addEventListener('scroll', onScrollSpy, {passive:true});
+  onScrollSpy();
 
   // === Reveal on scroll ===
   if('IntersectionObserver' in window){
