@@ -829,6 +829,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   /* === MEDIA === */
+  @media (max-width:480px){
+    .container{padding:0 var(--space-lg)}
+    .brand{flex:none}
+    .nav__right{gap:var(--space-sm)}
+    .lang-select__btn{padding:8px}
+    .lang-select__btn #langLabel{display:none}
+    .nav__right .btn--sm{padding:var(--space-sm) var(--space-md)}
+  }
+  @media (max-width:360px){
+    .container{padding:0 var(--space-md)}
+    .nav__toggle{width:32px;height:32px}
+    .brand__mark--logo{height:26px}
+    .brand__mark--logo img{height:26px !important}
+    .nav__right .btn--sm{padding:6px var(--space-sm);font-size:var(--text-xs)}
+  }
   @media (min-width:720px){
     .dual{grid-template-columns:1fr 1fr}
     .spheres{grid-template-columns:repeat(3,1fr)}
@@ -852,6 +867,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   [dir="rtl"] .msg--user{flex-direction:row}
 </style>
 <!-- JSON-LD: SoftwareApplication / ProductivityApplication -->
+
 
 
 
