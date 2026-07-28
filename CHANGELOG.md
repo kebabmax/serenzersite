@@ -77,13 +77,19 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 - **1.7** Recherche de « soutien moral » ou formulations évoquant un accompagnement psychologique : aucune occurrence restante (déjà reformulé en « une présence constante » / « à votre rythme »).
 - **1.8** Sigle RGPD rendu cliquable, traduit selon le sigle officiel local par langue (RGPD/GDPR/DSGVO/AVG/RODO…), avec exposant UE/EU et lien vers la page EUR-Lex correspondante.
 - **1.9** Nouveau titre du bloc CTA final, description supprimée.
+- **1.9 (bis)** Section « Un fonctionnement simple en quatre étapes » :
+  - Sous-titre de section supprimé.
+  - Description sous chacune des 4 étapes supprimée.
+  - Étape 3 : « Structurez » → « Parlez à votre coach ».
+  - Étape 4 : « Suivez » → « Utilisez les outils ».
+  - Titre de section et pastilles numérotées (1/2/3/4) inchangés.
 
 ### Navigation (toutes pages)
 - **2.** Header simplifié : Accueil / À propos / Offres / FAQ, avec les nouvelles destinations décrites ci-dessus.
 - **3.** Footer restructuré :
-  - Colonne Produit : Accueil, À propos, Langues, FAQ, Offres.
+  - Colonne Produit : Accueil, À propos, Langues, FAQ, Offres — puis réduite sur demande à **Accueil / FAQ / Offres** uniquement (À propos et Langues retirés de cette colonne).
   - Colonne Société : Se connecter, Qui sommes-nous ? (renommage d'Équipe). Contact retiré de cette colonne.
-  - Ligne de copyright sur une seule ligne, 3 éléments de même style : copyright (gauche) · `apps.serenzer.com` (milieu) · « Une question ? Écrivez-nous. » vers `Contact.html` (droite, discret uniquement par sa position).
+  - Ligne de copyright sur une seule ligne, 3 éléments de même style : copyright « © 2026 Serenzer Limited... » (gauche) · `apps.serenzer.com` (milieu) · « Une question ? Écrivez-nous. » vers `Contact.html` (droite, discret uniquement par sa position).
 
 ### Page Offres (`pricing.html`)
 - **4.** Renommage complet « Tarifs » → « Offres » (label, H1, meta title), 19 langues.
@@ -93,7 +99,11 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 
 ---
 
-## 4. Hors périmètre / en attente (rappel)
+## 4. Ajustements visuels post-déploiement
+
+- **Bloc stats hero (icône cadenas / 24-7 / ∞)** : icône recolorée en `--color-encre-douce` (au lieu de l'accent sauge) pour matcher la couleur des deux autres valeurs, et hauteur commune (36px, flex `align-items:center`) fixée sur `.metric__value` pour que l'icône, les chiffres et les labels en dessous soient parfaitement alignés sur les 3 blocs.
+
+## 5. Hors périmètre / en attente (rappel)
 
 - Icônes de l'illustration (différé)
 - Mention bêta (annulée, sauf intro FAQ)
@@ -102,7 +112,7 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 - Sélecteur de langue pour les pages légales `apps.serenzer.com` (hors périmètre vitrine)
 - Message d'accueil « coach » dans le mockup chat
 
-## 5. À vérifier avant mise en production définitive
+## 6. À vérifier avant mise en production définitive
 
 - Responsive à 320px / 375px / 768px sur les nouvelles sections (carte Rituels et Challenges, lien RGPD, footer 3 colonnes).
 - Vérification Search Console post-déploiement (indexation, hreflang/canonical) sur les pages modifiées, notamment `faq.html` nouvellement créée par langue.
