@@ -218,9 +218,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .mobile-nav a:last-child{border-bottom:none}
   .mobile-nav a.is-active{color:var(--color-accent)}
+  .nav__right .lang-select{
+    display:none;
+  }
   .lang-select{
     position:relative;
   }
+  .mobile-nav__lang{margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--color-border-light)}
+  .mobile-nav__lang-label{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-muted);margin-bottom:var(--space-sm)}
+  .mobile-nav__lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-height:38vh;overflow-y:auto}
   .lang-select__btn{
     display:inline-flex;align-items:center;gap:var(--space-sm);
     padding:8px 12px;border-radius:var(--radius-md);
@@ -833,8 +839,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .container{padding:0 var(--space-lg)}
     .brand{flex:none}
     .nav__right{gap:var(--space-sm)}
-    .lang-select__btn{padding:8px}
-    .lang-select__btn #langLabel{display:none}
     .nav__right .btn--sm{padding:var(--space-sm) var(--space-md)}
   }
   @media (max-width:360px){
@@ -856,6 +860,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (min-width:960px){
     .nav__links{display:flex}
     .nav__toggle{display:none}
+    .nav__right .lang-select{display:block}
     .mobile-nav{display:none !important}
     .hero__grid{grid-template-columns:1.05fr 1fr;gap:var(--space-7xl)}
     .how{grid-template-columns:repeat(4,1fr)}
@@ -1006,6 +1011,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="team.html" data-i18n="nav_about">À propos</a>
     <a href="pricing.html" data-i18n="nav_pricing">Abonnements</a>
     <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+    <div class="mobile-nav__lang">
+      <div class="mobile-nav__lang-label" id="mobileLangLabel" data-i18n="lang_menu_heading">Choisir la langue</div>
+      <div class="mobile-nav__lang-grid" id="mobileLangGrid"></div>
+    </div>
   </nav>
 </header>
 
@@ -1522,7 +1531,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(lbl && current) lbl.textContent = current.label;
 
     // mark active in menu
-    document.querySelectorAll('#langMenu .lang-select__item').forEach(function(it){
+    document.querySelectorAll('#langMenu .lang-select__item, #mobileLangGrid .lang-select__item').forEach(function(it){
       if(it.dataset.code === lang) it.classList.add('is-active');
       else it.classList.remove('is-active');
     });
@@ -1533,8 +1542,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     applyI18n(lang);
   }
 
-  // build language menu
+  // build language menu (desktop dropdown + mobile burger grid)
   var menu = document.getElementById('langMenu');
+  var mobileLangGrid = document.getElementById('mobileLangGrid');
   var menuDict = (window.SERENZER_I18N && (window.SERENZER_I18N[initial] || window.SERENZER_I18N.fr)) || {};
   if(menuDict.lang_menu_heading){
     var heading = document.createElement('li');
@@ -1543,8 +1553,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     heading.textContent = menuDict.lang_menu_heading;
     menu.appendChild(heading);
   }
-  LANGS.forEach(function(l){
-    var li = document.createElement('li');
+  function makeLangButton(l){
     var btn = document.createElement('button');
     btn.className = 'lang-select__item';
     btn.setAttribute('role','option');
@@ -1565,10 +1574,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       document.getElementById('langSelect').classList.remove('is-open');
       document.getElementById('langBtn').setAttribute('aria-expanded','false');
+      var mn = document.getElementById('mobileNav');
+      var nt = document.getElementById('navToggle');
+      if(mn) mn.classList.remove('is-open');
+      if(nt) nt.setAttribute('aria-expanded','false');
     });
-    li.appendChild(btn);
+    return btn;
+  }
+  LANGS.forEach(function(l){
+    var li = document.createElement('li');
+    li.appendChild(makeLangButton(l));
     menu.appendChild(li);
   });
+  if(mobileLangGrid){
+    LANGS.forEach(function(l){
+      mobileLangGrid.appendChild(makeLangButton(l));
+    });
+  }
 
   // mobile nav toggle
   var navToggle = document.getElementById('navToggle');
