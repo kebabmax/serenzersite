@@ -609,6 +609,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background:var(--color-accent-light);
     padding:2px 8px;border-radius:var(--radius-full);
   }
+  .rituals__badge--challenge{
+    color:var(--color-warning);
+    background:rgba(209,179,139,.18);
+  }
   .rituals__action{
     flex:none;font-size:var(--text-xs);font-weight:500;
     color:var(--color-accent);
@@ -1215,8 +1219,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="feature__visual">
           <div class="visual">
             <div class="visual__header">
-              <span class="visual__title" data-i18n="rit_card_title">Rituels du jour</span>
-              <span class="visual__pill">3</span>
+              <span class="visual__title" data-i18n="rit_card_title">Rituels et challenges du jour</span>
+              <span class="visual__pill">4</span>
             </div>
             <div class="rituals">
               <div class="rituals__item rituals__item--done">
@@ -1239,6 +1243,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <span class="rituals__label" data-i18n="rit_item3_label">Point sur les priorités de la semaine · 15 min</span>
                 </div>
                 <button class="rituals__action" data-i18n="rit_item3_action">Achevé</button>
+              </div>
+              <div class="rituals__item">
+                <span class="rituals__check rituals__check--empty" aria-hidden="true"></span>
+                <div class="rituals__body">
+                  <span class="rituals__label" data-i18n="rit_item4_label">Défi 7 jours : marcher chaque matin</span>
+                  <span class="rituals__badge rituals__badge--challenge" data-i18n="rit_item4_badge">Challenge · Jour 3/7</span>
+                </div>
               </div>
             </div>
           </div>
