@@ -1007,7 +1007,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#" class="is-active" data-i18n="nav_home">Accueil</a>
-      <a href="#features" data-i18n="nav_about">À propos</a>
+      <a href="#features" data-i18n="nav_about">Fonctionnalités</a>
       <a href="pricing.html" data-i18n="nav_pricing">Offres</a>
       <a class="nav__link--page" href="faq.html" data-i18n="nav_faq">FAQ</a>
     </nav>
@@ -1036,7 +1036,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile">
     <a href="#" class="is-active" data-i18n="nav_home">Accueil</a>
-    <a href="#features" data-i18n="nav_about">À propos</a>
+    <a href="#features" data-i18n="nav_about">Fonctionnalités</a>
     <a href="pricing.html" data-i18n="nav_pricing">Offres</a>
     <a href="faq.html" data-i18n="nav_faq">FAQ</a>
     <div class="mobile-nav__lang">
@@ -1637,6 +1637,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  // === Nav active section (scroll-spy Accueil / Fonctionnalités) ===
+  var featuresSection = document.getElementById('features');
+  var navHomeLinks = document.querySelectorAll('.nav__links a[href="#"], .mobile-nav a[href="#"]');
+  var navFeaturesLinks = document.querySelectorAll('.nav__links a[href="#features"], .mobile-nav a[href="#features"]');
+  function onScrollSpy(){
+    if(!featuresSection) return;
+    var navHeight = nav ? nav.offsetHeight : 0;
+    var pastFeatures = featuresSection.getBoundingClientRect().top <= navHeight + 1;
+    navHomeLinks.forEach(function(a){ a.classList.toggle('is-active', !pastFeatures); });
+    navFeaturesLinks.forEach(function(a){ a.classList.toggle('is-active', pastFeatures); });
+  }
+  window.addEventListener('scroll', onScrollSpy, {passive:true});
+  onScrollSpy();
 
   // === Reveal on scroll ===
   if('IntersectionObserver' in window){
