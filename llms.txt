@@ -6,10 +6,10 @@ Serenzer est développé par Serenzer Ltd (Dublin, Irlande). Ce site (serenzer.c
 
 ## Pages principales
 
-- [Accueil](https://serenzer.com/) : présentation générale, fonctionnalités et philosophie du produit
-- [Abonnement](https://serenzer.com/pricing.html) : détail des offres Free, Plus et Premium
+- [Accueil](https://serenzer.com/) : présentation générale, fonctionnalités (section « Fonctionnalités ») et philosophie du produit
+- [Offres](https://serenzer.com/pricing.html) : détail des offres Free, Plus et Premium
 - [FAQ](https://serenzer.com/faq.html) : réponses aux questions fréquentes (découverte, utilisation, abonnements, sécurité, support)
-- [À propos](https://serenzer.com/team.html) : histoire de Serenzer et présentation de l'équipe fondatrice
+- [Qui sommes-nous](https://serenzer.com/team.html) : histoire de Serenzer et présentation de l'équipe fondatrice (accessible depuis le pied de page)
 - [Contact](https://serenzer.com/Contact.html) : formulaire de contact
 
 ## À noter

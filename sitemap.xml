@@ -573,6 +573,500 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
   </url>
   <url>
+    <loc>https://serenzer.com/fr/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/en/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/de/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/it/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/es/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/nl/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/pt/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/da/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/sv/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/no/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/pl/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/ru/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/tr/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/ar/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/he/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/hi/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/ja/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/ko/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
+    <loc>https://serenzer.com/zh/faq.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://serenzer.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serenzer.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serenzer.com/de/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://serenzer.com/it/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://serenzer.com/es/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://serenzer.com/nl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://serenzer.com/pt/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://serenzer.com/da/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://serenzer.com/sv/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://serenzer.com/no/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://serenzer.com/pl/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://serenzer.com/ru/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serenzer.com/tr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://serenzer.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://serenzer.com/he/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://serenzer.com/hi/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://serenzer.com/ja/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://serenzer.com/ko/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://serenzer.com/zh/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serenzer.com/faq.html"/>
+  </url>
+  <url>
     <loc>https://serenzer.com/fr/pricing.html</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
