@@ -192,7 +192,7 @@ window.SERENZER_I18N = {
     pricing_feat_progress: "Suivi de progression complet",
     pricing_free_cta: "Commencer gratuitement",
     pricing_paid_cta: "Commencer",
-    pricing_vat_note: "Prix TTC. TVA applicable selon votre pays de résidence.",
+    pricing_vat_note: "Prix TTC. Taxes applicables selon votre pays de résidence.",
     pricing_whatsapp_note: "* Accès WhatsApp disponible dans les pays éligibles.",
     pricing_faq_eyebrow: "Questions fréquentes",
     pricing_faq_title: "Tout ce que vous devez savoir",
