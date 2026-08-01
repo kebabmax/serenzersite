@@ -102,8 +102,31 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 ## 4. Ajustements visuels post-déploiement
 
 - **Bloc stats hero (icône cadenas / 24-7 / ∞)** : icône recolorée en `--color-encre-douce` (au lieu de l'accent sauge) pour matcher la couleur des deux autres valeurs, et hauteur commune (36px, flex `align-items:center`) fixée sur `.metric__value` pour que l'icône, les chiffres et les labels en dessous soient parfaitement alignés sur les 3 blocs.
+- **Section « Un fonctionnement simple en quatre étapes »** : pastilles numérotées + titres centrés (`.step{align-items:center;text-align:center}`, auparavant alignés à gauche) ; titres des étapes passés en police Inter (`--font-body`) au lieu de Fraunces (`--font-display`).
+- **Footer, colonne Produit** : réduite sur demande finale à **Accueil / FAQ / Offres** uniquement (voir §3, mise à jour).
+- **`pricing.html` (FR)** : mention légale « Prix TTC. TVA applicable selon votre pays de résidence. » → « Prix TTC. **Taxes applicables** selon votre pays de résidence. » (FR uniquement pour le moment, mise en page inchangée).
 
-## 5. Hors périmètre / en attente (rappel)
+## 5. Audit de traduction (agent dédié)
+
+Un agent a vérifié que les 5 pages (`index.html`, `pricing.html`, `team.html`, `faq.html`, `Contact.html`) sont bien traduites dans les 19 langues (clés `data-i18n`/`-html`/`-bullets`/`-tags` toutes présentes, non vides, cohérentes).
+
+- **Bug bloquant trouvé et corrigé** : les clés `faq_title` et `faq_subtitle` (titre et sous-titre H1 de la page FAQ) étaient totalement absentes d'`i18n.js` — le texte français codé en dur dans `faq.html` restait donc affiché dans les 19 langues. Ajoutées et traduites.
+- **Point vérifié non-bloquant** : `rit_item1_label` (« Sport · 30 min ») identique au français dans 7 langues (en, it, nl, da, sv, no, pl) — confirmé légitime, « Sport » étant un mot emprunté valide dans ces langues, pas un oubli de traduction.
+- **RAS** : les 19 blocs de langue ont exactement les mêmes 210 clés chacun, aucune valeur vide, structure FAQ imbriquée (`faq.cats[].items[]`) cohérente sur toutes les langues, aucune clé orpheline côté HTML.
+- Clés repérées comme mortes (présentes dans `i18n.js` mais non utilisées) : `footer_legal_contact`, `nav_features`, `nav_how`, `nav_languages`, `nav_trust`, `pricing_feat_progress` — non bloquant, à nettoyer si souhaité (mais `nav_features`/`nav_how` sont redevenus actifs depuis, voir §6).
+
+## 6. Modifications en parallèle (autre session, fusionnées dans `dev`)
+
+D'autres évolutions ont été faites par une session concurrente sur la branche `dev` et intégrées sans conflit :
+
+- Sélecteur de langue mobile rendu repliable dans le menu burger (grille des 19 langues masquée par défaut, dépliable).
+- Badge « Le plus populaire » du plan Plus traduit dans les 19 langues.
+- Suppression de la ligne de séparation verticale entre Offres et FAQ dans la navbar.
+- Renommage du lien de nav « À propos » en **« Fonctionnalités »**, avec surlignage actif dynamique selon la section visible sur l'accueil (scroll-spy).
+- QA copy Accueil/Offres : espace insécable avant les deux-points, exemple de challenge ajouté, explication du concept « Organisations », harmonisation des CTA des offres.
+- Audit de cohérence SEO : sitemap FAQ, JSON-LD et Open Graph manquants sur la page Offres, `llms.txt` mis à jour.
+
+## 7. Hors périmètre / en attente (rappel)
 
 - Icônes de l'illustration (différé)
 - Mention bêta (annulée, sauf intro FAQ)
@@ -112,7 +135,7 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 - Sélecteur de langue pour les pages légales `apps.serenzer.com` (hors périmètre vitrine)
 - Message d'accueil « coach » dans le mockup chat
 
-## 6. À vérifier avant mise en production définitive
+## 8. À vérifier avant mise en production définitive
 
 - Responsive à 320px / 375px / 768px sur les nouvelles sections (carte Rituels et Challenges, lien RGPD, footer 3 colonnes).
 - Vérification Search Console post-déploiement (indexation, hreflang/canonical) sur les pages modifiées, notamment `faq.html` nouvellement créée par langue.
