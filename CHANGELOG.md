@@ -158,6 +158,15 @@ D'autres évolutions ont été faites par une session concurrente sur la branche
 - Renommage du lien de nav « À propos » en **« Fonctionnalités »**, avec surlignage actif dynamique selon la section visible sur l'accueil (scroll-spy).
 - QA copy Accueil/Offres : espace insécable avant les deux-points, exemple de challenge ajouté, explication du concept « Organisations », harmonisation des CTA des offres.
 - Audit de cohérence SEO : sitemap FAQ, JSON-LD et Open Graph manquants sur la page Offres, `llms.txt` mis à jour.
+- Ajout du snippet Google Consent Mode v2 + Google Tag Manager (`GTM-MK96QMHK`) dans `team.html` et `faq.html`, aligné sur le mécanisme déjà présent ailleurs (bandeau cookies `srz-consent`).
+
+## 6bis. Troisième vague d'audit (responsive, formulaire de contact, cookies, sources vs sortie générée)
+
+- **Bug réel corrigé — breakpoint nav incohérent** : `pricing.html`/`faq.html` basculaient du menu burger à la nav desktop à `768px`, alors qu'`index.html`/`team.html` basculaient à `960px`. Entre 768 et 959px, la nav différait selon la page visitée. Harmonisé à `960px` partout.
+- **Formulaire de contact (`Contact.html`) durci** : suppression de l'attribut `novalidate` qui désactivait toute validation HTML5 native malgré les champs `required`/`type="email"` (validation reposait uniquement sur `send.php`, hors dépôt) ; ajout de `maxlength` sur les 4 champs (cohérent avec le message `contact_form_toolong` déjà existant) ; ajout d'une désactivation du bouton d'envoi à la soumission pour éviter un double-envoi par double-clic.
+- **Contact.html sans menu burger** : vérifié intentionnel (nav volontairement simplifiée, logo + lien retour uniquement), aucune action.
+- **Bandeau cookies / GTM** : vérifié que le tag Google Tag Manager se charge selon le pattern standard « Google Consent Mode v2 » (statut de consentement transmis en amont, mode par défaut « denied »). Ce n'est pas un bug de code, mais la conformité RGPD réelle dépend de la configuration interne du conteneur GTM (quels tags attendent le consentement), invisible depuis ce dépôt — **point de vigilance à vérifier côté configuration GTM**, aucun correctif de code appliqué.
+- **Dossiers de langue générés (`fr/`, `en/`, etc.)** : confirmé obsolètes (~4,5 jours de décalage avec les sources), avec divergences de contenu réelles. Comportement attendu : ces dossiers committés sont des instantanés écrasés à chaque déploiement (`gen_site.js` + rsync), aucune action nécessaire dans le dépôt.
 
 ## 7. Hors périmètre / en attente (rappel)
 
