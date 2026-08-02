@@ -105,6 +105,7 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 - **Section « Un fonctionnement simple en quatre étapes »** : pastilles numérotées + titres centrés (`.step{align-items:center;text-align:center}`, auparavant alignés à gauche) ; titres des étapes passés en police Inter (`--font-body`) au lieu de Fraunces (`--font-display`).
 - **Footer, colonne Produit** : réduite sur demande finale à **Accueil / FAQ / Offres** uniquement (voir §3, mise à jour).
 - **`pricing.html`** : mention légale « TVA applicable » → « **Taxes applicables** » (formulation générique, sans nommer la TVA/IVA/MwSt/moms locale), traduite dans les **19 langues** (`pricing_vat_note`), mise en page inchangée.
+- **`pricing.html` — tarifs annuels** : prix annuel Plus 79 € → **99,99 €** (soit 8,33 €/mois) et Premium 119 € → **149,99 €** (soit 12,50 €/mois) ; badge et mention d'économie annuelle **-34 %** → **-16 %** (`pricing_save_badge`, `pricing_save_34`, `pricing_plus_monthly_equiv`, `pricing_premium_monthly_equiv`), traduits dans les **19 langues**. Prix mensuels (9,99 €/14,99 €) et JSON-LD schema.org inchangés (hors périmètre, ne référencent que le prix mensuel).
 
 ## 5. Audit de traduction (agent dédié)
 
@@ -131,7 +132,6 @@ D'autres évolutions ont été faites par une session concurrente sur la branche
 - Icônes de l'illustration (différé)
 - Mention bêta (annulée, sauf intro FAQ)
 - Intégration calendrier (en attente de support d'autres fournisseurs de messagerie)
-- Réduction de l'abonnement annuel de 34% à ~16% (en mémoire, cahier des charges séparé à venir)
 - Sélecteur de langue pour les pages légales `apps.serenzer.com` (hors périmètre vitrine)
 - Message d'accueil « coach » dans le mockup chat
 
