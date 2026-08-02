@@ -106,6 +106,7 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 - **Footer, colonne Produit** : réduite sur demande finale à **Accueil / FAQ / Offres** uniquement (voir §3, mise à jour).
 - **`pricing.html`** : mention légale « TVA applicable » → « **Taxes applicables** » (formulation générique, sans nommer la TVA/IVA/MwSt/moms locale), traduite dans les **19 langues** (`pricing_vat_note`), mise en page inchangée.
 - **`pricing.html` — tarifs annuels** : prix annuel Plus 79 € → **99,99 €** (soit 8,33 €/mois) et Premium 119 € → **149,99 €** (soit 12,50 €/mois) ; badge et mention d'économie annuelle **-34 %** → **-16 %** (`pricing_save_badge`, `pricing_save_34`, `pricing_plus_monthly_equiv`, `pricing_premium_monthly_equiv`), traduits dans les **19 langues**. Prix mensuels (9,99 €/14,99 €) et JSON-LD schema.org inchangés (hors périmètre, ne référencent que le prix mensuel).
+- **`index.html` — mockup Organisations** : trait des lignes barrées (`.pstep--done .pstep__label`) harmonisé avec le style du mockup Rituels (`.rituals__item--done .rituals__label`) — suppression de `text-decoration-color:var(--color-pierre-pale)`, le trait hérite désormais de la couleur du texte muted, identique sur les deux mockups. CSS uniquement, aucune traduction concernée.
 
 ## 5. Audit de traduction (agent dédié)
 
