@@ -271,12 +271,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   @media(min-width:768px){
+    .pricing-grid{grid-template-columns:repeat(3,1fr);}
+    .footer__top{grid-template-columns:2fr 1fr 1fr 1fr;}
+  }
+  @media(min-width:960px){
     .nav__links{display:flex;}
     .nav__toggle{display:none}
     .mobile-nav{display:none !important}
     .nav__right .lang-select{display:block}
-    .pricing-grid{grid-template-columns:repeat(3,1fr);}
-    .footer__top{grid-template-columns:2fr 1fr 1fr 1fr;}
   }
 
   /* ===== RTL (ar, he) ===== */

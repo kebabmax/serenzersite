@@ -467,38 +467,38 @@ a:hover { color: var(--sauge-deep); }
   </div>
 
   <div class="contact-card">
-    <form action="/send.php" method="POST" novalidate>
+    <form action="/send.php" method="POST" id="contactForm">
       <input type="hidden" name="lang" id="formLang" value="fr">
       <div id="formStatus" class="form__status" hidden></div>
       <div class="form__row form__row--two">
         <div class="form__field">
           <label class="form__label" for="prenom"><span data-i18n="contact_label_firstname">Prénom</span> <span class="req">*</span></label>
-          <input class="form__input" type="text" id="prenom" name="prenom" placeholder="Votre prénom" data-i18n-attr="placeholder" data-i18n="contact_ph_firstname" required autocomplete="given-name">
+          <input class="form__input" type="text" id="prenom" name="prenom" placeholder="Votre prénom" data-i18n-attr="placeholder" data-i18n="contact_ph_firstname" required maxlength="100" autocomplete="given-name">
         </div>
         <div class="form__field">
           <label class="form__label" for="email"><span data-i18n="contact_label_email">Email</span> <span class="req">*</span></label>
-          <input class="form__input" type="email" id="email" name="email" placeholder="vous@exemple.com" data-i18n-attr="placeholder" data-i18n="contact_ph_email" required autocomplete="email">
+          <input class="form__input" type="email" id="email" name="email" placeholder="vous@exemple.com" data-i18n-attr="placeholder" data-i18n="contact_ph_email" required maxlength="150" autocomplete="email">
         </div>
       </div>
 
       <div class="form__row">
         <div class="form__field">
           <label class="form__label" for="sujet"><span data-i18n="contact_label_subject">Sujet</span> <span class="req">*</span></label>
-          <input class="form__input" type="text" id="sujet" name="sujet" placeholder="L’objet de votre message" data-i18n-attr="placeholder" data-i18n="contact_ph_subject" required>
+          <input class="form__input" type="text" id="sujet" name="sujet" placeholder="L’objet de votre message" data-i18n-attr="placeholder" data-i18n="contact_ph_subject" required maxlength="150">
         </div>
       </div>
 
       <div class="form__row">
         <div class="form__field">
           <label class="form__label" for="message"><span data-i18n="contact_label_message">Message</span> <span class="req">*</span></label>
-          <textarea class="form__textarea" id="message" name="message" placeholder="Décrivez votre demande en quelques lignes…" data-i18n-attr="placeholder" data-i18n="contact_ph_message" required></textarea>
+          <textarea class="form__textarea" id="message" name="message" placeholder="Décrivez votre demande en quelques lignes…" data-i18n-attr="placeholder" data-i18n="contact_ph_message" required maxlength="2000"></textarea>
           <p class="form__hint" data-i18n="contact_hint">Merci de ne pas inclure d’informations sensibles dans votre message.</p>
         </div>
       </div>
 
       <div class="form__actions">
         <p class="form__legal" data-i18n-html="contact_legal">En envoyant ce formulaire, vous acceptez que vos informations soient traitées pour répondre à votre demande, conformément à notre <a href="https://apps.serenzer.com/privacy-policy?lang=fr">politique de confidentialité</a>.</p>
-        <button class="btn" type="submit">
+        <button class="btn" type="submit" id="contactSubmitBtn">
           <span data-i18n="contact_submit">Envoyer</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
@@ -600,6 +600,14 @@ a:hover { color: var(--sauge-deep); }
       box.scrollIntoView({behavior:'smooth', block:'center'});
     }
     history.replaceState(null, '', window.location.pathname);
+  }
+  // anti double-soumission
+  var contactForm = document.getElementById('contactForm');
+  var submitBtn = document.getElementById('contactSubmitBtn');
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener('submit', function(){
+      if (contactForm.checkValidity()) submitBtn.disabled = true;
+    });
   }
 })();
 </script>
