@@ -4,6 +4,8 @@ Documentation de l'ensemble des travaux effectués sur le site vitrine `serenzer
 
 **Périmètre** : `index.html`, `pricing.html`, `team.html`, `faq.html`, `Contact.html`, `i18n.js`. Ne concerne pas `apps.serenzer.com` (application produit).
 
+**Auteur** : toutes les modifications documentées dans ce journal ont été réalisées par Sam.
+
 **Pipeline de déploiement** : les fichiers ci-dessus sont des **sources** éditées dans ce dépôt Git. Le script `gen_site.js` (sur le serveur zouljore, dans `/root/gen_site.js`, **hors dépôt Git**) génère à partir de ces sources + `i18n.js` les 80 fichiers statiques (19 langues × 4 pages + racine FR) dans `/root/gen_out`, avec injection des balises SEO/hreflang/canonical et du bandeau de consentement. Cycle de déploiement standard :
 
 ```bash
