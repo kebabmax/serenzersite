@@ -168,6 +168,21 @@ D'autres évolutions ont été faites par une session concurrente sur la branche
 - **Bandeau cookies / GTM** : vérifié que le tag Google Tag Manager se charge selon le pattern standard « Google Consent Mode v2 » (statut de consentement transmis en amont, mode par défaut « denied »). Ce n'est pas un bug de code, mais la conformité RGPD réelle dépend de la configuration interne du conteneur GTM (quels tags attendent le consentement), invisible depuis ce dépôt — **point de vigilance à vérifier côté configuration GTM**, aucun correctif de code appliqué.
 - **Dossiers de langue générés (`fr/`, `en/`, etc.)** : confirmé obsolètes (~4,5 jours de décalage avec les sources), avec divergences de contenu réelles. Comportement attendu : ces dossiers committés sont des instantanés écrasés à chaque déploiement (`gen_site.js` + rsync), aucune action nécessaire dans le dépôt.
 
+## 6ter. Corrections issues d'un rapport externe (comparatif HE vs FR)
+
+Un rapport externe comparant `/fr/` et `/he/` a signalé 10 « bugs » hébreu. Vérification de chacun un par un : la plupart n'étaient **pas spécifiques à l'hébreu** mais des enrichissements faits sur le FR à un moment donné, jamais propagés aux 18 autres langues (même schéma que la désynchronisation `dual_card1/2` déjà corrigée une fois auparavant).
+
+- **Vrai bug HE corrigé** : accord de genre dans `m_maya_bio` (« הילד השני », masculin, suivi d'un verbe féminin) → « הילדה השנייה ».
+- **5 contenus FR enrichis, jamais propagés, traduits dans les 18 autres langues** :
+  - `m_raphael_bio` : clôture « Touche-à-tout, il produit aussi des chanteurs corses à ses heures perdues » — les 18 langues n'avaient que l'équivalent de « également producteur de musique ».
+  - `m_maya_bio` : précision « à Montréal » absente des 18 langues.
+  - `m_noe_bio` : précision « aujourd'hui étudiant aux Pays-Bas » absente des 18 langues.
+  - `f4_desc` : version étendue (clause template/page libre + phrase sur la persistance/l'envoi par email) — les 18 langues n'avaient que la première moitié de la phrase.
+  - `team_lead2` : à l'inverse, une clause redondante (déjà présente dans `team_lead1`) a été retirée du FR mais était encore présente dans 15 des 18 autres langues — retirée pour s'aligner sur le FR actuel.
+- **Oubli de ma précédente correction complété** : lors de la resynchronisation `dual_card1`/`dual_card2` (voir §5ter), les descriptions (`dual_card1_desc`/`dual_card2_desc`) n'avaient pas été mises à jour pour TR, AR, HE, HI, JA, KO et ZH (seuls titres et tags l'avaient été) — complété.
+- **Slogan footer retraduit** : `footer_tagline`/`contact_footer_tagline`, figé en anglais dans les 19 langues (voir §6, décision d'une session parallèle), a été retraduit par langue sur décision explicite de l'utilisateur.
+- **Confirmé non-bug** : le lien RGPD pointant vers l'édition anglaise d'EUR-Lex pour l'hébreu est voulu — chaque langue pointe vers sa propre édition EUR-Lex, et les langues sans édition dédiée (HE, AR...) retombent légitimement sur `/EN/`.
+
 ## 7. Hors périmètre / en attente (rappel)
 
 - Icônes de l'illustration (différé)
