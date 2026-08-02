@@ -4,6 +4,8 @@ Documentation de l'ensemble des travaux effectués sur le site vitrine `serenzer
 
 **Périmètre** : `index.html`, `pricing.html`, `team.html`, `faq.html`, `Contact.html`, `i18n.js`. Ne concerne pas `apps.serenzer.com` (application produit).
 
+**Auteur** : toutes les modifications documentées dans ce journal ont été réalisées par Sam.
+
 **Pipeline de déploiement** : les fichiers ci-dessus sont des **sources** éditées dans ce dépôt Git. Le script `gen_site.js` (sur le serveur zouljore, dans `/root/gen_site.js`, **hors dépôt Git**) génère à partir de ces sources + `i18n.js` les 80 fichiers statiques (19 langues × 4 pages + racine FR) dans `/root/gen_out`, avec injection des balises SEO/hreflang/canonical et du bandeau de consentement. Cycle de déploiement standard :
 
 ```bash
@@ -102,17 +104,70 @@ Une partie de ces corrections a été faite dans cette session, une autre partie
 ## 4. Ajustements visuels post-déploiement
 
 - **Bloc stats hero (icône cadenas / 24-7 / ∞)** : icône recolorée en `--color-encre-douce` (au lieu de l'accent sauge) pour matcher la couleur des deux autres valeurs, et hauteur commune (36px, flex `align-items:center`) fixée sur `.metric__value` pour que l'icône, les chiffres et les labels en dessous soient parfaitement alignés sur les 3 blocs.
+- **Section « Un fonctionnement simple en quatre étapes »** : pastilles numérotées + titres centrés (`.step{align-items:center;text-align:center}`, auparavant alignés à gauche) ; titres des étapes passés en police Inter (`--font-body`) au lieu de Fraunces (`--font-display`).
+- **Footer, colonne Produit** : réduite sur demande finale à **Accueil / FAQ / Offres** uniquement (voir §3, mise à jour).
+- **`pricing.html`** : mention légale « TVA applicable » → « **Taxes applicables** » (formulation générique, sans nommer la TVA/IVA/MwSt/moms locale), traduite dans les **19 langues** (`pricing_vat_note`), mise en page inchangée.
+- **`pricing.html` — tarifs annuels** : prix annuel Plus 79 € → **99,99 €** (soit 8,33 €/mois) et Premium 119 € → **149,99 €** (soit 12,50 €/mois) ; badge et mention d'économie annuelle **-34 %** → **-16 %** (`pricing_save_badge`, `pricing_save_34`, `pricing_plus_monthly_equiv`, `pricing_premium_monthly_equiv`), traduits dans les **19 langues**. Prix mensuels (9,99 €/14,99 €) et JSON-LD schema.org inchangés (hors périmètre, ne référencent que le prix mensuel).
+- **`index.html` — mockup Organisations** : trait des lignes barrées (`.pstep--done .pstep__label`) harmonisé avec le style du mockup Rituels (`.rituals__item--done .rituals__label`) — suppression de `text-decoration-color:var(--color-pierre-pale)`, le trait hérite désormais de la couleur du texte muted, identique sur les deux mockups. CSS uniquement, aucune traduction concernée.
 
-## 5. Hors périmètre / en attente (rappel)
+## 5. Audit de traduction (agent dédié)
+
+Un agent a vérifié que les 5 pages (`index.html`, `pricing.html`, `team.html`, `faq.html`, `Contact.html`) sont bien traduites dans les 19 langues (clés `data-i18n`/`-html`/`-bullets`/`-tags` toutes présentes, non vides, cohérentes).
+
+- **Bug bloquant trouvé et corrigé** : les clés `faq_title` et `faq_subtitle` (titre et sous-titre H1 de la page FAQ) étaient totalement absentes d'`i18n.js` — le texte français codé en dur dans `faq.html` restait donc affiché dans les 19 langues. Ajoutées et traduites.
+- **Point vérifié non-bloquant** : `rit_item1_label` (« Sport · 30 min ») identique au français dans 7 langues (en, it, nl, da, sv, no, pl) — confirmé légitime, « Sport » étant un mot emprunté valide dans ces langues, pas un oubli de traduction.
+- **RAS** : les 19 blocs de langue ont exactement les mêmes 210 clés chacun, aucune valeur vide, structure FAQ imbriquée (`faq.cats[].items[]`) cohérente sur toutes les langues, aucune clé orpheline côté HTML.
+
+### 5bis. Audit culturel (9 agents dédiés, un par famille de langues) + audit clés orphelines
+
+- **Tirets cadratins (règle stricte)** : 43 occurrences supprimées dans `i18n.js` (principalement dans les bios de l'équipe `team.html`), reformulées avec virgule/deux-points/parenthèses selon le contexte — EN (5), DA (5), HI (4), JA (4), RU (7), PL (5), NL (1), ZH (1), HE (3). FR, DE, IT, ES, PT, SV, NO, TR, AR, KO : RAS.
+- **Bug de corruption de texte corrigé** : clé `team_lead1`, caractères chinois « 引搬(家) » insérés par erreur à la place du mot « déménagement » en **hébreu** et en **hindi** (probablement un résidu d'une traduction en lot antérieure). Corrigé dans les deux langues.
+- **Erreurs grammaticales corrigées** (`mockup_ai_1` et clés associées) : accord de genre/nombre de « Organisation » selon la langue — DE (« ein »→« eine »), IT (élision « un'Organizzazione »), ES (« un »→« una »), PT (« um »→« uma »), DA/NO (« et »→« en »), SV (« ett…Organisationer »→« en…Organisation »), PL (déclinaison « Organizacjau »→« Organizacji »), RU (accusatif « Организация »→« Организацию »), TR (suffixe « Organizasyonyi »→« Organizasyonu »), EN (article « a »→« an »).
+- **Incohérence de registre corrigée** : formulaire de contact (`Contact.html`) en **italien** et **espagnol** vouvoyait (voi/vostro, usted) alors que tout le reste du site en IT/ES tutoie — harmonisé en tutoiement partout, cohérent avec le reste du site.
+- **Ton EN** : « realised »/« organise » (BrE) mélangés à « organize » (AmE) dans `team_lead1` → uniformisés en AmE ; formulation « point of honor » remplacée par « prioritize ».
+- **Audit clés orphelines** : `pricing_feat_progress` confirmée totalement inutilisée, à supprimer si souhaité. `nav_features`, `nav_how`, `nav_languages`, `nav_trust`, `footer_legal_contact` ne sont plus référencées dans `index.html`/`pricing.html` sources actuels, mais restent présentes dans les dossiers `fr/`, `en/`, etc. (sortie générée committée par la session parallèle via des commits « regen: ») — non supprimées par prudence, à trancher lors d'un nettoyage dédié.
+- **Incohérence FAQ identifiée (non corrigée)** : 2 réponses FAQ ont un lien cliquable (`linkLabel`/`linkHref`, vers la politique de confidentialité et la page tarifs) uniquement en FR ; absent dans les 18 autres langues. À traiter dans un prochain lot si souhaité.
+
+### 5ter. Deuxième vague d'audits (rendu/polices, re-vérification traduction, liens) — 10 agents dédiés
+
+- **Polices/rendu** : vérifié en direct (curl sur l'URL Google Fonts réelle) que l'API CSS2 de Google Fonts inclut déjà nativement les blocs Unicode latin-étendu et cyrillique (pas de risque de caractère manquant pour PL/TR/RU comme deux agents l'avaient d'abord suggéré à tort — faux positif corrigé après vérification). Fraunces/Inter ne couvrent pas ar/he/hi/ja/ko/zh : bascule automatique vers la police de repli système, comportement normal et sans caractère manquant.
+- **RTL (arabe, hébreu) — lacune réelle corrigée** : `team.html` n'avait **aucune** règle CSS `[dir="rtl"]` (hero, portrait/pastilles décalées, bio dépliable non adaptées) ; ajoutées. `pricing.html` incomplet (curseur du toggle mensuel/annuel et compteur de fonctionnalités non adaptés en RTL) ; complété.
+- **Bug de contenu majeur corrigé — désynchronisation `dual_card1`/`dual_card2`** : le FR avait été réécrit (« Une présence constante » / « À votre rythme », avec tags et description associées) mais les **18 autres langues** affichaient encore l'ancien contenu (« Clarity/Klarheit/... » « Organization/Organisation/... »), jamais mis à jour lors de la refonte FR. Traduit et resynchronisé dans les 19 langues (titres, descriptions, tags).
+- **Bug factuel corrigé — « 20 langues » au lieu de 19** : la bio de Samuel (`m_samuel_line`/`m_samuel_bio`) annonçait 20 langues dans **18 langues sur 19** (seul le FR disait correctement 19). Corrigé partout.
+- **ZH — doublon corrigé** : « 组织（Organisation）» (gloss redondante en français) à 3 endroits, incohérent avec le reste du bloc chinois qui utilise simplement « 组织 » ; supprimé.
+- **NL — vouvoiement isolé corrigé** : `pricing_faq_*`, `pricing_cta_sub`, `cookie_text` vouvoyaient (« u », « uw ») alors que tout le reste du site NL tutoie (« je », « jouw ») ; harmonisé. Typo « gesprèk » → « gesprek » (2 occurrences).
+- **Liens et boutons (agent dédié)** : aucun bouton mort, aucune ancre cassée, sélecteur de langue robuste. Le paramètre `?lang=fr` dans `Contact.html` (lien politique de confidentialité) a été vérifié : **faux positif**, c'est le comportement attendu du gabarit FR par défaut (`i18n.js` utilise bien `?lang=__LANG__` pour les 19 langues générées).
+- **Re-vérification complète des 19 langues post-correction** : FR/RU/TR/AR/HE/HI/JA/KO/ZH confirmées RAS après la première vague de corrections. IT/ES confirmées RAS (tutoiement cohérent).
+
+### 5quater. Dernier lot de corrections (points restants de §5ter) + simplification Git
+
+- **SV** : `rit_item4_label` « 7-dagarsutmaning » (mot collé) → « 7-dagars utmaning ».
+- **NO** : suppression de 2 caractères de soft-hyphen invisibles dans `m_raphael_bio` (« musikk­produsent » → « musikkprodusent », « Ny­generasjons » → « Nygenerasjons ») ; correction de casse `f1_desc` « organisasjonene » → « Organisasjonene » (cohérent avec le reste du bloc NO qui capitalise le terme produit).
+- **FAQ — liens traduits dans les 18 langues manquantes** : les 2 réponses avec lien cliquable (politique de confidentialité, page tarifs), jusque-là présentes en FR uniquement, ont désormais leur `linkLabel` traduit et `linkHref` dans toutes les langues.
+- **Liens de nav harmonisés** : `pricing.html` et `faq.html` utilisaient des liens absolus (`href="/"`, `href="/faq.html"`) qui, une fois générés dans les sous-dossiers de langue (`/en/pricing.html`, `/de/faq.html`, etc.), renvoyaient vers la racine FR par défaut au lieu de rester dans la langue courante — **vrai bug de navigation corrigé** en passant en liens relatifs (`href="./"`, `href="faq.html"`), cohérents avec `team.html`.
+- **Nettoyage des 6 clés mortes** confirmées (`nav_features`, `nav_how`, `nav_languages`, `nav_trust`, `footer_legal_contact`, `pricing_feat_progress`) supprimées des 19 blocs de langue — sans risque, `gen_site.js` régénère entièrement les dossiers de langue à partir des sources à chaque déploiement.
+- **Simplification du workflow Git** : suppression de la branche `claude/site-cahier-charges-qa0soi` (entièrement fusionnée dans `dev`, locale + tentative distante) et tentative de suppression de la branche distante `test-perm-check-2` (ancien instantané de test isolé). La branche `master` est conservée intentionnellement (un processus externe non identifié la met à jour automatiquement par merge depuis `dev`). **Note** : la suppression des branches distantes a été bloquée (erreur 403, identifiants Git en lecture/écriture seule sans droit de suppression) — à faire manuellement depuis l'interface GitHub.
+
+## 6. Modifications en parallèle (autre session, fusionnées dans `dev`)
+
+D'autres évolutions ont été faites par une session concurrente sur la branche `dev` et intégrées sans conflit :
+
+- Sélecteur de langue mobile rendu repliable dans le menu burger (grille des 19 langues masquée par défaut, dépliable).
+- Badge « Le plus populaire » du plan Plus traduit dans les 19 langues.
+- Suppression de la ligne de séparation verticale entre Offres et FAQ dans la navbar.
+- Renommage du lien de nav « À propos » en **« Fonctionnalités »**, avec surlignage actif dynamique selon la section visible sur l'accueil (scroll-spy).
+- QA copy Accueil/Offres : espace insécable avant les deux-points, exemple de challenge ajouté, explication du concept « Organisations », harmonisation des CTA des offres.
+- Audit de cohérence SEO : sitemap FAQ, JSON-LD et Open Graph manquants sur la page Offres, `llms.txt` mis à jour.
+
+## 7. Hors périmètre / en attente (rappel)
 
 - Icônes de l'illustration (différé)
 - Mention bêta (annulée, sauf intro FAQ)
 - Intégration calendrier (en attente de support d'autres fournisseurs de messagerie)
-- Réduction de l'abonnement annuel de 34% à ~16% (en mémoire, cahier des charges séparé à venir)
 - Sélecteur de langue pour les pages légales `apps.serenzer.com` (hors périmètre vitrine)
 - Message d'accueil « coach » dans le mockup chat
 
-## 6. À vérifier avant mise en production définitive
+## 8. À vérifier avant mise en production définitive
 
 - Responsive à 320px / 375px / 768px sur les nouvelles sections (carte Rituels et Challenges, lien RGPD, footer 3 colonnes).
 - Vérification Search Console post-déploiement (indexation, hreflang/canonical) sur les pages modifiées, notamment `faq.html` nouvellement créée par langue.

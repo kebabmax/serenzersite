@@ -283,6 +283,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   [dir="rtl"] .lang-select__menu{right:auto;left:0}
   [dir="rtl"] .lang-select__item{text-align:right}
   [dir="rtl"] .msg--user{flex-direction:row}
+  [dir="rtl"] .toggle-thumb{left:auto;right:3px}
+  [dir="rtl"] .toggle-switch input:checked ~ .toggle-thumb{transform:translateX(-20px)}
+  [dir="rtl"] .feat-count{margin-left:0;margin-right:auto}
 </style>
 
 
@@ -369,16 +372,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a class="brand" href="/">
+    <a class="brand" href="./">
       <span class="brand__mark brand__mark--logo">
         <img src="/assets/serenzer-logo-declinaisons_LOGO_HORIZONTAL.png" alt="Serenzer">
       </span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="/" data-i18n="nav_home">Accueil</a>
+      <a href="./" data-i18n="nav_home">Accueil</a>
       <a href="/#features" data-i18n="nav_about">Fonctionnalités</a>
       <a href="pricing.html" class="is-active" data-i18n="nav_pricing">Offres</a>
-      <a class="nav__link--page" href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a class="nav__link--page" href="faq.html" data-i18n="nav_faq">FAQ</a>
     </nav>
     <div class="nav__right">
       <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
@@ -396,10 +399,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile">
-    <a href="/" data-i18n="nav_home">Accueil</a>
+    <a href="./" data-i18n="nav_home">Accueil</a>
     <a href="/#features" data-i18n="nav_about">Fonctionnalités</a>
     <a href="pricing.html" class="is-active" data-i18n="nav_pricing">Offres</a>
-    <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+    <a href="faq.html" data-i18n="nav_faq">FAQ</a>
     <div class="mobile-nav__lang" id="mobileLangSelect">
       <button class="mobile-nav__lang-btn" id="mobileLangBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -436,7 +439,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="toggle-thumb"></span>
   </label>
   <span class="toggle-label" id="labelYearly" data-i18n="pricing_yearly">Annuel</span>
-  <span class="toggle-badge" data-i18n="pricing_save_badge">-34 %</span>
+  <span class="toggle-badge" data-i18n="pricing_save_badge">-16 %</span>
 </div>
 
 <!-- PLANS -->
@@ -498,11 +501,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="plan-name" data-i18n="pricing_plus_name">Plus</div>
         <div class="plan-desc" data-i18n="pricing_plus_desc">Rituels, challenges et calendrier.</div>
         <div class="plan-price" id="plusPrice">
-          <div class="plan-price__amount"><span class="price-monthly">9,99</span><span class="price-yearly" style="display:none">79</span> <span style="font-size:var(--text-xl)">€</span></div>
+          <div class="plan-price__amount"><span class="price-monthly">9,99</span><span class="price-yearly" style="display:none">99,99</span> <span style="font-size:var(--text-xl)">€</span></div>
           <div class="plan-price__period price-monthly" data-i18n="pricing_per_month">/ mois</div>
           <div class="plan-price__period price-yearly" style="display:none" data-i18n="pricing_per_year">/ an</div>
-          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_plus_monthly_equiv">soit 6,58 € / mois</div>
-          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 34 %</div>
+          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_plus_monthly_equiv">soit 8,33 € / mois</div>
+          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 16 %</div>
         </div>
         <ul class="plan-features">
           <li>
@@ -546,11 +549,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="plan-name" data-i18n="pricing_premium_name">Premium</div>
         <div class="plan-desc" data-i18n="pricing_premium_desc">L’offre complète avec l’Organisation personnelle.</div>
         <div class="plan-price" id="premiumPrice">
-          <div class="plan-price__amount"><span class="price-monthly">14,99</span><span class="price-yearly" style="display:none">119</span> <span style="font-size:var(--text-xl)">€</span></div>
+          <div class="plan-price__amount"><span class="price-monthly">14,99</span><span class="price-yearly" style="display:none">149,99</span> <span style="font-size:var(--text-xl)">€</span></div>
           <div class="plan-price__period price-monthly" data-i18n="pricing_per_month">/ mois</div>
           <div class="plan-price__period price-yearly" style="display:none" data-i18n="pricing_per_year">/ an</div>
-          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_premium_monthly_equiv">soit 9,92 € / mois</div>
-          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 34 %</div>
+          <div class="plan-price__yearly price-yearly" style="display:none" data-i18n="pricing_premium_monthly_equiv">soit 12,50 € / mois</div>
+          <div class="plan-price__saving price-yearly" style="display:none" data-i18n="pricing_save_34">Économisez 16 %</div>
         </div>
         <ul class="plan-features">
           <li>
@@ -591,7 +594,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </div>
 
-    <p style="text-align:center;margin-top:var(--space-3xl);font-size:var(--text-sm);color:var(--color-text-muted)" data-i18n="pricing_vat_note">Prix TTC. TVA applicable selon votre pays de résidence.</p>
+    <p style="text-align:center;margin-top:var(--space-3xl);font-size:var(--text-sm);color:var(--color-text-muted)" data-i18n="pricing_vat_note">Prix TTC. Taxes applicables selon votre pays de résidence.</p>
     <p style="text-align:center;margin-top:var(--space-sm);font-size:var(--text-sm);color:var(--color-text-muted)" data-i18n="pricing_whatsapp_note">* Accès WhatsApp disponible dans les pays éligibles.</p>
   </div>
 </section>
@@ -677,8 +680,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="footer__col">
         <h4 data-i18n="footer_product">Produit</h4>
         <ul>
-          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="/faq.html" data-i18n="nav_faq">FAQ</a></li>
+          <li><a href="./" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="pricing.html" data-i18n="nav_pricing">Offres</a></li>
         </ul>
       </div>
