@@ -178,7 +178,7 @@ Un rapport externe comparant `/fr/` et `/he/` a signalé 10 « bugs » hébreu. 
   - `m_maya_bio` : précision « à Montréal » absente des 18 langues.
   - `m_noe_bio` : précision « aujourd'hui étudiant aux Pays-Bas » absente des 18 langues.
   - `f4_desc` : version étendue (clause template/page libre + phrase sur la persistance/l'envoi par email) — les 18 langues n'avaient que la première moitié de la phrase.
-  - `team_lead2` : à l'inverse, une clause redondante (déjà présente dans `team_lead1`) a été retirée du FR mais était encore présente dans 15 des 18 autres langues — retirée pour s'aligner sur le FR actuel.
+  - `team_lead2` : la clause « et s'est remis au code pour écrire le cerveau de l'assistant » (déjà présente dans `team_lead1`) manquait dans le FR mais existait dans 15 des 18 autres langues. **Correction finale (sur demande explicite)** : la clause est restaurée dans le FR et conservée dans les 19 langues, plutôt que retirée des 15 qui l'avaient.
 - **Oubli de ma précédente correction complété** : lors de la resynchronisation `dual_card1`/`dual_card2` (voir §5ter), les descriptions (`dual_card1_desc`/`dual_card2_desc`) n'avaient pas été mises à jour pour TR, AR, HE, HI, JA, KO et ZH (seuls titres et tags l'avaient été) — complété.
 - **Slogan footer retraduit** : `footer_tagline`/`contact_footer_tagline`, figé en anglais dans les 19 langues (voir §6, décision d'une session parallèle), a été retraduit par langue sur décision explicite de l'utilisateur.
 - **Confirmé non-bug** : le lien RGPD pointant vers l'édition anglaise d'EUR-Lex pour l'hébreu est voulu — chaque langue pointe vers sa propre édition EUR-Lex, et les langues sans édition dédiée (HE, AR...) retombent légitimement sur `/EN/`.
